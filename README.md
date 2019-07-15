@@ -8,7 +8,7 @@ This specific version had been tweaked to allow display movies on light clients.
 # License
    
     backuPXE - Remote controlled network boot based, backup, system administration and deployment solution
-    Copyright (C) 2006-2019 Luc Deschenaux
+    Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
