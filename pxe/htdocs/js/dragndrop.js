@@ -1,3 +1,19 @@
+/*
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 // Global object to hold drag information.
 
 var dragObj = new Object();
@@ -24,7 +40,7 @@ function dragStart(event, id, el_list) {
 
   if (nodrag) return;
   dragObj.el_list=el_list;
-  
+
   if (browser.isIE) {
   	var event=window.event;
   }
@@ -130,9 +146,9 @@ function dragGo(event) {
 
   dragObj.elNode.style.left = (dragObj.elStartLeft + x - dragObj.cursorStartX) + "px";
   dragObj.elNode.style.top  = (dragObj.elStartTop  + y - dragObj.cursorStartY) + "px";
-  
+
   pcStyle[dragObj.id] = 'left: ' + dragObj.elNode.style.left + '; top: ' + dragObj.elNode.style.top + ';';
-  
+
   if (dragObj.el_list!=undefined) {
 	var done=new Array();
  	done[dragObj.id]=true;
@@ -158,7 +174,7 @@ function dragGo(event) {
 function dragStop(event) {
 
   // Stop capturing mousemove and mouseup events.
-  
+
   if (browser.isIE) {
     document.detachEvent("onmousemove", dragGo);
     document.detachEvent("onmouseup",   dragStop);
@@ -168,11 +184,11 @@ function dragStop(event) {
     document.removeEventListener("mouseup",   dragStop, true);
   }
   var id_list=new Array();
-  id_list.push(dragObj.id);  
-  
+  id_list.push(dragObj.id);
+
   var done=new Array();
   done[dragObj.id]=true;
-  
+
   if (dragObj.el_list!=undefined) {
   	for (var i=0; i< dragObj.el_list.length; ++i) {
   		var id=numSuffix(dragObj.el_list[i]);

@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 PATH=/usr/lib/setup:$PATH
@@ -19,7 +34,7 @@ wgetit () {
   fn=`echo $@ | sed -r -n -e 's/.*:\/\/[^\/]+\/(.*)/\1/p'`
   while true ; do
 
-    if [ $gauge -eq 0 ] ; then 
+    if [ $gauge -eq 0 ] ; then
       dialog --backtitle "Downloading..." --infobox "$fn" 7 100
     else
       echo XXX >> $ROOT/tmp/progress.$$.tmp
@@ -33,7 +48,7 @@ wgetit () {
 
     if [ $? -eq 0 ] ; then
        rm $ROOT/tmp/wget.$$.tmp
-       return 0 
+       return 0
     else
       cat $ROOT/tmp/wget.$$.tmp >> $LOG
       dialog --backtitle "Error while getting $fn" --extra-button --ok-label Retry --extra-label Skip --yesno "`tail $ROOT/tmp/wget.$$.tmp`" 0 0
@@ -69,7 +84,7 @@ doinstallpkg () {
   subdir="$2"
   url="$3"
 
-  [ -z "$url" ] && exit 1 
+  [ -z "$url" ] && exit 1
 
   mkdir -p $WORKDIR/$subdir || exit 1
   cd $WORKDIR/$subdir || exit 1
@@ -82,24 +97,24 @@ doinstallpkg () {
     if [ ! -f $ROOT/var/log/packages/$base ] ; then
 
       if [ $gauge -eq 1 ] ; then
-         wgetit --gauge 0 -c $url || break 
+         wgetit --gauge 0 -c $url || break
 
       else
-        wgetit -c $url || break 
-    
+        wgetit -c $url || break
+
         if [ ! -f $WORKDIR/$subdir/$base.txt ] ; then
-          package_info $pkgbasename $base $subdir 
+          package_info $pkgbasename $base $subdir
         fi
 
-#        dialog --backtitle "Installing $base" --infobox "`sed -r -n -e 's/^[^ :]+: //p' $ROOT/tmp/$SOURCE/$subdir/$base.txt`" 11 -1 
+#        dialog --backtitle "Installing $base" --infobox "`sed -r -n -e 's/^[^ :]+: //p' $ROOT/tmp/$SOURCE/$subdir/$base.txt`" 11 -1
 
       fi
 
       installpkg -root $ROOT $base.tgz >> $LOG || exit 1
 
     else
-      dialog --infobox "Already installed: $pkg" 6 70  
-      echo  "Already installed: $pkg" >> $LOG  
+      dialog --infobox "Already installed: $pkg" 6 70
+      echo  "Already installed: $pkg" >> $LOG
 
     fi
     break
@@ -145,7 +160,7 @@ searchninstall () {
   #for match in `sed -r -n -e 's=.* \.\/((.*\/.*)?'$pkg'.*)=\1=p' $WORKDIR/TGZLIST.TXT` ; do
 
     match=`echo $match | sed -n -e 's/^\.\///p'`
-    [ -z "$match" ] && continue  
+    [ -z "$match" ] && continue
 
     count=`expr $count + 1`
     url=$MIRROR/$match
@@ -169,42 +184,42 @@ searchninstall () {
     echo XXX >> $ROOT/tmp/progress.$$.tmp
 
     if [ ! -f "$pkgname.txt" ] ; then
-      package_info $pkgbasename $pkgname $subdir 
+      package_info $pkgbasename $pkgname $subdir
     fi
 
-    comment=`sed -r -n -e "s/^[^:]+: [^\ ]+ \((.*)\)/\1/p" -e 'T l01' -e q -e ': l01' -e "s/^[^:]+: $pkgbasename\$//" -e t -e "s/^[^:]+: //p" -e T -e q $pkgname.txt | sed -n -e ': l01' -e 's/[\(\)]/-/' -e 't l01' -e p | tr \' \"` || comment= 
-  
+    comment=`sed -r -n -e "s/^[^:]+: [^\ ]+ \((.*)\)/\1/p" -e 'T l01' -e q -e ': l01' -e "s/^[^:]+: $pkgbasename\$//" -e t -e "s/^[^:]+: //p" -e T -e q $pkgname.txt | sed -n -e ': l01' -e 's/[\(\)]/-/' -e 't l01' -e p | tr \' \"` || comment=
+
     checklist="$checklist $match '$comment' off"
-  
-    percent=`expr $count \* 100 / $pkgcount` 
+
+    percent=`expr $count \* 100 / $pkgcount`
     echo $percent >> $ROOT/tmp/progress.$$.tmp
 
   done
-  
-  if [ $pkgcount -gt 0 ] ; then 
+
+  if [ $pkgcount -gt 0 ] ; then
     kill `jobs -p tail`  1> /dev/null 2> /dev/null
     sleep 1
   fi
 
   if [ $count -eq 0 ] ; then
-    return 
+    return
   fi
 
-  if  [ $count -gt 1 -o "$pkgbasename" != "$pkg" ] ; then 
+  if  [ $count -gt 1 -o "$pkgbasename" != "$pkg" ] ; then
     s= ; [ $count -gt 1 ] && s=s
     eval "dialog --separate-output  --backtitle '$count package$s' --checklist 'Select package$s to install:' 0 0 0 $checklist 2> $ROOT/tmp/pkgsel.$$.tmp"
     if [ $? -ne 0 ] ; then
-       return 
+       return
     fi
 
     pkgcount=`wc -l $ROOT/tmp/pkgsel.$$.tmp | cut -d \  -f 1`
- 
+
     echo > $ROOT/tmp/progress.$$.tmp
     tail -s 0 --pid $$ -f $ROOT/tmp/progress.$$.tmp | dialog --backtitle "Installing packages" --gauge "" 6 80  &
     sleep 1
 
     count=0;
-    
+
     for pkgpath in `cat $ROOT/tmp/pkgsel.$$.tmp` ; do
       echo pkgpath:$pkgpath >&2
       url=$MIRROR/$pkgpath
@@ -215,20 +230,20 @@ searchninstall () {
       echo $pkg >> $ROOT/tmp/progress.$$.tmp
       echo XXX >> $ROOT/tmp/progress.$$.tmp
 
-      doinstallpkg --gauge 1 $pkg $subdir $url 
+      doinstallpkg --gauge 1 $pkg $subdir $url
 
       count=`expr $count + 1`
       percent=`expr $count \* 100 / $pkgcount`
       echo $percent  >> $ROOT/tmp/progress.$$.tmp
 
-    done  
-  
+    done
+
     kill `jobs -p tail`  1> /dev/null 2> /dev/null
 
     exit
-  
+
   fi
-  
+
   doinstallpkg $pkg $subdir $url
 
 }
@@ -263,7 +278,7 @@ cd $WORKDIR || exit 1
 echo "--------------------------`date`" >> $LOG
 [ $verbose -ne 0 ] && tail -f --pid=$$ -n 1 $LOG &
 
-# downloading FILELIST.TXT 
+# downloading FILELIST.TXT
 
 if [ ! -f FILELIST.TXT ] ; then
   wgetit $MIRROR/FILELIST.TXT || exit 1
@@ -276,7 +291,7 @@ fi
 
 count=0
 while [ -n "$pkg" ] ; do
-  searchninstall $pkg 
+  searchninstall $pkg
   count=`expr $count + 1`
   shift || break
   pkg="$1"

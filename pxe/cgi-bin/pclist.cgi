@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 . /pxe/etc/config
 
@@ -31,15 +46,15 @@ function pclist(tableId,all)  {
 	if (table_edit_td!=undefined) {
 		var tdbackup=table_edit_td.innerHTML;
 	}
-	
+
 	var html="";
 	var div=document.getElementById(tableId);
 	var t=document.getElementById('pclist');
 	var container;
-	
-	
+
+
 	container=div;
-	
+
 	html='<table class="pclist" id="pclist" cellspacing="1" cellpadding="4"><thead class="pclisthead"><tr>';
 EOF
 
@@ -55,13 +70,13 @@ done
 columns=$c
 
 cat << EOF
-		
+
 	html+='</tr></thead><tbody class="pclist">';
-		
+
 	if (t!=undefined && t.tableEl!=undefined) {
 		var scrollTop=t.tableEl.tBodies[0].scrollTop;
 	}
-	
+
 	for (var pc=1; pc<pcname.length ; ++pc) {
 		if (pcname[pc]==undefined)
 			 continue;
@@ -90,7 +105,7 @@ done
 cat << EOF
 		html+='</tr>';
 	}
-	
+
 	if (all==true) {
 		for (var i=0; i<hostsmac.length ; ++i) {
 			html+='<tr class="pclist" style="background: #f0f0f0">';
@@ -115,17 +130,16 @@ done
 cat << EOF
 			html+='</tr>';
 		}
-	} 
-	
+	}
+
 	html+='</tbody></table>';
 	container.innerHTML=html;
-	
+
 	if (t!=undefined && t.tableEl!=undefined) {
 		t.tableEl.tBodies[0].scrollTop=scrollTop;
 	}
 	if (table_edit_td!=undefined) {
-		
+
 	}
 }
 EOF
-

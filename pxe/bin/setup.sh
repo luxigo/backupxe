@@ -1,8 +1,24 @@
 #!/bin/sh
-# this script is run from rc.S 
+# this script is run from rc.S
+
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 . /etc/config
-	
+
 export IMAGE_DIR=`cat /pxe/etc/IMAGE_DIR`
 export PATH=/pxe/bin/`uname -m`:/pxe/bin:/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 
@@ -17,13 +33,13 @@ rm /pxe/log/$HWADDR/ready 2> /dev/null || true
 rm /pxe/log/$HWADDR/problem 2> /dev/null || true
 
 touch $LOGFILE || exit 1
- 
+
 name=`getrec /pxe/etc/hosts.mac $HWADDR`
 if [ -z "$name" ] ; then
 	addrec /pxe/etc/hosts.mac $HWADDR $HWADDR
 fi
 partimage-save -R $REMOTESERVER "$IMAGE_DIR" 2>> $LOGFILE
-err=$? 
+err=$?
 
 if [ $err -ne 0 ] ; then
    problem $$ $err

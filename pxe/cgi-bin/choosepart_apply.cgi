@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 WORKDIR=/pxe
@@ -54,7 +69,7 @@ while true ; do
     else
       devlist="$devlist $devname"
     fi
-  fi 
+  fi
 done
 
 current=$dir
@@ -73,7 +88,7 @@ if [ -z "$nohtml" ] ; then
   echo '<head>'
   echo '<META HTTP-EQUIV="Refresh"'
   echo " CONTENT=\"1; URL=choosepart.cgi?$what&$name&$sav&$disk\">"
-  echo 
+  echo
   echo '</head>'
 
   echo '<body>'
@@ -84,7 +99,7 @@ if [ -n "$MBR" ] ; then
   [ ! -f "mbr$what" ] && touch "mbr$what"
 else
   [ -f "mbr$what" ] && rm "mbr$what"
-fi 
+fi
 
 if [ -n "$PTBL" ] ; then
   [ ! -f "sf$what" ] && touch "sf$what"
@@ -96,7 +111,7 @@ touch partitions.$what.$$.new
 if [ $? -ne 0 ] ; then
   echo "cant write to `pwd`/partitions.$what.$$.new<br>"
   echo "check file permissions<br>"
-  echo 
+  echo
   exit 1
 fi
 
@@ -105,7 +120,7 @@ if [ "$what" = "restore" ] ; then
     cp -a partitions.save partitions.restore || exit 1
   fi
 fi
-  
+
 if [ ! -f partitions.$what ] ; then
    echo "file not found: `pwd`/partitions.$what<br>"
    exit 1
@@ -126,7 +141,7 @@ for part in "`cat ./partitions.$what`" ; do
       fi
     done
     if [ $found -eq 0 ] ; then
-      part=`echo $part | cut -f 2 -d \\#` 
+      part=`echo $part | cut -f 2 -d \\#`
       prefix="#"
       echo $prefix$part >> partitions.$what.$$.new
     fi
@@ -136,12 +151,12 @@ cat partitions.$what.$$.new > partitions.$what
 if [ $? -ne 0 ] ; then
   echo "cant write to `pwd`/partitions.$what<br>"
   echo "check file permissions<br>"
-  echo 
+  echo
   exit 1
 fi
 
 rm partitions.$what.$$.new
- 
+
 [ -n "$nohtml" ] && exit
 
 echo "<H3 align=center><a href=\"choosepart.cgi?$what&$name&$sav&$disk\">Votre s&eacute;lection a &eacute;t&eacute; enregistr&eacute;e</a></H3>"

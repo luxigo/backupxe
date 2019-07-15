@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 WORKDIR=/pxe
@@ -39,20 +54,20 @@ fi
 echo '<head>'
 echo '<META HTTP-EQUIV="Refresh"'
 echo " CONTENT=\"1; URL=/pxe/backuplan2.html\">"
-echo 
+echo
 echo '</head>'
 
 echo '<body>'
 
 if [ -z "$sav" ] ; then
 
-  echo vous devez s&eacute;lectionner une sauvegarde 
+  echo vous devez s&eacute;lectionner une sauvegarde
 
 else
 
   echo $current > $WORKDIR/image/$mac/current
   if [ $? -ne 0 ] ; then
-    echo cant open $WORKDIR/image/$mac/current for writing  
+    echo cant open $WORKDIR/image/$mac/current for writing
     exit 1
   fi
 

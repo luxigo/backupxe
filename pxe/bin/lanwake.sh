@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 if [ -n "$REMOTE_SERVER" ] ; then
@@ -14,7 +29,7 @@ fi
 for hwaddr in $hwlist ; do
 
   if echo $hwaddr | egrep -q '^[0-9]+$' ; then
-    hwaddr=`getrec /pxe/etc/machines $hwaddr` 
+    hwaddr=`getrec /pxe/etc/machines $hwaddr`
     [ -z "$hwaddr" ] && continue
   fi
 
@@ -39,7 +54,7 @@ for hwaddr in $hwlist ; do
   if [ -n "$ip" ] ; then
      bcast=`echo $ip | sed -r -n -e 's/^([0-9]+\.[0-9]+\.[0-9]+\.).*/\1/p'`255
      if [ -n "$CGI" ] ; then
-       wakeonlan -p 9 -i $bcast $hwaddr > /dev/null 
+       wakeonlan -p 9 -i $bcast $hwaddr > /dev/null
      else
        wakeonlan -p 9 -i $bcast $hwaddr
      fi
@@ -59,4 +74,3 @@ for hwaddr in $hwlist ; do
   fi
    notfirst=1
 done
-

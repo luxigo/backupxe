@@ -1,5 +1,20 @@
 #!/bin/sh
 
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 TEMP=$ROOT/tmp/choosesubdir.$$.tmp
 
 if [ -z "$SOURCE" ] ; then
@@ -12,13 +27,13 @@ doexit() {
 }
 
 mkdir -p $TEMP || exit 1
-cd $TEMP 
+cd $TEMP
 
 # no final slash, no "slackware-" tail directory
-  index=`sed -r -e 's/\/*$//' -e 's/(.*)\/.lackware-.*/\1/' $ROOT/etc/$SOURCE-mirror` 
+  index=`sed -r -e 's/\/*$//' -e 's/(.*)\/.lackware-.*/\1/' $ROOT/etc/$SOURCE-mirror`
 
 # download mirror index
-  wget -q $index/ -O mirror_index.html 
+  wget -q $index/ -O mirror_index.html
   if [ $? -ne 0 ] ; then
      dialog --msgbox "$index Download Failed" 6 70 2> /dev/null
      doexit 1
@@ -38,7 +53,7 @@ cd $TEMP
 
   if [ -z "$radiolist" ] ; then
 
-# check if we are already in the place 
+# check if we are already in the place
     wget -q $index/slackware/FILE_LIST -O FILE_LIST
     if [ $? -eq 0 ] ; then
         doexit 0

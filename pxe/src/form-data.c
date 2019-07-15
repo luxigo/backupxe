@@ -1,3 +1,19 @@
+/*
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -26,8 +42,8 @@ char *memstr(char *buf,size_t len,char *str) {
 				return start;
 			}
 #ifdef DEBUG
-			if (i==40) 
-				fprintf(stderr,"\ni=40\n"); 
+			if (i==40)
+				fprintf(stderr,"\ni=40\n");
 #endif
 
 		} else {
@@ -190,7 +206,7 @@ int main(int argc,char **argv) {
 #endif
 		if ((w=fwrite(buf,1,r,outf))!=r) {
 			fprintf(stderr,"form-data: write error\n");
-			exit(1);	
+			exit(1);
 		}
 	}
 
@@ -199,6 +215,6 @@ int main(int argc,char **argv) {
 	if ((!c) || (c==(char*)-1)) {
 		fprintf(stderr,"nomatch\n");
 		return 1;
-	}	
+	}
 	return 0;
 }

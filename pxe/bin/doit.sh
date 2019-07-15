@@ -1,5 +1,20 @@
 #!/bin/sh
 
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /etc/config
 
 set -x
@@ -18,18 +33,18 @@ busy $$ "$0" "$@"
 
 LOGFILE=/pxe/jobq/$HWADDR.log
 
-echo `logprefix` $@ >> $LOGFILE 
+echo `logprefix` $@ >> $LOGFILE
 
 if  [ ! -f /pxe/jobq/$HWADDR ] ; then
-  problem $$ "cant read /pxe/jobq/$HWADDR" 
-  problem $$ waiting 
+  problem $$ "cant read /pxe/jobq/$HWADDR"
+  problem $$ waiting
   t=0;
   while true ; do
-     sleep 10 
+     sleep 10
      t=`expr $t + 10`
      if [ $t -gt 1200 ] ; then
        rm /pxe/log/$HWADDR/ready 2> /dev/null || true
-       notice $$ timeout 
+       notice $$ timeout
        halt
      fi
      [ -f /pxe/jobq/$HWADDR ] && break
@@ -59,7 +74,7 @@ removejob () {
 t=0
 while true ; do
 
-  SCRIPT=`sed -r -n -e '1p' /pxe/jobq/$HWADDR` 
+  SCRIPT=`sed -r -n -e '1p' /pxe/jobq/$HWADDR`
 
   if [ -z "$SCRIPT" ] ; then
 
@@ -69,11 +84,11 @@ while true ; do
 
      [ ! -f /pxe/log/$HWADDR/ready ] && ready $$ jobq empty
 
-     sleep 10 
+     sleep 10
      t=`expr $t + 10`
      if [ $t -gt 1200 ] ; then
        rm /pxe/log/$HWADDR/ready 2> /dev/null
-       notice $$ timeout 
+       notice $$ timeout
        halt
      fi
 
@@ -94,7 +109,7 @@ while true ; do
        notice $$ $SCRIPT
        eval $SCRIPT
        exit 0 ;;
-  esac 
+  esac
 
   rm /pxe/log/$HWADDR/ready 2> /dev/null
   busy $$ $SCRIPT

@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 . /pxe/etc/config
 . /etc/config
@@ -24,7 +39,7 @@ if [ -z "$IMAGE_DIR" ] ; then
 fi
 
 logpfx() {
-  echo $0 $$ `date +%Y-%m-%d\ %H%M.%S\ ` 
+  echo $0 $$ `date +%Y-%m-%d\ %H%M.%S\ `
 }
 
 echo "`logpfx`:notice: =========> Initialisation" 1>&2
@@ -41,7 +56,7 @@ if echo $IMAGE_DIR | egrep -q ^/dev/ ; then
         PARTIMAGED=
 fi
 
-if [ -z "$MOUNTPOINT" ] ; then 
+if [ -z "$MOUNTPOINT" ] ; then
   if ! echo $IMAGE_DIR | egrep -q ^/pxe/image ; then
     if ! echo $IMAGE_DIR | egrep -q ^/usr/local/image ; then
       MOUNTPOINT="/mnt/$PARTIMAGED/$IMAGE_DIR"
@@ -101,28 +116,28 @@ fi
 
 for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
 
-  cd $WORKDIR 
+  cd $WORKDIR
 
   BACKUPDIR=`pwd`/$disk
   [ -d "$BACKUPDIR" ] || continue
-  
+
   if ! cd $BACKUPDIR  ; then
     echo "`logpfx`:warning: *** impossible d'acceder au repertoire $BACKUPDIR" 1>&2
     disk2=`echo $disk | sed -r -e 's/^h/s/' -e t -e 's/^s/h/'`
     echo `logpfx`:notice: trying $disk2 instead 1>&2
     notfound=1;
-    if [ ! egrep -q $disk2\$ /proc/partitions ] ; then  
-      BACKUPDIR2=`pwd`/$disk2$DIRSUFFIX 
+    if [ ! egrep -q $disk2\$ /proc/partitions ] ; then
+      BACKUPDIR2=`pwd`/$disk2$DIRSUFFIX
       if cd $BACKUPDIR2  ; then
         BACKUPDIR=$BACKUPDIR2
       else
         echo "`logpfx`:warning: *** impossible d'acceder au repertoire $BACKUPDIR2" 1>&2
         echo `logpfx`:warning: skipped $disk 1>&2
-        continue 
+        continue
       fi
     else
       echo `logpfx`:warning: skipped $disk 1>&2
-      continue 
+      continue
     fi
   else
     disk2=$disk
@@ -144,9 +159,9 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
 
   if ! echo $MOUNTPOINT | grep -q /mnt/$disk ; then
     if grep -q "$HWADDR $disk2 1\$" /pxe/etc/restoresf > /dev/null ; then
-      if [ "$disk" != "$disk2" ] ; then 
+      if [ "$disk" != "$disk2" ] ; then
          echo `logpfx`:error: *** par precaution, la table de partitions de $disk n a pas ete restauree automatiquement sur $disk2 1>&2
-      else 
+      else
         if ! sfdisk /dev/$disk < $disk.sf ; then
            echo `logpfx`:error: *** impossible de restaurer la table de partitions de $disk 1>&2
            myexit 1
@@ -154,7 +169,7 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
         sync
         sleep 3
         if [ -x /dev/makedevs.sh ] ; then
-          wd=`pwd` 
+          wd=`pwd`
        	  cd /dev
           ./makedevs.sh
           cd "$wd"
@@ -181,7 +196,7 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
 
     if grep -q "/dev/$PARTITION " /proc/mounts > /dev/null ; then
         continue
-    fi 
+    fi
 
     if [ -f $PARTITION.000 ] ; then
       BACKUPFILE=$PARTITION.000
@@ -195,12 +210,12 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
       PARTITION2=$PARTITION
     fi
     cmd="partimage -o -b $PARTIMAGED restore \
-        /dev/$PARTITION2 $BACKUPDIR/$BACKUPFILE" 
+        /dev/$PARTITION2 $BACKUPDIR/$BACKUPFILE"
 
     echo `logpfx`:exec: $cmd 1>&2
 
     if ! partimage -o -b $PARTIMAGED restore \
-        /dev/$PARTITION2 $BACKUPDIR/$BACKUPFILE ; then 
+        /dev/$PARTITION2 $BACKUPDIR/$BACKUPFILE ; then
        echo "`logpfx`:error: *** la restauration a echoue ($?)" 1>&2
        myexit 1
     fi
@@ -225,12 +240,12 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
   echo `logpfx`":done: $disk" 1>&2
 
 done
- 
+
 if [ $count2 -eq 0 ] ; then
   myexit 1
 fi
 
-echo "$HWADDR $LOGDATE restored $WORKDIR `cat $WORKDIR/_ok`" >> /pxe/log/journal 
+echo "$HWADDR $LOGDATE restored $WORKDIR `cat $WORKDIR/_ok`" >> /pxe/log/journal
 echo "$HWADDR $LOGDATE restored $WORKDIR `cat $WORKDIR/_ok`" >> $BACKUPDIR/journal
 echo `logpfx`":notice: $HWADDR: $count2 partitions restaurees avec succes" 1>&2
 echo `logpfx`":done: $HWADDR `cat $WORKDIR/_ok`" 1>&2

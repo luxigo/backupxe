@@ -1,3 +1,19 @@
+/*
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 var selrect = new Object;
 
@@ -42,43 +58,43 @@ var SelRect = function (_this,id,callback) {
 
 		_this.xorig=parseInt(div.style.left,10);
 		_this.yorig=parseInt(div.style.top,10);
-		
+
 		_this.callback("init");
 
-		if (browser.isIE) {                                            
+		if (browser.isIE) {
 			document.attachEvent("onmousemove", _this.drag);
 			document.attachEvent("onmouseup", _this.done);
-			window.event.cancelBubble = true;                            
-			window.event.returnValue = false;                            
-		}                                                              
-		if (browser.isNS) {                                            
-			document.addEventListener("mousemove", _this.drag, true);      
+			window.event.cancelBubble = true;
+			window.event.returnValue = false;
+		}
+		if (browser.isNS) {
+			document.addEventListener("mousemove", _this.drag, true);
 			document.addEventListener("mouseup", _this.done, true);
-		} 
-		
+		}
+
 	}
 
 	this.drag=function (event) {
-	
+
 		var d;
 		var x,y;
-		
+
 		_this=selrect._this;
 		d=document.getElementById(_this.selrect);
-		
+
 		if (!event) {
-			x=mousex;                                                        
-			y=mousey;                                                        
-		} else {                                                               
-			if (browser.isIE) {                                              
-				x = window.event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;                                  
-				y = window.event.clientY + document.documentElement.scrollTop + document.body.scrollTop;                                  
-			}                                                               
-			if (browser.isNS) {                                             
-				x = event.clientX + window.scrollX;                     
-				y = event.clientY + window.scrollY;                     
-			}                                                               
-		}                          	
+			x=mousex;
+			y=mousey;
+		} else {
+			if (browser.isIE) {
+				x = window.event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
+				y = window.event.clientY + document.documentElement.scrollTop + document.body.scrollTop;
+			}
+			if (browser.isNS) {
+				x = event.clientX + window.scrollX;
+				y = event.clientY + window.scrollY;
+			}
+		}
 
 		var w=x-_this.xorig;
 		if (w<0) {
@@ -87,7 +103,7 @@ var SelRect = function (_this,id,callback) {
 		} else {
 			d.style.width=w+'px';
 		}
-		
+
 		var h=y-_this.yorig;
 		if (h<0) {
 			d.style.top=y+'px';
@@ -109,9 +125,9 @@ var SelRect = function (_this,id,callback) {
 	}
 
 	this.done=function(event) {
-		
+
 		_this=selrect._this;
-		
+
 		_this.callback("done");
 
 		if (browser.isIE) {

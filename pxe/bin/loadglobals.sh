@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 set -e
@@ -16,7 +31,7 @@ for param in `echo $QUERY_STRING | sed -r -e 's/\\\&/ /g' -e 's/&/ /g'` ; do
 		init) INIT=$value ;;
 	esac
 done
-                                                                                                                                                                                                                                                                       
+
 kill -0 `cat /var/run/pxe/loadglobals.pid` > /dev/null 2>&1 && exit 0
 echo $$ > /var/run/pxe/loadglobals.pid
 
@@ -37,7 +52,7 @@ while true ; do
 
 
 if [ $MOVIES -nt /pxe/etc/gobals.movies ] || [ $MACHINES -nt /pxe/etc/globals.movies ] ; then
-	echo "pcmovie=new Array;" > /dev/shm/globals.movies.$$.tmp	
+	echo "pcmovie=new Array;" > /dev/shm/globals.movies.$$.tmp
 	sed -r -n -e 's/^([0-9]+) +(.*)/pcmovie[\1]="\2";/p' /pxe/etc/movies >> /dev/shm/globals.movies.$$.tmp
 	cat /dev/shm/globals.movies.$$.tmp > /pxe/etc/globals.movies
 fi
@@ -55,24 +70,24 @@ if [ $MACHINES -nt /pxe/etc/globals.pcname ] || [ $HOSTSMAC -nt /pxe/etc/globals
 
 	echo "pcname=new Array;" > /dev/shm/globals.pcname.$$.tmp
 	for pc in $pclist ; do
-	
+
 	  [ -z "$pc" ] && continue
-	
+
 	  mac=`getrec  /pxe/etc/machines $pc 2> /dev/null || true`
 	  [ -z "$mac" ] && continue
-	
+
 	  name=`getrec /pxe/etc/hosts.mac $mac 2> /dev/null || true`
 	  if [ "$name" = "<unknown>" ] ; then
 	  	name=
 	  fi
-	
+
 	  echo "pcname[$pc]='$name';pcmac[$pc]='$mac';" >> /dev/shm/globals.pcname.$$.tmp
 	done
 	cat /dev/shm/globals.pcname.$$.tmp > /pxe/etc/globals.pcname
 fi
 
 if [ $HOSTSMAC -nt /pxe/etc/globals.hostsmac ] || [ "$LEASES" -nt /pxe/etc/globals.hostsmac ] || [ $MACHINES -nt /pxe/etc/globals.hostsmac ] ; then
-  ( 
+  (
   	echo "hostsmac=new Array;"
 	maclist=`sed -r -n -e 's/([^\ ]+).*/\1/p' $HOSTSMAC | tr "\n" ' '`
 	for mac in $maclist ; do
@@ -84,7 +99,7 @@ if [ $HOSTSMAC -nt /pxe/etc/globals.hostsmac ] || [ "$LEASES" -nt /pxe/etc/globa
 	  [ -z "$pxeconfig" ] && pxeconfig="default"
 	  echo "hostsmac.push(new Array('$mac','$name','$ip','$pxeconfig' ));"
 	done
-  ) >> /dev/shm/globals.hostsmac.$$.tmp 
+  ) >> /dev/shm/globals.hostsmac.$$.tmp
   cat /dev/shm/globals.hostsmac.$$.tmp > /pxe/etc/globals.hostsmac
   rm /dev/shm/globals.hostsmac.$$.tmp
 fi
@@ -106,41 +121,41 @@ if [ /tftpboot/pxelinux/pxelinux.cfg -nt /pxe/etc/globals.all ] || [ /pxe/etc/re
 		echo "pxeconfig.push('$cfg');"
 	done
 	cd $wd
-	
+
 	echo "pcpxeconfig=new Array;"
 	echo "pcpxeconfig[0]='`ls -l "/tftpboot/pxelinux/pxelinux.cfg/default" | sed -r -n -e 's/.* -> (.*)/\1/p'`';"
-	
+
 	for pc in $pclist ; do
-	  
+
 	  mac=`getrec $MACHINES $pc`
 	  if [ -f /tftpboot/pxelinux/pxelinux.cfg/01-$mac ] ; then
 	  	echo "pcpxeconfig[$pc]='`ls -l "/tftpboot/pxelinux/pxelinux.cfg/01-$mac" | sed -r -n -e 's/.* -> (.*)/\1/p'`';"
 	  fi
-	  
+
 	  imagetorestore=`getrec /pxe/etc/restorepath $mac 2>/dev/null || echo $IMAGEDIR/$mac`
 	  if pcsavepath=`getrec /pxe/etc/savepath $mac 2>/dev/null` ; then
 	 	 echo "pcsavepath[$pc]='$pcsavepath';"
 	  else
 	 	 echo "pcsavepath[$pc]=undefined;"
 	  fi
-	  
+
 	 if echo $imagetorestore | grep -q ^/dev/ ; then
 	   echo "pcimagetorestore[$pc]='$imagetorestore';"
 	 else
     	   savdate=`cat $imagetorestore/_ok 2> /dev/null` || true
 	   mac=`basename $imagetorestore`
            name=`getrec $HOSTSMAC $mac || echo $mac`
-         
-	  if [ -n "$savdate" ] ; then 
+
+	  if [ -n "$savdate" ] ; then
 	  	echo "pcimagetorestore[$pc]='$name $savdate';"
 	  else
 	  	imagetorestore="$IMAGEDIR/ff-ff-ff-ff-ff-ff"
 	  	name=`getrec $HOSTSMAC ff-ff-ff-ff-ff-ff`
 		savdate=`cat $imagetorestore/_ok 2> /dev/null` || true
-		
-	  	if [ -n "$savdate" ] ; then 
+
+	  	if [ -n "$savdate" ] ; then
 	  		echo "pcimagetorestore[$pc]='$name $savdate';"
-	  	else 
+	  	else
 	  		echo "pcimagetorestore[$pc]=undefined;"
 	  	fi
 	  fi
@@ -165,7 +180,7 @@ for pc in $pclist ; do
 
   ip=`dhcplease $mac` || true
   echo "pcip[$pc]='$ip';"
-  
+
 #  partitionssaved="`ls -l /pxe/image/$mac/*/*.000 2>/dev/null | sed -r -n -e 's
 #  echo -n  "pcpartitionssaved[$pc]='$partitionssaved';"
 

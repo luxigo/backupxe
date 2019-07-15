@@ -3,7 +3,7 @@ Remote controlled network boot based, backup, system administration and deployme
 
 # License
    
-    backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+    backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as

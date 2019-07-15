@@ -1,4 +1,19 @@
 #!/bin/bash
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 # this cgi is used to receive stats from the patched partimage binary running on the client machine
 # AND to send those stats when backupxe.html ask for them (what=show)
 
@@ -14,20 +29,20 @@ ADDR=$REMOTE_ADDR
 if [ -n "$QUERY_STRING" ] ; then
 
         for param in `echo $QUERY_STRING | urldecode | sed -r -e 's/\\\&/ /g' -e 's/&/ /g'` ; do
-                
+
                 [ -z "$param" ] && continue
-                
+
                 varname=`echo $param | cut -f 1 -d =`
                 value=`echo $param | cut -f 2 -d =`
-                
+
                 case "$varname" in
-                
+
                         what) what=$value ;;
-                        who) 
+                        who)
                         	ADDR=`dhcplease $value`
                         	[ -z "$ADDR" ] && exit 1
                         	;;
-                        	
+
 #                        elapsed) elapsed=$value ;;
 #                        remaining) remaining=$value ;;
 #                        bytespermin) bytespermin=$value ;;
@@ -58,9 +73,9 @@ if [  -f "$LOGFILE" ] ; then
 			rm "$LOGFILE"
 			exit 0
 			;;
-		
+
 	esac
-	
-	echo `date +%Y%m%d-%T` $REMOTE_ADDR $QUERY_STRING >> $LOGFILE 
+
+	echo `date +%Y%m%d-%T` $REMOTE_ADDR $QUERY_STRING >> $LOGFILE
 	echo continue
 fi

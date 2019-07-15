@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 # usage: choosemac_confirm.cgi <var>=<url_encoded_value> ...
@@ -33,10 +48,10 @@ else
   POSTDATA=`cat`
 
 fi
- 
+
 n=1
 while true ; do
- 
+
   p=`echo $POSTDATA | cut -f $n -d \&`
   [ -z "$p" ] && break
 
@@ -63,7 +78,7 @@ while true ; do
   if echo $pname | egrep -q ^jobq\. ; then
     mac2=`echo $pname | sed -r -n -e 's/^jobq\.//p'`
     if [ "$mac" = "$mac2" ] ; then
-      echo -n $pval | urldecode > $WORKDIR/jobq/$mac 
+      echo -n $pval | urldecode > $WORKDIR/jobq/$mac
     fi
     continue
   fi
@@ -85,7 +100,7 @@ for mac in $maclist2 ; do
   save|restore)
 
     current=`cat $WORKDIR/image/$mac/current`
-    
+
     partlist=
     for part in `cat $current/partitions.$what` ; do
       if echo part | grep -q '^#' ; then
@@ -93,7 +108,7 @@ for mac in $maclist2 ; do
       fi
       partlist="$partlist$part "
     done
-   
+
     if [ -z "$partlist" ] ; then
        echo $mac skipped: nothing to $what
        [ -z "nohtml" ] && echo '<br>'
@@ -111,19 +126,19 @@ for mac in $maclist2 ; do
         if [ ! -f "$current/$disk.sf" ] ; then
             echo "$disk: partition table backup not found in directory $current<br>"
             error=1
-            continue 
+            continue
         fi
  #         sed -r -e 's/\/sd./\/hd'$drive'/' -e t -e 's/\/hd./\/sd'$drive'/' $current/$disk2.sf > $current/$disk.sf
         cmd="sfdisk /dev/$disk < $current/$disk.sf"
-        ;; 
-      esac 
+        ;;
+      esac
 
       echo $cmd >>  $WORKDIR/jobq/$mac
       if [ $? -ne 0 ] ; then
         echo "could not write to $WORKDIR/jobq/$mac<br>"
       fi
     fi
- 
+
     if [ -f $current/mbr$what ] ; then
       case $what in
       save)
@@ -133,15 +148,15 @@ for mac in $maclist2 ; do
         if [ ! -f $current/$disk.mbr ] ; then
            echo "file not found: $current/$disk.mbr<br>"
            error=1
-           cmd= 
-        else 
+           cmd=
+        else
           cmd="dd of=/dev/$disk if=$current/$disk.mbr bs=512 count=1"
         fi
         ;;
       esac
       [ -n "$cmd" ] && echo $cmd >> $WORKDIR/jobq/$mac
     fi
-    
+
     for part in $partlist ; do
       if [ -f "$current/`basename $part`" ] || [ "$what" = "save" ] ; then
         backupfile="$current/`basename $part`"
@@ -159,7 +174,7 @@ for mac in $maclist2 ; do
           echo "could not write to $WORKDIR/jobq/$mac<br>"
         fi
       fi
-    done ;; 
+    done ;;
 
   esac
 
@@ -168,14 +183,14 @@ for mac in $maclist2 ; do
     if [ $? -ne 0 ] ; then
       echo "could not write to $WORKDIR/jobq/$mac<br>"
     fi
-  fi 
+  fi
 
 done
 
 [ -n "$nohtml" ] && exit
- 
+
 [ -n "$error" ] && exit 1
- 
+
 echo '<head>'
 echo '<META HTTP-EQUIV="Refresh"'
 echo " CONTENT=\"3; URL=/pxe/empty.html\">"

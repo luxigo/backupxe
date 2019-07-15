@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 ACTION=/cgi-bin/pxe/pxeconfig_apply.cgi
@@ -48,7 +63,7 @@ for pxeconfig in $list ; do
 
   echo "optlist+='<option value=\"$pxeconfig\">$pxeconfig</option>'"
 
-  i=`expr $i + 1` 
+  i=`expr $i + 1`
 done
 
 echo "script+='document.getElementsByName(\"cfg.default\")[0].getElementsByTagName(\"option\")[$selected].selected=true;'"
@@ -63,7 +78,7 @@ if [ $? -eq 1 ] ; then
    exit 1
 fi
 
-first=1  
+first=1
 pclist=`sed -r -n -e 's/([^\ ]+).*/\1/p' /pxe/etc/machines | tr "\n" ' '`
 for pc in $pclist ; do
 
@@ -82,11 +97,11 @@ for pc in $pclist ; do
   echo "html+='<select name=cfg.$mac>'"
 
 
-  if [ -z "$list" ] ; then 
+  if [ -z "$list" ] ; then
   	list=`ls -1`
   	default_one=`ls -l default | sed -r -n -e 's/.* -> (.*)/\1/p'`
   fi
-  
+
   current_one=
   if [ -f "01-$mac" ] ; then
        current_one=`ls -l "01-$mac" | sed -r -n -e 's/.* -> (.*)/\1/p'`
@@ -96,7 +111,7 @@ for pc in $pclist ; do
   selected=
   for pxeconfig in $list ; do
 
-    echo $pxeconfig | egrep -q ^01- && continue 
+    echo $pxeconfig | egrep -q ^01- && continue
 
     if [ -n "$current_one" ] ; then
        if [ "$pxeconfig" = "$current_one" ] ; then
@@ -114,13 +129,13 @@ for pc in $pclist ; do
   done
   [ -n "$first" ] && echo "optlist='<option value=\"default\">default</option>'+optlist"
   first=
-  
+
   echo 'html+=optlist+"</select>"'
   echo 'html+="</td>"'
   echo 'html+="</tr>"'
 
   echo "script+=\"document.getElementsByName('cfg.$mac')[0].getElementsByTagName('option')[$selected].selected='true';\""
-  
+
 done
 
 echo 'html+="<tr>"'

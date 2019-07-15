@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 WORKDIR=/pxe
@@ -45,7 +60,7 @@ fi
 
 echo '<body>'
 
-case $what in 
+case $what in
   save) echo '<H3>Confirmez votre demande de sauvegarde</H3>' ;;
   restore) echo '<H3>Confirmez votre demande de restauration</H3>' ;;
   job) echo '<H3>Modifier la liste des travaux en attente</H3>' ;;
@@ -55,7 +70,7 @@ esac
 echo "<form action=\"choosemac_confirm.cgi\" method=\"POST\">"
 echo "<input type=hidden name=what value=\"$what\">"
 
-for mac in $maclist ; do 
+for mac in $maclist ; do
 
   echo '<table border=1>'
 
@@ -95,7 +110,7 @@ for mac in $maclist ; do
     echo '<td>'
     if [ -f partitions.$what ] ; then
        echo "<a href=\"choosepart.cgi?$what&$mac&`basename $current`\">"
-       cat partitions.$what 
+       cat partitions.$what
        echo '</a>'
     else
       if [ "$what" = "restore" ] ; then
@@ -125,7 +140,7 @@ for mac in $maclist ; do
     fi
     echo '</a>'
     echo '</td></tr>'
-  
+
     echo '<tr><td align=center>'
     echo "PTable</td>"
     echo '<td>'

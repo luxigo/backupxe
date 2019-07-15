@@ -1,3 +1,19 @@
+/*
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,11 +28,11 @@ int main(int argc,char **argv);
 void myexit(int code);
 
 int main(int argc,char **argv) {
-	
+
 	char *filename;
 	char *buf;
 	char *c;
-	char *index;	
+	char *index;
 	char *value;
 	size_t len;
 	size_t i;
@@ -54,7 +70,7 @@ int main(int argc,char **argv) {
 		exit(1);
 	}
 
-	sprintf(TMPFILE,"/dev/shm/setrec.%d.tmp",getpid());	
+	sprintf(TMPFILE,"/dev/shm/setrec.%d.tmp",getpid());
 	outf=fopen(TMPFILE,"w+");
 	if (!outf) {
 		fprintf(stderr,"%s: cannot open file for writing\n",TMPFILE);
@@ -82,9 +98,9 @@ int main(int argc,char **argv) {
 			}
 
 		}
-		
+
 		for (i=0;i<len;++i) {
-			
+
 			if ((!buf[i]) || (buf[i]!=index[i])) {
 				fprintf(outf,"%s",buf);
 				break;
@@ -92,7 +108,7 @@ int main(int argc,char **argv) {
 		}
 
 		if ((i==len) && ((buf[i]==0) || (buf[i]==' ') || (buf[i]=='\t'))) {
-			
+
 			if (argc>3) {
 				fprintf(outf,"%s",index);
 				for(i=3;i<argc;++i) {
@@ -104,7 +120,7 @@ int main(int argc,char **argv) {
 			}
 
 			while(!feof(f)) {
-				
+
 				r=fread(buf,1,bufsize,f);
 				if (!r) {
 					if (ferror(f)) {
@@ -113,7 +129,7 @@ int main(int argc,char **argv) {
 					}
 					break;
 				}
-				
+
 				w=fwrite(buf,1,r,outf);
 				if (!w) {
 					fprintf(stderr,"%s: write error\n",TMPFILE);
@@ -155,10 +171,10 @@ int main(int argc,char **argv) {
 }
 
 void myexit(int code) {
-	
+
 	if (outf) fclose(outf);
 	if (f) fclose(f);
 	if (outf) remove(TMPFILE);
-	
+
 	exit(code);
 }

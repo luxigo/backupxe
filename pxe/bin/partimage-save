@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 
@@ -6,7 +21,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 . /etc/config
 
 set -x
-		
+
 if [ "$1" = "-cat" ] ; then
   CAT=yes
   shift
@@ -17,7 +32,7 @@ if [ "$1" = "-R" ] ; then
   IMAGE_DIR=/pxe/image
   WORKDIR=$IMAGE_DIR/$HWADDR
   PARTIMAGED=
-else 
+else
   PARTIMAGED="$1"
   IMAGE_DIR="$2"
 fi
@@ -40,10 +55,10 @@ if [ -z "$IMAGE_DIR" ] ; then
   myexit 1
 fi
 
-echo "`logpfx` notice: =========> `date`" 1>&2 
+echo "`logpfx` notice: =========> `date`" 1>&2
 
 if echo $IMAGE_DIR | egrep -q ^/dev/ ; then
-	MOUNTPOINT="/mnt/`basename $IMAGE_DIR`" 
+	MOUNTPOINT="/mnt/`basename $IMAGE_DIR`"
 	mkdir -p $MOUNTPOINT
 	if ! mount.sh $IMAGE_DIR $MOUNTPOINT ; then
 		echo "`logpfx` error: *** impossible de monter $IMAGE_DIR sur $MOUNTPOINT" 1>&2
@@ -70,8 +85,8 @@ if [ -z "$MOUNTPOINT" ] ; then
   fi
 fi
 
-[ -n "$NOPARTIMAGED" ] && PARTIMAGED=        
-[ -n "$PARTIMAGED" ] && PARTIMAGED=-s$PARTIMAGED 
+[ -n "$NOPARTIMAGED" ] && PARTIMAGED=
+[ -n "$PARTIMAGED" ] && PARTIMAGED=-s$PARTIMAGED
 
 if [ -z "$WORKDIR" ] ; then
 	WORKDIR=`getrec /pxe/etc/savepath $HWADDR 2> /dev/null || true`
@@ -79,7 +94,7 @@ if [ -z "$WORKDIR" ] ; then
 		WORKDIR=$IMAGE_DIR/$HWADDR
 	fi
 	if echo $WORKDIR | egrep -q ^/dev/ ; then
-		MOUNTPOINT="/mnt/`basename $WORKDIR`" 
+		MOUNTPOINT="/mnt/`basename $WORKDIR`"
 		mkdir -p $MOUNTPOINT
 		if ! mount.sh $WORKDIR $MOUNTPOINT ; then
 			echo "`logpfx` error: *** impossible de monter $WORKDIR sur $MOUNTPOINT" 1>&2
@@ -113,19 +128,19 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
     echo "`logpfx` error: *** impossible d'acceder au repertoire $WORKDIR" 1>&2
     myexit 1
   fi
-  
+
 #  addrec /pxe/etc/savesf "$HWADDR $disk" 1
 #  savesf=`getrec /pxe/etc/savesf $HWADDR\ $disk 2> /dev/null` || true
 #  [ -z "$savesf" ] && savesf=1
 
 #  if [ $savesf -eq 1 ] ; then
-    if ! sfdisk -d /dev/$disk > $disk.sf ; then 
+    if ! sfdisk -d /dev/$disk > $disk.sf ; then
       echo "`logpfx` error: *** impossible de copier la table de partition dans `pwd`/$disk.sf" 1>&2
       echo "`logpfx` warning: *** skipped: $disk" 1>&2
       continue
     fi
  # fi
-  
+
   if [ ! -s $disk.sf ] ; then
       rm $disk.sf 2> /dev/null || true
       echo "`logpfx` warning: *** skipped: $disk" 1>&2
@@ -144,7 +159,7 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
       myexit 1
     fi
 #  fi
-  
+
   addrec /pxe/etc/restorembr "$HWADDR $disk" 1 2> /dev/null || true
 
 #  if ! MD5=`cat $disk.sf | md5sum | sed -r -n -e 's/([^ ]+).*/\1/p'` ; then
@@ -165,7 +180,7 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
     echo "`logpfx` error: *** impossible d'acceder au repertoire $WORKDIR/$disk" 1>&2
     myexit 1
   fi
- 
+
 #  if [ -f $disk.sf.md5 ] ; then
 #    if [ "$MD5" != "`cat $disk.sf.md5`" ] ; then
 #      echo "`logppfx` error: *** partition table has changed ($HWADDR/$disk)" 1>&2
@@ -179,7 +194,7 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
       if [ -n "$RESUME" ] ; then
         continue
       fi
-  fi 
+  fi
 
   if ! cp ../$disk.sf . ; then
      echo "`logpfx` error: *** impossible de copier ../$disk.sf dans `pwd`" 1>&2
@@ -216,7 +231,7 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
     if grep -q "/dev/$PARTITION " /proc/mounts > /dev/null ; then
     	continue
     fi
-    
+
     partitionstosave=`expr $partitionstosave + 1`
     partitioncount=`expr $partitioncount + 1`
 
@@ -231,12 +246,12 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
     fi
 
     if [ -z "$ONLY_REGISTER" ] ; then
-      
+
       if [ -n "$CAT" ] ; then
-        
+
 	cmd="cat /dev/$PARTITION | gzip -c  | split -a 3 -b 2147483648 -d - ${PARTITION}_cat."
 	echo `logpfx` running: $cmd 1>&2
-	
+
 	if ! cat /dev/$PARTITION | gzip -c | split -a 3 -b 2147483648 -d - ${PARTITION}_cat. ; then
           echo `logpfx` error: *** la sauvegarde a echoue 1>&2
           done=0
@@ -244,39 +259,39 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
 	fi
 
       else
-      
+
         cmd="partimage $PARTIMAGESAVE_OPTIONS -o -d -b $PARTIMAGED save \
  	  /dev/$PARTITION $WORKDIR/$disk/$PARTITION"
 	echo `logpfx` exec: $cmd 1>&2
-   
-      
+
+
         if ! partimage $PARTIMAGESAVE_OPTIONS -o -d -b -f3 $PARTIMAGED save \
     	  /dev/$PARTITION $WORKDIR/$disk/$PARTITION ; then
           echo `logpfx` error: *** la sauvegarde a echoue 1>&2
           done=0
           break
         fi
-      
+
       fi
-    
+
       touch $PARTITION.ok
       echo `logpfx` done: $PARTITION 1>&2
       LOGDATE=`date +%Y-%m-%d\ %H%M.%S`
       echo "$HWADDR $LOGDATE saved $WORKDIR/$disk/$PARTITION" >> /pxe/log/journal
       echo "$HWADDR $LOGDATE saved $PARTITION" >> $WORKDIR/$disk/journal
-    
+
     else
-    
+
       touch $WORKDIR/$disk/$PARTITION || myexit 1
       chmod a-rw $WORKDIR/$disk/$PARTITION || myexit 1
-    
+
     fi
 
-    partitionsaved=`expr $partitionsaved + 1` 
+    partitionsaved=`expr $partitionsaved + 1`
 
   done
 
-  if [ $partitionstosave -eq 0 ] ; then 
+  if [ $partitionstosave -eq 0 ] ; then
     echo 1>&2
     echo `logpfx` "error: --- Aucune partition a sauvegarder." 1>&2
     myexit 1
@@ -297,24 +312,24 @@ for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
   if [ $partitionsaved -gt 0 ] ; then
     echo `logpfx` "notice: --- $disk: $partitionsaved partitions sauvegardees avec succes" 1>&2
   fi
-  
+
   rm *.ok 2> /dev/null
   addrec /pxe/etc/restorepath $HWADDR $WORKDIR || true
-  
+
   LOGDATE=`date +%Y-%m-%d\ %H%M.%S`
   if [ -z "$ONLY_REGISTER" ] ; then
     echo "$HWADDR $LOGDATE saved $WORKDIR/$disk" >> /pxe/log/journal
     echo "$HWADDR $LOGDATE saved $disk" >> $WORKDIR/$disk/journal
     if ! touch ok ; then
       myexit 1
-    fi 
+    fi
   fi
 
   echo `logpfx` done: $disk 1>&2
 
 done
 
-if [ $partitioncount -eq 0 ] ; then 
+if [ $partitioncount -eq 0 ] ; then
     echo 1>&2
 #  echo "--- Maybe you need to load a module for your hard disk,"
 #  echo "--- maybe there is no hard disk connected or "
@@ -349,7 +364,7 @@ if [ -n  "$MOUNTPOINT" ] ; then
 	echo -n > $LOCALSAVLIST
   	[ -f $WORKDIR/_ok ] && cat $WORKDIR/_ok > $LOCALSAVLIST
   	for _ok in `find $MOUNTPOINT/old -name _ok` ; do
-  		cat $_ok >> $LOCALSAVLIST 
+  		cat $_ok >> $LOCALSAVLIST
   	done
 fi
 

@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 #set -x
 PXEUSER=root
@@ -15,7 +30,7 @@ echo $$ > /var/run/pxe/pingall.pid
 
 #addrec () {
 #  if ! egrep -q "^$2 " "$1" ; then
-#    echo $2 $3 >> "$1" 
+#    echo $2 $3 >> "$1"
 #  fi
 #}
 
@@ -44,15 +59,15 @@ while [ $i -le $count ] ; do
 
   ip=`dhcplease $mac`
   echo -n $pc 1>&2
-  
+
   if [ -z "$ip" ] ; then
     echo \ nolease 1>&2
     echo $pc -1
     continue
   fi
-  
+
   if ping -w 1 -c 1 $ip > /dev/null 2> /dev/null ; then
-  
+
     if nc -z $ip 135 2>/dev/null ; then
       echo \ crosoft 1>&2
       echo $pc W
@@ -64,7 +79,7 @@ while [ $i -le $count ] ; do
 	if nc -z $ip 80 2> /dev/null ; then
 		if wget --tries=1 --timeout=5 -q http://$ip -O - | grep -q -i geexbox ; then
 			state=`wget --tries=1 --timeout=5 -q http://$ip/status -O -`
-			case $state in 
+			case $state in
 			mplayer)
 				echo \ geexbox mplayer 1>&2
 				echo $pc GM
@@ -83,7 +98,7 @@ while [ $i -le $count ] ; do
 			echo \ ping 1>&2
 			echo $pc 1
 		fi
-	else	
+	else
 		echo $reply
 		echo \ ping 1>&2
 		echo $pc 1
@@ -94,14 +109,14 @@ while [ $i -le $count ] ; do
     addrec /pxe/etc/boottime $pc `date +%s` 2> /dev/null || true
 
   else
-    
+
     echo \ noping 1>&2
     echo $pc 0
 
     boottime=`getrec /pxe/etc/boottime $pc 2> /dev/null || true`
 
     if [ -n "$boottime" ] ; then
-	
+
 	delrec /pxe/etc/boottime $pc || true
 #	sed -r -n -e "/^$pc .*/b" -e p /pxe/etc/boottime > /tmp/boottime.$$.tmp
 #        cat /tmp/boottime.$$.tmp > /pxe/etc/boottime
@@ -117,7 +132,7 @@ done
 
 ) > /tmp/pingall.$$.tmp && cat /tmp/pingall.$$.tmp > /pxe/etc/pcstatus && rm /tmp/pingall.$$.tmp
 
-sleep 10 
+sleep 10
 
 done
 

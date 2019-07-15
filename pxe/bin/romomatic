@@ -1,4 +1,19 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 set -e
 set -x
@@ -12,12 +27,12 @@ if [ "$1" = "-a" ] ; then
 fi
 
 #uarch=`uname -i`
-#echo $uarch | ( grep -q i.86 && ROMARCH="i386") || true 
+#echo $uarch | ( grep -q i.86 && ROMARCH="i386") || true
 [ -z "$ROMARCH" ] && ROMARCH=i386
 
 [ -f $WORKDIR/index.html ] || ( wget http://rom-o-matic.net -O $WORKDIR/index.html.tmp && mv $WORKDIR/index.html.tmp $WORKDIR/index.html )
 
-ROMVERSION=`sed -r -n -e 's/.*<a href=\"etherboot\/etherboot\-([0-9]\.[0-9]\.[0-9]+).*\/\".*/\1/p' -e T -e q $WORKDIR/index.html` 
+ROMVERSION=`sed -r -n -e 's/.*<a href=\"etherboot\/etherboot\-([0-9]\.[0-9]\.[0-9]+).*\/\".*/\1/p' -e T -e q $WORKDIR/index.html`
 
 [ -z "$ROMVERSION" ] && ROMVERSION=5.4.2
 
@@ -40,7 +55,7 @@ if [ -z "$ALL" ] ; then
   done
   sort -u $WORKDIR/interfaces > $WORKDIR/interfaces.new
   mv $WORKDIR/interfaces.new $WORKDIR/interfaces
-  
+
 fi
 
 getroms() {
@@ -51,8 +66,8 @@ getroms() {
 
   nictoget=`wc -l $NICLIST | cut -f 1 -d ' '`
   while [ $nictoget -gt 0 ] ; do
-    NICu=`sed -n -e ${nictoget}p  $NICLIST` 
-    NIC=`echo $NICu | urlencode` 
+    NICu=`sed -n -e ${nictoget}p  $NICLIST`
+    NIC=`echo $NICu | urlencode`
     set +e
     nictoget=`expr $nictoget - 1`
     set -e
@@ -62,12 +77,12 @@ getroms() {
       outfile=$WORKDIR/$ROMVERSION/eb-`echo $NICu | sed -r -n -e 's/^([^\ ]+).*/\1/p' | tr , : | tr : '_'`.`echo $OFMTu | sed -r -n -e 's/.*\(\.([^\)]+).*/\1/p'`
     fi
     echo $outfile
-# continue 
+# continue
     if [ -f "$outfile" ] ; then
       continue
     fi
     wget -q --limit-rate=2k -c "http://rom-o-matic.net/etherboot/etherboot-$ROMVERSION/contrib/rom-o-matic/build.php?version=$ROMVERSION&F=&arch=$ROMARCH&nic=$NIC&ofmt=$OFMT&A=Get%20ROM"  -O "$outfile.part" && mv "$outfile.part" "$outfile"
-  
+
   done
 
 }
@@ -81,4 +96,3 @@ fi
 exit
 
 http://rom-o-matic.net/5.4.2/build.php?version=5.4.2&F=&arch=i386&nic=rtl8139%3Artl8139+--+%5B0x10ec%2C0x8139%5D&ofmt=ISO+bootable+image+without+legacy+floppy+emulation+%28.iso%29&A=Configure
-

@@ -1,9 +1,24 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 
 set -e
 . /etc/config
-	
+
 busy $$ "$0" "$@"
 
 export IMAGE_DIR=`cat /pxe/etc/IMAGE_DIR`
@@ -18,7 +33,7 @@ rm /pxe/log/$HWADDR/ready 2> /dev/null || true
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 
-touch $LOGFILE 
+touch $LOGFILE
 
 err=0
 
@@ -28,7 +43,7 @@ if [ -z "$1" ] ; then
     name=`echo $ARG | cut -f 1 -d =`
     value=`echo $ARG | cut -f 2 -d =`
     case "$name" in
-        IMAGE_DIR) 
+        IMAGE_DIR)
         	IMAGE_DIR=$value
         	PARTIMAGED=""
         	 ;;
@@ -52,5 +67,5 @@ if [ $err -ne 0 ] ; then
    exit 1
 else
    /usr/bin/done $$ $0 $@
-   grep -q reboot /proc/cmdline && reboot 
+   grep -q reboot /proc/cmdline && reboot
 fi

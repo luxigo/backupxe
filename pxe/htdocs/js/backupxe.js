@@ -1,3 +1,19 @@
+/*
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 var selection=new Array;
 var listselection=new Array;
 var listselectionName=new Array;
@@ -54,7 +70,7 @@ function selectionGroup(_this) {
 
 	var pc=numSuffix(_this);
 	var group=new Array(_this);
-	
+
 	if (selection[pc]==0)
 		return group;
 
@@ -62,7 +78,7 @@ function selectionGroup(_this) {
 
 		if (i==pc || selection[i]!=1)
 			 continue;
-		
+
 		var a=document.getElementsByName('machine'+i);
 		for (j=0 ; j<a.length; ++j) {
 			group.push(a[j]);
@@ -152,7 +168,7 @@ function reselect() {
         }
         ++pc;
   }
-} 
+}
 
 function time2html(t) {
   var years=t/31536000.0;
@@ -217,19 +233,19 @@ function selection_init() {
 function pcclick (pc) {
 
 	if (!enableclick) return;
-	
+
 	if (selection[pc]==1) {
 		document.getElementsByName('selection'+pc)[0].src="/pxe/pics/transparent.png";
 		var lpc=document.getElementsByName('lpc'+pc);
 		for (var i=0; i<lpc.length; ++i) {
-			lpc[i].style.background="#f0f0f0"; 
+			lpc[i].style.background="#f0f0f0";
 		}
 		selection[pc]=0;
 	} else {
 		document.getElementsByName('selection'+pc)[0].src="/pxe/pics/white_coche.png";
 		var lpc=document.getElementsByName('lpc'+pc);
 		for (var i=0; i<lpc.length; ++i) {
-			lpc[i].style.background="#aaaadd"; 
+			lpc[i].style.background="#aaaadd";
 		}
 		selection[pc]=1;
 	}
@@ -300,7 +316,7 @@ function action(what,who) {
 	var descr;
 
 	if (arguments.length==1 && !selected_something()) {
-		alert("Vous devez d'abord sélectionner une ou plusieurs machines.");	
+		alert("Vous devez d'abord sélectionner une ou plusieurs machines.");
 		return;
 	}
 
@@ -353,11 +369,11 @@ function action(what,who) {
 			return;
 			break;
 	}
-	
+
 	var count = 0 ;
 	var first = 0 ;
 	var msg = "";
-	
+
 	if (who!=undefined) {
 		querystring="machine="+who;
 		count=1;
@@ -370,7 +386,7 @@ function action(what,who) {
 					first=i;
 				} else
 					querystring+="&machine="+i;
-			
+
 			 	msg+=pcname[i]+'\n';
 				switch(what) {
 					case 'restore':
@@ -389,7 +405,7 @@ function action(what,who) {
 			if ((who!=undefined) || (count==1)) {
 				if ((who==undefined) && (count==1)) {
 					msg="";
-				} 
+				}
 				msg=pcname[first]+" ?" + msg;
 			} else {
 				msg='ces '+count+" machines ?\n" + msg;
@@ -400,7 +416,7 @@ function action(what,who) {
 				return;
 			}
 		}
-		
+
 		xmlhttpget(what+querystring,'divlog',undefined,'ready(); pcclickall(0);');
 	}
 }
@@ -448,9 +464,9 @@ function setMenuItemState(menuid,index,enable)  {
 	var objList = document.getElementById(menuid).getElementsByTagName("li");
 	if (objList.length==0)
 		objList = document.getElementById(menuid).getElementsByTagName("TR");
-		
+
 	var link=objList[index].getElementsByTagName("a")[0];
-	
+
 	if (enable==undefined)
 		enable=0;
 
@@ -497,7 +513,7 @@ function loadicons(page) {
   if ((page=="") || (page==undefined)) return;
   xmlhttpget("/cgi-bin/pxe/getpcicons.cgi?" + page,'eval',document.getElementById(div).innerHTML);
 }
-  
+
 function reloadicons(page) {
   if ((page=="") || (page==undefined)) return;
   xmlhttpget("/cgi-bin/pxe/getpcicons.cgi?" + page + "&reload",'eval');
@@ -506,7 +522,7 @@ function reloadicons(page) {
 function storepcstyle(pclist) {
 
   nodrag=1;
- 
+
   var xhr_object = null;
   var querystring = "" ;
 
@@ -527,7 +543,7 @@ function storepcstyle(pclist) {
 		querystring+='&pc' + pc + '=' + escape(pcStyle[pc]);
 	}
   } else {
- 
+
 	  var first=1;
 	  var i=1;
 	  while (i<pcStyle.length) {
@@ -584,7 +600,7 @@ function innerHTML_restore(id) {
 
 function divedit(id,filename) {
 	var div=innerHTML_save(id);
-	xmlhttpget('/cgi-bin/pxe/editfile.cgi?file=' + filename + '&div=' + id,id);		
+	xmlhttpget('/cgi-bin/pxe/editfile.cgi?file=' + filename + '&div=' + id,id);
 }
 
 function divedit_init(subdir) {
@@ -594,17 +610,17 @@ function divedit_init(subdir) {
 function divedit_menu_build(subdir) {
 	var i;
 	var select;
-	
+
 	select=document.getElementById('diveditmenu');
 
-	i=select.length;	
+	i=select.length;
 	while (i-- > 0) select.remove(0);
-	
+
 	i=0;
 	while (i<divedit_menu.length) {
 		var opt=document.createElement('option');
 		opt.text=divedit_menu[i];
-		select.add(opt,null);	
+		select.add(opt,null);
 		++i;
 	}
 	showfile(select,divedit_file[select.selectedIndex],'editor_window');
@@ -617,7 +633,7 @@ function showfile(select,editor_filename,editor_window) {
 	}
 	var id=innerHTML_save(editor_window);
 	xmlhttpget('/cgi-bin/pxe/loadfile.cgi?file=' + divedit_file[select.selectedIndex] + '&div=' + editor_window,editor_window);
-	
+
 }
 
 function editfile(select,editor_filename,editor_window) {
@@ -663,7 +679,7 @@ function table_edit_keypress(_this,event) {
 		table_edit_td=undefined;
 		return false;
 	}
-	
+
 	return true;
 }
 
@@ -686,7 +702,7 @@ function addmachine_callback(pc) {
 		table_edit_backup='';
 		return;
 	}
-	
+
 	pcmac[pc]=hostsmac[addmachine_hostsmacIndex][0];
 	pcname[pc]=hostsmac[addmachine_hostsmacIndex][1];
 	pcip[pc]=hostsmac[addmachine_hostsmacIndex][2];
@@ -706,11 +722,11 @@ function addmachine_callback(pc) {
 function getElementAttribute(el,attrName) {
 
 	var value=eval("el."+attrName);
-	
+
 	if (value!=undefined) {
 		return value;
  	}
- 	
+
 	for (var i=0; i<el.attributes.length ; ++i) {
 		if (el.attributes[i].nodeName!=attrName) continue;
 		return el.attributes[i].value;
@@ -751,7 +767,7 @@ function switchIconMode() {
 		IB.enable=_IBenable;
 	}
 	setIconMode(iconMode);
-	
+
 }
 
 function menuItemsEnable(name) {
@@ -807,7 +823,7 @@ function setIconMode(mode) {
 			SimpleContextMenu.attach('pcIcon', 'menu2',menuUpdate);
 			SimpleContextMenu.attach('map', 'menu2b',menuUpdate);
 			break;
-			
+
 	}
 }
 
@@ -844,9 +860,9 @@ function pcremove(pc) {
 	var cgiparms="";
 	var last;
 	var pclist=new Array();
-	
+
 	last=pc;
- 	
+
 	if (pc==undefined) {
 		for (pc=1; pc<selection.length; ++pc) {
 			if (selection[pc]==1) {
@@ -865,14 +881,14 @@ function pcremove(pc) {
 		pclist.push(pc);
 		cgiparms="pc="+pc;
 	}
-	
+
 	if (count>1) {
 		msg="Etes-vous certain de bien vouloir enlever du plan ces " + count + " machines ?\n"+msg;
 	} else {
 		pc=last;
 		msg="Etes-vous certain de bien vouloir enlever du plan " +pcname[pc]+" ("+pc+") ?";
 	}
-	
+
 	if (!confirm(msg)) {
 		return;
 	}
@@ -887,7 +903,7 @@ function pcremove_callback() {
 		_pcremove_callback(arguments[i]);
 	}
 	loadicons(iconMode);
-	for (var i=0; i<arguments.length; ++i) { 
+	for (var i=0; i<arguments.length; ++i) {
 		document.getElementById('divicons').removeChild(document.getElementsByName('selection'+arguments[i])[0]);
 //		document.getElementById('divicons').removeChild(document.getElementsByName('status'+arguments[i])[0]);
 		document.getElementById('divicons').removeChild(document.getElementsByName('machine'+arguments[i])[0]);
@@ -925,28 +941,28 @@ function toggleColumns(what) {
 	var menu=document.getElementById('menu3');
 	var links=menu.getElementsByTagName('A');
 	var col;
-	
+
 	for (col=0; col<pclistColumn.length;++col) {
 		if (pclistColumn[col]==what)
 			break;
 	}
-	
+
 	toggleIcon('checkmark.png',new RegExp(/checkmark.png/),links[col].getElementsByTagName('img')[0]);
 	showColumn[col]=1-showColumn[col];
 	showpclist();
-		
+
 }
 
 function setMenuIcon(menuId,index,src) {
 	var img=document.getElementById(menuId).getElementsByTagName('li')[index].getElementsByTagName('img')[0];
-	
+
 	img.src=src;
 	img.style.display="block";
 }
 
 function setMenuItemLink(menuId,index,href) {
 	var link=document.getElementById(menuId).getElementsByTagName('li')[index].getElementsByTagName('a')[0];
-	
+
 	link.href=href;
 }
 
@@ -955,7 +971,7 @@ function toggleMenuIcon(menuId,index,src,re) {
 	var img=menu.getElementsByTagName('a')[index].getElementsByTagName('img')[0];
 //	var img=links[index].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0];
 	toggleIcon(src,re,img);
-		
+
 }
 
 function toggleIcon(_src,re,img) {
@@ -982,7 +998,7 @@ function toggleClass(e) {
 }
 
 function menuUpdate(showMenu) {
-       
+
 	if (showMenu==false) {
 		IB.enable=_IBenable;
 	} else {
@@ -1023,25 +1039,25 @@ function menuUpdate(showMenu) {
 				document.getElementsByName('contextMap')[0].innerHTML=(mapdisplay?"Cacher":"Afficher")+" le Plan";
 				document.getElementsByName('contextPClist')[0].innerHTML=(pclistdisplay?"Cacher":"Afficher")+" la Liste";
 				break;
-				
+
 			case 'menu1b':
 				document.getElementsByName('contextMap2')[0].innerHTML=(mapdisplay?"Cacher":"Afficher")+" le Plan";
 				document.getElementsByName('contextPClist2')[0].innerHTML=(pclistdisplay?"Cacher":"Afficher")+" la Liste";
 				break;
-				
+
 			case 'menu2':
 				document.getElementsByName('contextRemove')[0].innerHTML='Enlever '+pcname[pc]+' ('+pc+')';
 				break;
-				
+
 			case 'menu2b':
 				break;
-				
+
 			case 'menu3':
 				link=SimpleContextMenu._menuElement.getElementsByTagName('a');
-				for(i=0; i<showColumn.length; ++i) 
+				for(i=0; i<showColumn.length; ++i)
 					setItalic(link[i],1-showColumn[i]);
 				break;
-				
+
 			case 'menu4':
 				document.getElementsByName('contextPcIcon')[0].innerHTML='<img border="0" class="pcIcon" src="/pxe/thumbs/pc'+pc+'_24x24.png">';
 				document.getElementsByName('contextPcName')[0].innerHTML=pcname[pc]+' ('+pc+')';
@@ -1061,12 +1077,12 @@ function menuUpdate(showMenu) {
 					xmlhttpget('/cgi-bin/pxe/partlist.cgi?what=restore&pc='+pc,'eval','','buildPartList('+pc+',"restore")');
 				} else {
 					buildPartList(pc,"restore");
-				}	
-				
+				}
+
 				setMenuItemState(menu,5,pcrestorembr[pc]);
 				setMenuItemState(menu,6,pcrestoresf[pc]);
 				break;
-				
+
 			case 'menu5':
 				document.getElementsByName('contextPcIcon')[1].innerHTML='<img border="0" class="pcIcon" src="/pxe/thumbs/pc'+pc+'_24x24.png">';
 				document.getElementsByName('contextPcName')[1].innerHTML=pcname[pc]+' ('+pc+')';
@@ -1085,9 +1101,9 @@ function menuUpdate(showMenu) {
 					xmlhttpget('/cgi-bin/pxe/partlist.cgi?what=save&pc='+pc,'eval','','buildPartList('+pc+',"save")');
 				} else {
 					buildPartList(pc,"save");
-				}	
+				}
 				break;
-				
+
 			case 'menu6':
 				setMenuItemState(menu,0,0);
 				var t=document.getElementById('pxeconfig');
@@ -1095,7 +1111,7 @@ function menuUpdate(showMenu) {
 				var checkmark;
 				var ismac=false;
 				var selpc=new Array;
-			
+
 				for (var j=1; j<selection.length ; ++j) {
 					if (selection[j]==1) selpc.push(new Array(j,false));
 				}
@@ -1105,7 +1121,7 @@ function menuUpdate(showMenu) {
 			 		} else {
 				 		pc='selection';
 				 	}
-			 		
+
 			 	} else {
 					pc=strSuffix(SimpleContextMenu._attachedElement);
 					for (var k=0 ; k<hostsmac.length ; ++k) {
@@ -1129,7 +1145,7 @@ function menuUpdate(showMenu) {
 							html+='<tr><td><a href="javascript:td_click('+"'pxeconfig','"+pc+"',"+i+')"><table cellpadding="0" cellspacing="0"><tr><td><img border="0" src="/pxe/pics/'+((checkmark)?'check':'no')+'mark.png"></td><td>'+pxeconfig[i]+'</td></tr></table></a></td></tr>';
 					}
 				}
-				
+
 				t.innerHTML=html;
 				break;
 		}
@@ -1175,7 +1191,7 @@ function buildPartList(pc,what) {
 				}
 			}
 			break;
-			
+
 		case 'restore':
 		// TODO
 			// must be the partitions from pcimagetorestore/partitions.restore
@@ -1183,7 +1199,7 @@ function buildPartList(pc,what) {
 				var checkmark=partitionrestore[pc][i][1];
 				html+='<tr><td align="left"><a name="partlist'+i+'" class="partlist2" href="javascript:td_click('+"'partlist',"+pc+","+i+",'"+what+"'"+')"><table cellspacing="0" cellpadding="0"><tr><td><img style="border-style: none;" src="/pxe/pics/'+((checkmark==1)?'check':'no')+'mark.png"></td><td>'+partitionrestore[pc][i][0]+'</td></tr></table></a></td></tr>';
 			}
-			// must be the partitions from /pxe/image/mac/partitions.save 
+			// must be the partitions from /pxe/image/mac/partitions.save
 			for (var i=0; i<partitionrestore[pc].length ; ++i) {
 				var checkmark2=(partitionrestore[pc][i][0]==pcimagetorestore[pc]);
 				html2+='<tr><td align="left"><a name="srclist'+i+'" class="srclist" href="javascript:td_click('+"'srclist',"+pc+","+i+')"><table cellspacing="0" cellpadding="0"><tr><td><img style="border-style: none;" src="/pxe/pics/'+ (checkmark2?'check':'no')+'mark.png"></td><td>'+partitionrestore[pc][i][0]+'</td></tr></table></a></td></tr>';
@@ -1215,14 +1231,14 @@ function td_click(classname) {
 			var i=arguments[2];
 			xmlhttpget("/cgi-bin/pxe/set_restorepath.cgi?pc="+pc+"&sav="+savlist[i].replace(/\ /g,'_'),"eval",'','set_restorepath_callback("savlist",'+pc+','+i+')');
 			break;
-			
+
 		case "srclist":
 			var pc=arguments[1];
 			var i=arguments[2];
-			// must be the partitions from /pxe/image/mac/partitions.save 
+			// must be the partitions from /pxe/image/mac/partitions.save
 			xmlhttpget("/cgi-bin/pxe/set_restorepath.cgi?pc="+pc+"&path="+(partitionrestore[pc][i][0]), "eval",'','set_restorepath_callback("srclist",'+pc+','+i+')');
 			break;
-			
+
 		case "destlist":
 			var pc=arguments[1];
 			var i=arguments[2];
@@ -1230,7 +1246,7 @@ function td_click(classname) {
 				break;
 			xmlhttpget("/cgi-bin/pxe/set_savepath.cgi?pc="+pc+"&path="+((i==-1)?"":partitionsave[pc][i][0]), "eval",'','set_savepath_callback('+pc+','+i+')');
 			break;
-			
+
 		case "partlist":
 			var pc=arguments[1];
 			var i=arguments[2];
@@ -1248,13 +1264,13 @@ function td_click(classname) {
 					break;
 			}
 			break;
-			
+
 		case "pxeconfig":
 			var pc=arguments[1];
 			var i=arguments[2];
 			var selpc=new Array;
 			var data='';
-			
+
 			for (var j=1; j<selection.length ; ++j) {
 				if (selection[j]==1) selpc.push(new Array(j,false));
 			}
@@ -1272,32 +1288,32 @@ function td_click(classname) {
 				}
 				selpc.push(new Array(pc,ismac));
 			}
-			
+
 			for (var j=0; j<selpc.length; ++j) {
-			
+
 				pc=selpc[j][0];
 				if (!selpc[j][1]) {
 					if (pcpxeconfig[pc]==pxeconfig[i]) {
 						continue;
 					}
 					mac=pcmac[pc];
-			
+
 				} else {
 					if (hostsmac[pc][3]==pxeconfig[i]) {
 						continue;
 					}
 					mac=hostsmac[pc][0];
 				}
-				
+
 				data+=(j>0?'&':'')+mac+'=on&cfg.'+mac+'='+pxeconfig[i];
 			}
-			
+
 			if (data!='') {
 				xmlhttppost("/cgi-bin/pxe/set_pxeconfig.cgi",data,'eval','','setpxeconfig_callback('+selpc+','+i+')');
 			}
 			break;
 	}
-	
+
 }
 
 function setpxeconfig_callback() {
@@ -1314,14 +1330,14 @@ function setpxeconfig_callback() {
 			pcpxeconfig[pc]=pxeconfig[i];
 		}
 	}
-	showpclist();	
+	showpclist();
 	ready();
 }
 
 function bpxe(action,what) {
-	
+
 	var el;
-	
+
 	switch(what) {
 		case 'map':
 			el=document.getElementById('mapdiv').parentNode;
@@ -1330,7 +1346,7 @@ function bpxe(action,what) {
 			el=document.getElementById('cartouche').parentNode;
 			break;
 	}
-	
+
 	switch(action) {
 		case 'show':
 			el.style.display='block';
@@ -1347,7 +1363,7 @@ function onlymap() {
 	bpxe('show','map');
 	pclistdisplay=false;
 	mapdisplay=true;
-	
+
 }
 
 function onlylist() {
@@ -1380,7 +1396,7 @@ function set_restorepath_callback(what,pc,i) {
 				pcimagetorestore[pc]=savlist[i];
 			break;
 		case 'srclist':
-			// must be the partitions from /pxe/image/mac/partitions.save 
+			// must be the partitions from /pxe/image/mac/partitions.save
 			if (partitionrestore[pc][i][0]!=null && partitionrestore[pc][i][0]!=undefined)
 				pcimagetorestore[pc]=partitionrestore[pc][i][0];
 			break;
@@ -1425,7 +1441,7 @@ function movie_setvol(vol,pc) {
 				one=1;
 				pcl.push(pc);
 			}
-			
+
 		}
 
 	} else {
@@ -1511,5 +1527,3 @@ function togglepclist() {
         }
 	showpclist();
 }
-
-

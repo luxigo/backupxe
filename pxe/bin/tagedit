@@ -1,11 +1,26 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux, all rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 MIRROR=`cat $ROOT/etc/slackware-mirror`
 WORKDIR=$ROOT/tmp/slackware
 TGZ_LIST=$WORKDIR/TGZLIST.TXT
 LOG=$ROOT/tmp/tagedit.log
 
 (
-	
+
 set -x
 set -e
 
@@ -69,14 +84,14 @@ savetagfiles () {
     set -e
 
     if [ $err -ne 0 ] ; then
-      return 0 
+      return 0
     fi
 
     filename=`cat $ROOT/tmp/tagarchive.$$.tmp`
 
   fi
-  CURDIR=`pwd` 
-  cd $WORKDIR 
+  CURDIR=`pwd`
+  cd $WORKDIR
   mkdir -p tagfiles
   tar -zcf tagfiles/$filename ./*/*/tagfile
   cd "$CURDIR"
@@ -111,16 +126,16 @@ loadtagfiles() {
 initagfiles () {
 
   if [ ! -f $WORKDIR/tagfiles/default ] ; then
-    CURDIR1=`pwd` 
+    CURDIR1=`pwd`
     for f in $TAGFILES ; do
       mkdir -p $WORKDIR/`dirname $f`
       cd "$WORKDIR/`dirname $f`"
-      if [ ! -f tagfile ] ; then 
+      if [ ! -f tagfile ] ; then
         echo dialog --infobox "Downloading $f" 10 70
         wgetit $MIRROR/$f
       fi
     done
-    savetagfiles default 
+    savetagfiles default
     cd $CURDIR1
   fi
 
@@ -140,7 +155,7 @@ tagarchive="$1"
 if [ -n "$tagarchive" ] ; then
 
   if [ ! -f "$WORKDIR/tagfiles/$tagarchive" ] ; then
-      dialog --backtitle "Error" --msgbox "File Not Found: $tagarchive" 0 0 
+      dialog --backtitle "Error" --msgbox "File Not Found: $tagarchive" 0 0
       exit 1
   fi
 
@@ -164,7 +179,7 @@ fi
 mkdir -p $WORKDIR
 cd $WORKDIR
 
-if [ ! -f FILELIST.TXT ] ; then 
+if [ ! -f FILELIST.TXT ] ; then
   dialog --infobox "Downloading FILELIST.TXT" 10 70
   wgetit -c $MIRROR/FILELIST.TXT
 fi
@@ -207,8 +222,8 @@ while true ; do
   rm $WORKDIR/series.$$.tmp $WORKDIR/*/packages.$$.tmp 2> /dev/null || true
   checklist=
   for tagfile in $TAGFILES ; do
-    serie=`echo $tagfile | cut -d / -f 2` 
-    case "$serie" in 
+    serie=`echo $tagfile | cut -d / -f 2`
+    case "$serie" in
       a) comment="Base System" ;;
       ap) comment="Applications" ;;
       d) comment="Development" ;;
@@ -223,11 +238,11 @@ while true ; do
       t) comment="tetex/xfig/transfig" ;;
       tcl) comment="TCL" ;;
       x) comment="X Windows" ;;
-      xap) comment="X Applications" ;; 
+      xap) comment="X Applications" ;;
       y) comment="BSD games" ;;
       *) comment="" ;;
     esac
-    
+
     checklist="$checklist `dirname $tagfile` '$comment' off"
   done
 
@@ -239,7 +254,7 @@ while true ; do
      1) break ;;
      3) savetagfiles ; continue;;
   esac
- 
+
 
   dialog --infobox "Please wait..." 10 70
 
@@ -248,14 +263,14 @@ while true ; do
     mkdir -p $WORKDIR/$serie || doexit 1
     cd $WORKDIR/$serie || doexit 1
 
-    if [ ! -f tagfile ] ; then 
+    if [ ! -f tagfile ] ; then
       [ $verbose -gt 0 ] && echo getting slackware/$serie/tagfile
       dialog --infobox "Downloading slackware/$serie/tagfile" 10 70
       wgetit $MIRROR/slackware/$serie/tagfile || doexit 1
     fi
 
     cmd="dialog --separate-output --backtitle 'Serie $serie' --checklist 'Select packages' 0 0 0"
- 
+
     for pkg in `sed -n -r -e 's/^([^\ :]+):\ *[A-Z]{3}\$/\1/p' tagfile` ; do
       pkgpath=`grep /$serie/$pkg\-\[0-9\] $TGZ_LIST | sed -r -n -e 's/.* \.\/(.*)/\1/p' || grep /$serie/$pkg\-\[^0-9\ \-\]*\[0-9\] $TGZ_LIST | sed -r -n -e 's/.* \.\/(.*)/\1/p'`
       if [ -z "$pkgpath" ] ; then
@@ -279,15 +294,15 @@ while true ; do
          [ $verbose -gt 0 ] && echo getting $txt
          dialog --infobox "Downloading: $txt" 10 70
          if ! wgetit `dirname $url`/$txt ; then
-           continue 
+           continue
          fi
       fi
-  
+
       #comment=`sed -r -n -e "s/^$pkg: //p" $txt -e q`
       comment=`sed -r -n -e 's/\\\//g' -e "s/\"/\'/g" -e "s/^[^:]+: $pkg \((.*)\)/\1/p" -e 'T l01' -e q -e ': l01' -e "s/^[^:]+: $pkg\$//" -e t -e "s/^[^:]+: //p" -e T $txt -e q`
 
       cmd0=
-      for TAG in $whichtag ; do 
+      for TAG in $whichtag ; do
 	if egrep -q -E ^$pkg\ *:\ *$TAG\ *\$ tagfile ; then
           cmd0="$pkg \"$comment\" on"
           break
@@ -306,11 +321,11 @@ while true ; do
     eval $cmd 2> packages.$$.tmp
     err=$?
     set -e
-   
-    [ $err != 0 ] && break 
+
+    [ $err != 0 ] && break
 
     grep '^#' tagfile > tagfile.new || true
-	
+
     for p in `sed -r -n -e 's/^([^: ]+):\ *[A-Z]{3}\$/\1/p' tagfile` ; do
 
       if egrep -q -E \^$p\$ packages.$$.tmp ; then
@@ -331,6 +346,6 @@ while true ; do
 
 done
 
-doexit 0 
+doexit 0
 
 ) 2>> $LOG || doexit 1

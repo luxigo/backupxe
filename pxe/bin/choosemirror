@@ -1,31 +1,27 @@
 #!/bin/sh
-# Copyright 2006 Luc Deschenaux
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
 #
-# Redistribution and use of this script, with or without modification, is 
-# permitted provided that the following conditions are met:
-#
-# 1. Redistributions of this script must retain the above copyright
-#    notice, this list of conditions and the following disclaimer.
-#
-#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
-#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
-#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
-#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
-#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
-#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # usage: choosemirror [ ftp | http [ <mirrors_list_url> | <mirror_url> ] ]
-# 
+#
 # this script allows selection of a http or ftp mirror using slackware.org
 # official list of mirror that is normalized (thanks !)
 #
 # the server name is held in /etc/slackware-mirror
 
-# 29.03.2006 initial release 
+# 29.03.2006 initial release
 
 TEMP=$ROOT/tmp/choosemirror.$$.tmp
 
@@ -73,7 +69,7 @@ if [ $? -ne 0 ] ; then
   doexit 1
 fi
 
-cd $TEMP 
+cd $TEMP
 if [ $? -ne 0 ] ; then
   dialog --msgbox "Cannot change to dir $TEMP 0 0
   doexit 1
@@ -96,7 +92,7 @@ if [ -z "$TYPE" ] ; then
   TYPE=`cat $TEMP/protocol`
 fi
 
-# creating mirror location radiolist 
+# creating mirror location radiolist
 if [ -z "$radiolist" ] ; then
   case "$SOURCE" in
     slackware)
@@ -109,7 +105,7 @@ if [ -z "$radiolist" ] ; then
   if [ -z "$radiolist" ] ; then
      dialog --msgbox "Parsing of mirror list failed !"
      echo $TEMP/index.html
-     exit 1 
+     exit 1
   fi
   radiolist='"Use another mirror" "" on '$radiolist
 fi
@@ -132,7 +128,7 @@ while true ; do
 	     choosesubdir || doexit 1
 	     doexit 0
 	  fi
-	  continue 
+	  continue
 	else
 	  break
 	fi
@@ -141,7 +137,7 @@ done
 case "$SOURCE" in
 
   slackware)
-# downloading the server list 
+# downloading the server list
     country=`cat $TEMP/location`
     dialog --infobox "Downloading $URL/list.php?country=$country" 6 70
     wget -q $URL/list.php?country=$country -O $TEMP/$country
@@ -160,21 +156,21 @@ case "$SOURCE" in
       else
         dialog --msgbox "Parsing the server list failed: `cat err`" 6 70
         echo $TEMP/$country
-        exit 1 
+        exit 1
       fi
     fi
 
     # selecting a server in the list
     eval dialog --radiolist Please\\ select\\ a\\ mirror\\ in\\ your\\ area 0 0 0 $radiolist 2> $TEMP/mirror
     if [ $? -ne 0 ] ; then
-       doexit 1 
+       doexit 1
     fi ;;
 
   linuxpackages)
     mv $TEMP/location $TEMP/mirror ;;
 
 esac
- 
+
 #### storing mirror address
 if [ -f $TEMP/mirror ] ; then
   mkdir -p $ROOT/etc || doexit 1

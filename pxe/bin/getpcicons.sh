@@ -1,4 +1,20 @@
 #!/bin/sh
+
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 . /pxe/etc/config
 set +x
 ASYNC=0
@@ -69,7 +85,7 @@ echo Pragma: no-cache
 echo Connection: close
 echo
 
-count=`cat $PCSTYLE | wc -l` 
+count=`cat $PCSTYLE | wc -l`
 
 if [ $count -eq 0 ] ; then
 	echo -n "document.getElementById('divicons').innerHTML='';"
@@ -80,19 +96,19 @@ i=1
 while [ $i -le $count ] ; do
 
   line=`sed -r -n -e ${i}p $PCSTYLE`
-  i=`expr $i + 1` 
-  
+  i=`expr $i + 1`
+
   pc=`echo $line | cut -f 1 -d ' '`
   [ -z "$pc" ] && continue
-  
+
   mac=`getrec /pxe/etc/machines $pc || true`
   [ -z "$mac" ] && continue
   name=`getrec /pxe/etc/hosts.mac $mac || true`
   [ -z "$name" ] && name=$mac
-  
+
   style=`echo $line | sed -r -e s/^$pc\ //`
   [ -z "$style" ] && continue
-  
+
   case "$page" in
 	register)
 		[ $i -eq 2 ] && echo -n "document.getElementById('divicons').innerHTML='"
@@ -107,15 +123,15 @@ while [ $i -le $count ] ; do
 			pcstatus_img='<img name="status'$pc'" src="%s" onclick="if (event.ctrlKey) return false ; pcclick('$pc')" border="0" style="position: absolute; '$style' cursor : pointer;">'
 			selection_img="<img class=\"pcIcon\" name=\"selection$pc\" src=\"$TRANSPARENT_SELECTION\" onclick=\"if (event.ctrlKey) return false ; pcclick($pc)\" onmousedown=\"if (event.ctrlKey) {SimpleContextMenu._show(event); return false;}\" onmouseup=\"if(event.ctrlKey) return false;\" onmouseover=\"AffBulle(getpcbull($pc));\" onmouseout=\"HideBulle();\" border=\"0\" style=\"position: absolute; $style cursor : pointer;\" >"
 
-			pcstatus=`getrec /pxe/etc/pcstatus $pc 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null || true` 
+			pcstatus=`getrec /pxe/etc/pcstatus $pc 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null 2> /dev/null || true`
 			printstatus
 			echo -n $selection_img
 
 		else
 
-			pcstatus_img='document.images["status'$pc'"].src="%s";'	
+			pcstatus_img='document.images["status'$pc'"].src="%s";'
 
-			pcstatus=`getrec /pxe/etc/pcstatus $pc 2> /dev/null || true`  
+			pcstatus=`getrec /pxe/etc/pcstatus $pc 2> /dev/null || true`
 			printstatus
 			echo
 		fi
@@ -163,6 +179,6 @@ while true ; do
 
 	[ $ASYNC -eq 0 ] && break
 	[ -f /var/run/pxe/getpcicons.pid ] || break
-	
+
 	sleep 1
 done

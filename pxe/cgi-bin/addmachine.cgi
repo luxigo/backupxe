@@ -1,4 +1,18 @@
 #!/bin/sh
+# backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 . /pxe/etc/config
 
@@ -18,7 +32,7 @@ if [ -n "$QUERY_STRING" ] ; then
                 case "$varname" in
                         pc) pc=$value ;;
                         name) name=$value ;;
-                esac 
+                esac
         done
 fi
 
@@ -29,11 +43,11 @@ if [ `echo $hwaddr | wc -l` -gt 1 ] ; then
 fi
 
 if [ -z "$hwaddr" ] ; then
-	name2=`getrec /pxe/etc/hosts.mac $name` || true 
+	name2=`getrec /pxe/etc/hosts.mac $name` || true
 	if [ -n "$name2" ] ; then
 		hwaddr=$name
 	else
-		echo "alert('error: cannot guess hardware address ($name) ($hwaddr) !');"  
+		echo "alert('error: cannot guess hardware address ($name) ($hwaddr) !');"
 		exit 0
 	fi
 fi
@@ -48,9 +62,9 @@ if ! getrec /pxe/etc/machines $pc > /dev/null 2> /dev/null ; then
 	if ! getrec /pxe/etc/pcstyle $pc > /dev/null 2> /dev/null ; then
 		echo "$pc left: 750px; top: 120px;" >> /pxe/etc/pcstyle
 	fi
-	
+
 else
-	existingmac=`getrec /pxe/etc/machines $pc || true` 
+	existingmac=`getrec /pxe/etc/machines $pc || true`
 	existingname=`getrec /pxe/etc/hosts.mac $existingmac || true`
 	echo "alert('pc$pc existe deja ! (pc$pc=$existingname)');"
 	exit 0
