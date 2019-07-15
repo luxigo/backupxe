@@ -1,0 +1,3 @@
+ifeq (-e stext rio_linux.o rioinit.o rioboot.o riocmd.o rioctrl.o riointr.o rioparam.o riopcicopy.o rioroute.o riotable.o riotty.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += rio.o
+endif

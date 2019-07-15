@@ -1,0 +1,49 @@
+PACKAGE NAME:     bzip2-1.0.5-i486-1
+COMPRESSED PACKAGE SIZE:     174 K
+UNCOMPRESSED PACKAGE SIZE:     490 K
+PACKAGE LOCATION: bzip2-1.0.5-i486-1.tgz
+PACKAGE DESCRIPTION:
+bzip2: bzip2 (a block-sorting file compressor)
+bzip2:
+bzip2: Bzip2 compresses files using the Burrows-Wheeler block sorting text
+bzip2: compression algorithm, and Huffman coding.  Compression is generally
+bzip2: considerably better than that achieved by more conventional LZ77/LZ78-
+bzip2: based compressors, and approaches the performance of the PPM family of
+bzip2: statistical compressors. 
+bzip2:
+bzip2: Julian Seward <jseward@acm.org> is the author of bzip2.
+bzip2:
+FILE LIST:
+./
+install/
+install/slack-desc
+install/doinst.sh
+bin/
+bin/bzip2recover
+bin/bzip2
+lib/
+lib/libbz2.so.1.0.4
+usr/
+usr/man/
+usr/man/man1/
+usr/man/man1/bzdiff.1.gz
+usr/man/man1/bzip2.1.gz
+usr/man/man1/bzgrep.1.gz
+usr/man/man1/bzmore.1.gz
+usr/man/man1/bzip2recover.1.gz
+usr/bin/
+usr/bin/bzdiff
+usr/bin/bzmore
+usr/bin/bzgrep
+usr/lib/
+usr/lib/libbz2.a
+usr/include/
+usr/include/bzlib.h
+usr/doc/
+usr/doc/bzip2-1.0.5/
+usr/doc/bzip2-1.0.5/manual.html
+usr/doc/bzip2-1.0.5/README.COMPILATION.PROBLEMS
+usr/doc/bzip2-1.0.5/CHANGES
+usr/doc/bzip2-1.0.5/bzip2.txt
+usr/doc/bzip2-1.0.5/LICENSE
+usr/doc/bzip2-1.0.5/README

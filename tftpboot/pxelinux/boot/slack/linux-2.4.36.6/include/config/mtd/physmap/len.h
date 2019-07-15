@@ -1,0 +1,1 @@
+#define CONFIG_MTD_PHYSMAP_LEN 0x0

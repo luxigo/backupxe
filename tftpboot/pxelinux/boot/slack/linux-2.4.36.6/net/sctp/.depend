@@ -1,0 +1,249 @@
+adler32.o: adler32.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h
+associola.o: associola.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcntl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/poll.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+bind_addr.o: bind_addr.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/if_inet6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+chunk.o: chunk.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/net.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/inet.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+command.o: command.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+crc32c.o: crc32c.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h
+debug.o: debug.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h
+endpointola.o: endpointola.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/random.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/crypto.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+hashdriver.o: hashdriver.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sla1.h
+input.o: input.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/list.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/time.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/icmp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/snmp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ipsec.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+inqueue.o: inqueue.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/interrupt.h
+ipv6.o: ipv6.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sockios.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/net.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/netdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ipsec.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/icmpv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/random.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/seq_file.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/protocol.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/tcp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ndisc.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/transp_v6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/addrconf.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ip6_route.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_common.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_ecn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h
+objcnt.o: objcnt.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h
+output.o: output.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/wait.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/time.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_ecn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/icmp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/tcp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+outqueue.o: outqueue.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/list.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+primitive.o: primitive.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/list.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/time.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+proc.o: proc.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/seq_file.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h
+protocol.o: protocol.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/netdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/inetdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/seq_file.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/protocol.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/addrconf.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_common.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_ecn.h
+sla1.o: sla1.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcntl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sla1.h
+sm_make_chunk.o: sm_make_chunk.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/net.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/inet.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/scatterlist.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/crypto.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/random.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+sm_sideeffect.o: sm_sideeffect.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+sm_statefuns.o: sm_statefuns.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/net.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/inet.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_ecn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/structs.h
+sm_statetable.o: sm_statetable.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+socket.o: socket.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/wait.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/time.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcntl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/poll.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/crypto.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/icmp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/route.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/ipv6.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/inet_common.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/socket.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+ssnmap.o: ssnmap.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+sysctl.o: sysctl.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/structs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sysctl.h
+transport.o: transport.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+tsnmap.o: tsnmap.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+ulpevent.o: ulpevent.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/structs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h
+ulpqueue.o: ulpqueue.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/structs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sctp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/sctp/sm.h

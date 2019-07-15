@@ -1,0 +1,146 @@
+isense.o: isense.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/io.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/timer.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/spinlock.h \
+   mptbase.h \
+   isense.h \
+   ascq_tbl.c \
+   scsiops.c
+isense.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   scsi3.h
+	@touch isense.h
+linux_compat.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/pci.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/smp.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/page.h
+	@touch linux_compat.h
+mptbase.o: mptbase.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/pci.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kdev_t.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/blkdev.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/delay.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/interrupt.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/io.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/mtrr.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/mtrr.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/irq.h \
+   mptbase.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/proc/fs.h)
+mptbase.h: \
+   linux_compat.h \
+   scsi3.h \
+   lsi/mpi_type.h \
+   lsi/mpi.h \
+   lsi/mpi_ioc.h \
+   lsi/mpi_cnfg.h \
+   lsi/mpi_init.h \
+   lsi/mpi_lan.h \
+   lsi/mpi_raid.h \
+   lsi/mpi_fc.h \
+   lsi/mpi_targ.h \
+   lsi/mpi_tool.h \
+   lsi/fc_log.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/proc_fs.h
+	@touch mptbase.h
+mptctl.o: mptctl.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/pci.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/miscdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/smp_lock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/io.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kdev_t.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/blkdev.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/blk.h \
+   ../../scsi/scsi.h \
+   ../../scsi/hosts.h \
+   mptbase.h \
+   mptctl.h
+mptctl.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h
+	@touch mptctl.h
+mptlan.o: mptlan.c \
+   mptlan.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fs.h
+mptlan.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/netdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/if_arp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/miscdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/spinlock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/tqueue.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/delay.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/io.h \
+   mptbase.h
+	@touch mptlan.h
+mptscsih.o: mptscsih.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kdev_t.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/blkdev.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/blk.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/delay.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/interrupt.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/reboot.h \
+   ../../scsi/scsi.h \
+   ../../scsi/hosts.h \
+   ../../scsi/sd.h \
+   mptbase.h \
+   mptscsih.h \
+   isense.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/highio.h) \
+   ../../scsi/scsi_module.c
+mptscsih.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/fusion/max/sge.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/capability.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h
+	@touch mptscsih.h
+scsi3.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h
+	@touch scsi3.h
+.PRECIOUS:	isense.h \
+	linux_compat.h \
+	mptbase.h \
+	mptctl.h \
+	mptlan.h \
+	mptscsih.h \
+	scsi3.h \
+

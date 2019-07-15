@@ -1,0 +1,3 @@
+ifeq (-e stext init.o fault.o ioremap.o extable.o pageattr.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += mm.o
+endif

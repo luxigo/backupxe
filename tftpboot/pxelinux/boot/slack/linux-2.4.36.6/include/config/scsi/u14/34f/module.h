@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_U14_34F_MODULE 1

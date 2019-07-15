@@ -1,0 +1,29 @@
+devpts_i.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/tty.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/devpts_fs.h
+	@touch devpts_i.h
+inode.o: inode.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kdev_t.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/locks.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/major.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/stat.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/tty.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/bitops.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   devpts_i.h
+root.o: root.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/stat.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/param.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   devpts_i.h
+.PRECIOUS:	devpts_i.h \
+

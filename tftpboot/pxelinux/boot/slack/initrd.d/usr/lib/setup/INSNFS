@@ -1,0 +1,113 @@
+#!/bin/sh
+TMP=/var/log/setup/tmp
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+if [ -f $TMP/Punattended ]; then
+ eval $(grep "^NFS_SERVER=" $TMP/Punattended)
+ eval $(grep "^NFS_ROOT=" $TMP/Punattended)
+fi
+
+while [ 0 ]; do
+ rm -f $TMP/SeTDS $TMP/SeTmount
+ UPNRUN=`cat $TMP/SeTupnrun`
+
+ if [ "$REMOTE_IPADDR" = "" ]; then REMOTE_IPADDR=${NFS_SERVER}; fi
+ if [ "$REMOTE_PATH" = "" ]; then REMOTE_PATH=${NFS_ROOT}; fi
+
+ cat << EOF > $TMP/tempmsg
+
+Good! We're all set on the local end, but now we need to know
+where to find the software packages to install. First, we need
+the IP address of the machine where the Slackware sources are
+stored.
+
+EOF
+ if [ "$UPNRUN" = "0" ]; then
+  cat << EOF >> $TMP/tempmsg
+Since you're already running on the network, you should be able
+to use the hostname instead of an IP address if you wish.
+
+EOF
+ fi
+ echo "What is the IP address of your NFS server? " >> $TMP/tempmsg
+ dialog --title "ENTER IP ADDRESS OF NFS SERVER" --inputbox \
+ "`cat $TMP/tempmsg`" 14 70 $REMOTE_IPADDR 2> $TMP/remote
+ if [ ! $? = 0 ]; then
+  rm -f $TMP/tempmsg $TMP/remote
+  exit
+ fi
+ REMOTE_IPADDR="`cat $TMP/remote`"
+ rm $TMP/remote
+
+ cat << EOF > $TMP/tempmsg
+
+ There must be a directory on the server with the Slackware
+ packages and files arranged in a tree like the FTP site.
+
+ The installation script needs to know the name of the 
+ directory on your server that contains the series
+ subdirectories. For example, if your A series is found at 
+ /slack/slackware/a, then you would respond: /slack/slackware
+ 
+ What is the Slackware source directory?
+EOF
+ dialog --title "SELECT SOURCE DIRECTORY" --inputbox "`cat $TMP/tempmsg`" 18 \
+ 65 $REMOTE_PATH 2> $TMP/slacksrc
+ if [ ! $? = 0 ]; then
+  rm -f $TMP/tempmsg $TMP/slacksrc
+  exit
+ fi
+ REMOTE_PATH="`cat $TMP/slacksrc`"
+ rm $TMP/slacksrc
+ echo
+ echo 
+ echo
+ echo "We'll switch into text mode here so you can see if you have any errors."
+ echo
+ if [ ! "$UPNRUN" = "0" ]; then
+  if [ -x /sbin/rpc.portmap ]; then
+   echo "Running /sbin/rpc.portmap..."
+   /sbin/rpc.portmap
+  fi
+ fi
+ echo "First, just for fun, we'll try to mount the parent of the directory"
+ echo "that you gave us before.  If it works, then we get access to the"
+ echo "kernels/ directory and you'll be able to choose a kernel to install"
+ echo "later without having to search for a floppy disk.  :-)"
+ echo
+ echo "First try mounting NFS at the Slackware root:"
+ REMOTE_ROOT=$(dirname $REMOTE_PATH)
+ echo "mount -r -t nfs -o nolock $REMOTE_IPADDR:$REMOTE_ROOT /var/log/mount"
+ if ! mount -r -t nfs -o nolock $REMOTE_IPADDR:$REMOTE_ROOT /var/log/mount ; then
+  echo
+  echo "Didn't work.  OK, it's the old-fashioned way for us today:"
+  echo "Mounting $REMOTE_PATH:"
+  echo "mount -r -t nfs -o nolock $REMOTE_IPADDR:$REMOTE_PATH /var/log/mount"
+  mount -r -t nfs -o nolock $REMOTE_IPADDR:$REMOTE_PATH /var/log/mount
+  if [ ! $? = 0 ]; then
+   echo "Didn't work either. Maybe you should check the correctness of the directoryname?" 
+  fi
+  echo "/var/log/mount" > $TMP/SeTDS
+ else
+  echo "/var/log/mount/slackware" > $TMP/SeTDS 
+ fi
+ echo "-source_mounted" > $TMP/SeTmount
+ echo "/dev/null" > $TMP/SeTsource
+ echo
+ echo "Current mount table:"
+ mount
+ echo
+ echo "(If you see errors above and the mount table doesn't show your NFS"
+ echo "server, then try setting up NFS again)"
+ echo
+ echo -n "Do you need to try setting up NFS again ([y]es, [n]o)? "
+ read TRY_AGAIN;
+ if [ "$TRY_AGAIN" = "n" ]; then
+  break
+ fi
+ #if [ "$UPNRUN" = "1" ]; then
+ # route del $LOCAL_NETWORK
+ # ifconfig $ENET_DEVICE down 
+ #fi
+done

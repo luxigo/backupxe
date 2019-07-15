@@ -1,0 +1,1 @@
+#define CONFIG_FB_3DFX_MODULE 1

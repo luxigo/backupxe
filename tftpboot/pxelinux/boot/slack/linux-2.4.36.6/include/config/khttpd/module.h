@@ -1,0 +1,1 @@
+#define CONFIG_KHTTPD_MODULE 1

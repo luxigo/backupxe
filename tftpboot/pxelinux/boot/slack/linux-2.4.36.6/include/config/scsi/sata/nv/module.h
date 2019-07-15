@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_SATA_NV_MODULE 1

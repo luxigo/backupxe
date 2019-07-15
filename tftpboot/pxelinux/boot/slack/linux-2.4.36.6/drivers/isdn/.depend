@@ -1,0 +1,140 @@
+isdn_audio.o: isdn_audio.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   isdn_audio.h \
+   isdn_common.h
+isdn_bsdcomp.o: isdn_bsdcomp.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcntl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/interrupt.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ptrace.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ioport.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/in.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/tty.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/signal.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/system.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/bitops.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/byteorder.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/if.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/if_ether.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/netdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/inet.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ioctl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/vmalloc.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ppp_defs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn_ppp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ip.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/tcp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/if_arp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ppp-comp.h \
+   isdn_ppp.h
+isdn_common.o: isdn_common.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/poll.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/vmalloc.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/smp_lock.h \
+   isdn_common.h \
+   isdn_tty.h \
+   isdn_net.h \
+   isdn_ppp.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/audio.h) \
+   isdn_audio.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/diversion/module.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/diversion.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn_divertif.h \
+   isdn_v110.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/devfs_fs_kernel.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/ppp.h) \
+   avmb1/capicmd.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/x25.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/tty/fax.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/netdevices.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/devfs/fs.h)
+isdn_concap.o: isdn_concap.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   isdn_x25iface.h \
+   isdn_net.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/concap.h \
+   isdn_concap.h
+isdn_net.o: isdn_net.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/arp.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/dst.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/net/pkt_sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/inetdevice.h \
+   isdn_common.h \
+   isdn_net.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/ppp.h) \
+   isdn_ppp.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/x25.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/concap.h \
+   isdn_concap.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/ippp/filter.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/inet.h)
+isdn_ppp.o: isdn_ppp.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/poll.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ppp-comp.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/ippp/filter.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/filter.h \
+   isdn_common.h \
+   isdn_ppp.h \
+   isdn_net.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/mpp.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/ppp/vj.h)
+isdn_ppp.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ppp_defs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn_ppp.h
+	@touch isdn_ppp.h
+isdn_tty.o: isdn_tty.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   isdn_common.h \
+   isdn_tty.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/audio.h) \
+   isdn_audio.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/devfs/fs.h) \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/tty/fax.h) \
+   avmb1/capicmd.h
+isdn_ttyfax.o: isdn_ttyfax.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   isdn_common.h \
+   isdn_tty.h \
+   isdn_ttyfax.h
+isdn_tty.h: \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/isdn/tty/fax.h)
+	@touch isdn_tty.h
+isdn_v110.o: isdn_v110.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   isdn_v110.h
+isdn_x25iface.o: isdn_x25iface.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/netdevice.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/concap.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/wanrouter.h \
+   isdn_x25iface.h
+isdn_x25iface.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/skbuff.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/wanrouter.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/isdn.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/concap.h
+	@touch isdn_x25iface.h
+.PRECIOUS:	isdn_ppp.h \
+	isdn_tty.h \
+	isdn_x25iface.h \
+

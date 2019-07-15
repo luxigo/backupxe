@@ -1,0 +1,36 @@
+#!/bin/sh
+
+PXELINUXCFGDIR=/tftpboot/pxelinux/pxelinux.cfg
+. /pxe/etc/config
+
+set -x
+
+echo Content-Type: text/plain
+echo
+
+if [ -n "$QUERY_STRING" ] ; then
+
+  MOVIE=`echo $QUERY_STRING | urldecode`
+  
+ #       for param in `echo $QUERY_STRING | urldecode | sed -r -e 's/\\\&/ /g' -e 's/&/ /g'` ; do
+ #               [ -z "$param" ] && continue
+ #               varname=`echo $param | cut -f 1 -d =`
+ #               value=`echo $param | cut -f 2 -d =`
+ #               case "$varname" in
+ #                       mac) MAC=`echo $value | tr A-Z a-z | tr ':' '-'` ;;
+ #                       *) MOVIE=$value ;;
+ #               esac
+ #       done
+else
+	exit 1
+fi
+
+MAC=`sed -r -n -e 's/:/-/g' -e 's/^.*(00\-[0-9a-f\-]+) '$REMOTE_ADDR' .*/\1/p' /tmp/dhcp.leases`
+[ -z "$MAC" ] && exit 1
+
+cd $PXELINUXCFGDIR
+ln -sf film$MOVIE 01-$MAC
+
+filename=`getrec /pxe/etc/movies $MOVIE`
+[ -z "$filename" ] && exit 1
+echo $filename

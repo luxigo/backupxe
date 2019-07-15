@@ -1,0 +1,3 @@
+ifeq (-e stext cache.o dcache.o dir.o ext_attr.o file.o fileset.o inode.o journal.o journal_ext2.o journal_ext3.o journal_obdfs.o journal_reiserfs.o journal_tmpfs.o journal_xfs.o kml_reint.o kml_unpack.o methods.o presto.o psdev.o replicator.o super.o sysctl.o upcall.o vfs.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += intermezzo.o
+endif

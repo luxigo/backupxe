@@ -1,0 +1,176 @@
+<!-- partimage -->
+<ul id="menuPartimage" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuPartimage')">
+	<li><a href="javascript:action('register',numSuffix(SimpleContextMenu._rootElement))">R&eacute;pertorier</a></li>  
+	<li><a name="contextSave" href="javascript:action('save',numSuffix(SimpleContextMenu._rootElement))">Sauvegarder</a></li>  
+	<li class="separator"><a name="contextRestore" href="javascript:action('restore',numSuffix(SimpleContextMenu._rootElement))">Restaurer</a></li>  
+</ul>
+
+<ul id="menuPartimage2" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuPartimage2')">
+	<li name="contextSel"><a href="javascript:action('register')">R&eacute;pertorier</a></li>  
+	<li name="contextSel"><a name="contextSave" href="javascript:action('save')">Sauvegarder</a></li>  
+	<li name="contextSel" class="separator"><a name="contextRestore" href="javascript:action('restore')">Restaurer</a></li>  
+</ul>
+
+<!-- geexbox colonne film pclist -->
+<ul id="menuMovie" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuMovie')">
+	<li><a href="javascript:xmlhttpget('/cgi-bin/pxe/movieupload_form.cgi?pc='+numSuffix(SimpleContextMenu._rootElement),'divmapupload');" onmouseover="SimpleContextMenu._hidechilds('menuMovie');">Uploader un Film...</a></li>
+	<li class="separator"><a href="javascript:xmlhttpget('/cgi-bin/pxe/movieopen_form.cgi?pc='+numSuffix(SimpleContextMenu._rootElement),'divmapupload');" onmouseover="SimpleContextMenu._hidechilds('menuMovie');">Changer URL...</a></li>
+</ul>
+<!-- geexbox pc -->
+<ul id="menuGeexbox" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuGeexbox')">
+	<li><a href="javascript:action('pause',numSuffix(SimpleContextMenu._rootElement))" onmouseover="SimpleContextMenu._hidechilds('menuGeexbox')">Pause</a></li>
+	<li class="separator"><a href="javascript:action('unpause',numSuffix(SimpleContextMenu._rootElement))" onmouseover="SimpleContextMenu._hidechilds('menuGeexbox')">Unpause</a></li>
+	<li class="separator"><a class="menuVol" onmouseover="SimpleContextMenu._show(event,'menuGeexbox')" onmouseout="SimpleContextMenu._hide('menuVol')">Volume</a></li>
+	<li><a href="javascript:xmlhttpget('/cgi-bin/pxe/movieupload_form.cgi?pc='+numSuffix(SimpleContextMenu._rootElement),'divmapupload');" onmouseover="SimpleContextMenu._hidechilds('menuGeexbox');">Uploader un Film...</a></li>
+	<li class="separator"><a href="javascript:xmlhttpget('/cgi-bin/pxe/movieopen_form.cgi?pc='+numSuffix(SimpleContextMenu._rootElement),'divmapupload');" onmouseover="SimpleContextMenu._hidechilds('menuGeexbox');">Changer URL...</a></li>
+</ul>
+
+<ul id="menuVol" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuVol')">
+	<li><a href="javascript:movie_setvol(0,numSuffix(SimpleContextMenu._rootElement));">Mute</a></li>
+	<li><a href="javascript:movie_setvol(10,numSuffix(SimpleContextMenu._rootElement));">10%</a></li>
+	<li><a href="javascript:movie_setvol(20,numSuffix(SimpleContextMenu._rootElement));">20%</a></li>
+	<li><a href="javascript:movie_setvol(30,numSuffix(SimpleContextMenu._rootElement));">30%</a></li>
+	<li><a href="javascript:movie_setvol(40,numSuffix(SimpleContextMenu._rootElement));">40%</a></li>
+	<li><a href="javascript:movie_setvol(50,numSuffix(SimpleContextMenu._rootElement));">50%</a></li>
+	<li><a href="javascript:movie_setvol(60,numSuffix(SimpleContextMenu._rootElement));">60%</a></li>
+	<li><a href="javascript:movie_setvol(70,numSuffix(SimpleContextMenu._rootElement));">70%</a></li>
+	<li><a href="javascript:movie_setvol(80,numSuffix(SimpleContextMenu._rootElement));">80%</a></li>
+	<li><a href="javascript:movie_setvol(90,numSuffix(SimpleContextMenu._rootElement));">90%</a></li>
+	<li class="separator"><a href="javascript:movie_setvol(100,numSuffix(SimpleContextMenu._rootElement));">100%</a></li>
+</ul>	
+
+<!-- geexbox map -->
+<ul id="menuGeexbox2" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuGeexbox2')">
+	<li><a href="javascript:action('pause')" onmouseover="SimpleContextMenu._hidechilds('menuGeexbox2')">Pause</a></li>
+	<li class="separator"><a href="javascript:action('unpause')" onmouseover="SimpleContextMenu._hidechilds('menuGeexbox2')">Unpause</a></li>
+	<li name="contextSel" class="separator"><a class="menuVol2" onmouseover="SimpleContextMenu._show(event,'menuGeexbox2')" onmouseout="SimpleContextMenu._hide('menuVol2')">Volume</a></li>
+</ul>
+
+<ul id="menuVol2" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menuVol2')">
+	<li name="contextSel"><a href="javascript:movie_setvol(0);">Mute</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(10);">10%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(20);">20%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(30);">30%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(40);">40%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(50);">50%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(60);">60%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(70);">70%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(80);">80%</a></li>
+	<li name="contextSel"><a href="javascript:movie_setvol(90);">90%</a></li>
+	<li name="contextSel" class="separator"><a href="javascript:movie_setvol(100);">100%</a></li>
+</ul>	
+
+<!-- pc menu -->
+<ul id="menupc" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menupc')">  
+	<li><a name="contextOn" href="javascript:action('on',numSuffix(SimpleContextMenu._rootElement))" onmouseover="SimpleContextMenu._hidechilds('menupc')">Allumer</a></li>
+	<li><a name="contextOff" href="javascript:action('off',numSuffix(SimpleContextMenu._rootElement))" onmouseover="SimpleContextMenu._hidechilds('menupc')">Eteindre</a></li>  
+	<li class="separator"><a name="contextReboot" href="javascript:action('reboot',numSuffix(SimpleContextMenu._rootElement))" onmouseover="SimpleContextMenu._hidechilds('menupc')">Red&eacute;marrer</a></li>  
+	<li class="separator"><a class="menuGeexbox" onmouseover="SimpleContextMenu._show(event,'menupc')" onmouseout="SimpleContextMenu._hide('menuGeexbox')">Geexbox</a></li>
+	<li class="separator"><a class="menuPartimage" onmouseover="SimpleContextMenu._show(event,'menupc')" onmouseout="SimpleContextMenu._hide('menuPartimage')">Partimage</a></li>
+</ul>
+
+<!-- global pc -->
+<ul id="menu1" class="SimpleContextMenu">  
+
+	<li class="separator"><a name="contextPC" class="menupc" onmouseover="SimpleContextMenu._show(event,'menu1')" onmouseout="SimpleContextMenu._hide('menupc')">PC</li>
+	<li name="contextSel" class="separator"><a class="menusel" onmouseover="SimpleContextMenu._show(event,'menu1')" onmouseout="SimpleContextMenu._hide('menusel')">S&eacute;lection</li>
+<!--
+	<li class="separator"><a href="javascript:action('bootdsl',numSuffix(SimpleContextMenu._rootElement))" onmouseover="SimpleContextMenu._hidechilds('menu1')">Boot DSL</a></li>  
+-->
+
+	<li name="contextToSel"><a href="javascript:pcclickall(1)" onmouseover="SimpleContextMenu._hidechilds('menu1')">Tout S&eacute;lectioner</a></li>  
+	<li name="contextSel"><a href="javascript:pcclickall(0)" onmouseover="SimpleContextMenu._hidechilds('menu1')">Tout D&eacute;s&eacute;lectioner</a></li>  
+	<li name="invertSel" class="separator"><a href="javascript:pcclickall('invert')" onmouseover="SimpleContextMenu._hidechilds('menu1')">Inverser la S&eacute;lection</a></li>  
+	<li class="separator"><a href="javascript:switchIconMode()" onmouseover="SimpleContextMenu._hidechilds('menu1')">Editer le Plan</a></li>  
+
+	<li class="separator" name="switchInfobulles"><a href="javascript:enableInfobulles()" onmouseover="SimpleContextMenu._hidechilds('menu1')">Activer les Infobulles</a></li>  
+
+	<li><a name="contextPClist" href="javascript:togglepclist()" onmouseover="SimpleContextMenu._hidechilds('menu1')">Cacher la Liste</a></li>  
+	<li class="separator"><a name="contextMap" href="javascript:togglemap()" onmouseover="SimpleContextMenu._hidechilds('menu1')">Cacher le Plan</a></li>  
+
+</ul>  
+
+<!-- selection menu -->
+<ul id="menusel" class="SimpleContextMenu" onmouseover="SimpleContextMenu._clearTimeout('menusel')">  
+	<li name="contextSel"><a href="javascript:action('on')" onmouseover="SimpleContextMenu._hidechilds('menusel')">Allumer S&eacute;lection</a></li>  
+	<li name="contextSel" class="separator"><a href="javascript:action('reboot')" onmouseover="SimpleContextMenu._hidechilds('menusel')">Red&eacute;marrer S&eacute;lection</a></li>  
+	<li name="contextSel" class="separator"><a href="javascript:action('off')" onmouseover="SimpleContextMenu._hidechilds('menusel')">Eteindre S&eacute;lection</a></li>  
+	<li name="contextSel" class="separator"><a class="menuGeexbox2" onmouseover="SimpleContextMenu._show(event,'menusel')" onmouseout="SimpleContextMenu._hide('menuGeexbox2')">Geexbox</a></li>
+	<li name="contextSel" class="separator"><a class="menuPartimage2" onmouseover="SimpleContextMenu._show(event,'menusel')" onmouseout="SimpleContextMenu._hide('menuPartimage2')">Partimage</a></li> 
+</ul>
+
+<!-- global map -->
+<ul id="menu1b" class="SimpleContextMenu">
+	<li name="contextSel" class="separator"><a class="menusel" onmouseover="SimpleContextMenu._show(event,'menu1b')" onmouseout="SimpleContextMenu._hide('menusel')">S&eacute;lection</li>
+<!--
+	<li class="separator"><a href="javascript:action('bootdsl')" onmouseover="SimpleContextMenu._hidechilds('menu1b')">Boot DSL</a></li>  
+-->
+	<li name="contextToSel"><a href="javascript:pcclickall(1)" onmouseover="SimpleContextMenu._hidechilds('menu1b')">Tout S&eacute;lectioner</a></li>  
+	<li name="contextSel"><a href="javascript:pcclickall(0)" onmouseover="SimpleContextMenu._hidechilds('menu1b')">Tout D&eacute;s&eacute;lectioner</a></li>  
+	<li name="invertSel" class="separator"><a href="javascript:pcclickall('invert')" onmouseover="SimpleContextMenu._hidechilds('menu1b')">Inverser la S&eacute;lection</a></li>  
+	<li class="separator"><a href="javascript:switchIconMode()" onmouseover="SimpleContextMenu._hidechilds('menu1b')">Editer le Plan</a></li>  
+	<li class="separator" name="switchInfobulles"><a href="javascript:enableInfobulles()" onmouseover="SimpleContextMenu._hidechilds('menu1b')">Activer les Infobulles</a></li>  
+	<li><a name="contextPClist2" href="javascript:togglepclist()" onmouseover="SimpleContextMenu._hidechilds('menu1')">Cacher la Liste</a></li>  
+	<li class="separator"><a name="contextMap2" href="javascript:togglemap()" onmouseover="SimpleContextMenu._hidechilds('menu1')">Cacher le Plan</a></li>  
+</ul>
+
+<!-- pc register -->
+<ul id="menu2" class="SimpleContextMenu">  
+	<li class="separator"><a href="javascript:xmlhttpget('/cgi-bin/pxe/pciconupload_form.cgi?pc='+numSuffix(SimpleContextMenu._rootElement),'divmapupload');">Changer l'Icone...</a></li>  
+	<li class="separator"><a name="contextRemove" href="javascript:pcremove(numSuffix(SimpleContextMenu._rootElement))">Enlever cette Machine</a></li>  
+	<li name="contextToSel"><a href="javascript:pcclickall(1)">Tout S&eacute;lectioner</a></li>  
+	<li name="contextSel"><a href="javascript:pcclickall(0)">Tout D&eacute;s&eacute;lectioner</a></li>  
+	<li name="invertSel" class="separator"><a href="javascript:pcclickall('invert')">Inverser la S&eacute;lection</a></li>  
+	<li class="separator" name="quitEdit"><a href="javascript:switchIconMode()">Quitter l'Editeur</a></li>  
+</ul>  
+
+<!-- map register -->
+<ul id="menu2b" class="SimpleContextMenu">
+	<li class="separator"><a href="javascript:alert('Double-cliquez dans une case vide de la premiere colonne de la liste (Id), entrez un numero de machine, puis placez la machine sur le plan.' )">Ajouter une Machine</a></li>
+	<li class="separator"><a href="javascript:xmlhttpget('/pxe/mapupload.html','divmapupload');">Uploader un Plan</a></li>
+	<li name="contextSel" class="separator"><a href="javascript:pcremove();">Enlever les machines s&eacute;lectionnees</a></li>  
+	<li name="contextToSel"><a href="javascript:pcclickall(1)">Tout S&eacute;lectioner</a></li>  
+	<li name="contextSel"><a href="javascript:pcclickall(0)">Tout D&eacute;s&eacute;lectioner</a></li>  
+	<li name="invertSel" class="separator"><a href="javascript:pcclickall('invert')">Inverser la S&eacute;lection</a></li>  
+	<li class="separator" name="quitEdit"><a href="javascript:switchIconMode()">Quitter l'Editeur</a></li>  
+</ul>
+
+<!-- columns list  -->
+<ul id="menu3" class="SimpleContextMenu">
+	<li><a href="#"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Id</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('name')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Name</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('ip')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>IP</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('mac')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>MAC</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('pxeconfig')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>Network Boot</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('save')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>Save</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('restore')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>Restore</td></tr></table></a></li>
+	<li><a href="javascript:toggleColumns('volume')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Volume</td></tr></table></a></li>
+	<li class="separator"><a href="javascript:toggleColumns('movie')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Movie</td></tr></table></a></li>
+</ul>
+
+<!-- restore  -->
+<ul id="menu4" class="SimpleContextMenu">
+	<li class="separator"><a href="#"><table><tr><td name="contextPcIcon"><img src='/pxe/pics/pc.png'></td><td name="contextPcName"></td></tr></table></a></li>
+	<li><a href="#">Sauvegarde&nbsp;&agrave;&nbsp;Restaurer:</a></li>
+	<li class="separator"><table id="restorePath" cellborder="0" cellspacing="0" style="border-width: 0px; border-style: none;"></table></li>
+	<li><a href="#">Disque&nbsp;&agrave;&nbsp;Disque depuis:</a></li>
+	<li class="separator"><table id="srcList" cellspacing="0" cellpadding="0"></table></li>
+	<li><a href="javascript:">Restaurer&nbsp;le&nbsp;MBR</a></li>
+	<li class="separator"><a>Restaurer&nbsp;Table&nbsp;de&nbsp;Partitions</a></li>
+</ul>
+
+<!-- save  -->
+<ul id="menu5" class="SimpleContextMenu">
+	<li class="separator"><a href="#"><table><tr><td name="contextPcIcon"><img src="/pxe/pics/pc.png"></td><td name="contextPcName"></td></tr></table></a></li>
+	<li><a href="#">Partitions&nbsp;&agrave;&nbsp;Sauvegarder:</a></li>
+	<li class="separator"><table id="partList" cellspacing="0" cellpadding="0"></table></li>
+	<li><a href="#">Destination Sauvegarde:</a></li>
+	<li><a href="#"><table cellspacing="0" cellpadding="0"><tr><td><img style="border-style: none;" src="/pxe/pics/checkmark.png"></td><td>Network</td></tr></table></a></li>
+	<li class="separator"><table id="destList" cellspacing="0" cellpadding="0"></table></li>
+</ul>
+
+<!-- pxeconfig  -->
+<ul id="menu6" class="SimpleContextMenu">
+	<li><a href="#">D&eacute;marrage r&eacute;seau</a></li>
+	<li class="separator"><table id="pxeconfig"></table></li>
+</ul>

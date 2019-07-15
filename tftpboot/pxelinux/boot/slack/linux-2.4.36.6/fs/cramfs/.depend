@@ -1,0 +1,16 @@
+inode.o: inode.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/pagemap.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/locks.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/blkdev.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/cramfs_fs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/semaphore.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h
+uncompress.o: uncompress.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/vmalloc.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zlib.h

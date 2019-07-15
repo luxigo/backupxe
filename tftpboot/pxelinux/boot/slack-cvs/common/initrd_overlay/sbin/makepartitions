@@ -1,0 +1,72 @@
+#!/bin/sh
+set -x
+set -e
+usage="`basename $0` <device> [<boot_partition_size> | none] [<linux_partition_size>] [<swap_partition_size> | none]"
+
+DEVICE=$1
+BOOTSIZE=$2
+PARTSIZE=$3
+SWAPSIZE=$4
+
+[ -z "$DEVICE" ] && echo $usage && exit 1
+[ "$PARTSIZE" = "none" ] && echo $usage && exit 1
+[ -z "$SWAPSIZE" ] && SWAPSIZE=0
+[ -z "$PARTSIZE" ] && PARTSIZE=0
+[ -z "$BOOTSIZE" ] && BOOTSIZE=0
+
+DEVSIZE=`sfdisk -s $DEVICE` || exit 1
+SECTORS=`sfdisk -l $DEVICE | sed -r -n -e 's#.* '$DEVICE':[^0-9]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+).*#\3#p'`
+BLOCKSIZE=`sfdisk -l $DEVICE | sed -r -n -e 's#[^=]+=[^0-9]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+).*#\2#p'`
+SECTORSIZE=512
+DEVSIZE=`expr $DEVSIZE / 1024 \* $BLOCKSIZE`
+
+if [ "$BOOTSIZE" = "none" ] ; then
+	BOOTSIZE=0
+else
+	if [ $BOOTSIZE -eq 0 ] ; then
+		BOOTSIZE=`expr 96 \* 1024`
+	fi
+fi
+
+if [ "$SWAPSIZE" = "none" ] ; then
+	SWAPSIZE=0
+else
+	if [ $SWAPSIZE -eq 0 ] ; then
+		RAMSIZE=`ramsize`
+		SWAPSIZE=`expr $RAMSIZE + $RAMSIZE`
+	fi
+fi
+
+if [ $PARTSIZE -eq 0 ] ; then
+	if [ $SWAPSIZE -eq 0 ] ; then
+		PARTSIZE=
+	else
+		PARTSIZE=`expr $DEVSIZE - $SWAPSIZE - $BOOTSIZE - 32768`
+	fi
+fi
+
+start1=0 ; size1=0 ; Id1=0 ; flag1=-
+start2=0 ; size2=0 ; Id2=0 ; flag2=-
+start3=0 ; size3=0 ; Id3=0 ; flag3=-
+start4=0 ; size4=0 ; Id4=0 ; flag4=-
+
+PARTSIZE=`expr $PARTSIZE / 1024` || true
+
+if [ $BOOTSIZE -gt 0 ] ; then
+	BOOTSIZE=`expr $BOOTSIZE / 1024`
+	start1= ; size1=$BOOTSIZE ; Id1=83 ; flag1='*'
+else
+	flag2='*'
+fi
+
+start2= ; size2=$PARTSIZE ; Id2=83 ;
+
+if [ $SWAPSIZE -gt 0 ] ; then
+  SWAPSIZE=`expr $SWAPSIZE / 1024`
+  start3=
+  size3=$SWAPSIZE
+fi
+
+[ $BOOTSIZE -gt 0 ] && echo "$start1,$size1,$Id1,$flag1"
+echo "$start2,$size2,$Id2,$flag2"
+[ $SWAPSIZE -gt 0 ] && echo "$start3,$size3,$Id3,$flag3"

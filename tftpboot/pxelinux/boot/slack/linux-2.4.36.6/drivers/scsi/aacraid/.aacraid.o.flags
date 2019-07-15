@@ -1,0 +1,3 @@
+ifeq (-e stext linit.o aachba.o commctrl.o comminit.o commsup.o dpcsup.o rx.o sa.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += aacraid.o
+endif

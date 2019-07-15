@@ -1,0 +1,1 @@
+#define CONFIG_SUNGEM_MODULE 1

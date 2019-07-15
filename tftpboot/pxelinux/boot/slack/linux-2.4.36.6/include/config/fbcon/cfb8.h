@@ -1,0 +1,1 @@
+#define CONFIG_FBCON_CFB8 1

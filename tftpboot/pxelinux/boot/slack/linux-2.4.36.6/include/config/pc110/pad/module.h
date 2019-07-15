@@ -1,0 +1,1 @@
+#define CONFIG_PC110_PAD_MODULE 1

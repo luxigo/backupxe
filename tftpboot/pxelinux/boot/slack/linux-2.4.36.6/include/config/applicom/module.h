@@ -1,0 +1,1 @@
+#define CONFIG_APPLICOM_MODULE 1

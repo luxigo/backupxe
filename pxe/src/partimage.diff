@@ -1,0 +1,185 @@
+--- partimage-0.6.4/src/client/interface_newt.cpp.orig	2007-07-24 08:26:49.000000000 +0200
++++ partimage-0.6.4/src/client/interface_newt.cpp	2007-07-25 08:32:33.000000000 +0200
+@@ -98,40 +98,61 @@
+ {
+   msgBoxError(szText);
+ }
+-
++extern char *BACKUPXE;
+ // =======================================================
+ void CInterfaceNewt::msgBoxOk(char *szTitle, char *szText, ...)
+ {
+   va_list args;
+   
++  va_start(args, szText);
++  
++  if (BACKUPXE)
++	  fprintf(stderr,"\nwhat=ok title=%s text=%s\n",szTitle,szText);
++
+   if (!getBatchMode())
+     {
+-      va_start(args, szText);
+       newtWinMessagev(szTitle, i18n("Ok"), szText, args);
+-      va_end(args);
+     }
++
++   va_end(args);
+ }
+ 
+ // =======================================================
+ void CInterfaceNewt::msgBoxCancel(char *szTitle, char *szText, ...)
+ {
+   va_list args;
+-  
++  char szBuf[4096];
++
++  va_start(args, szText);
++ 
++  vsnprintf(szBuf, sizeof(szBuf), szText, args);
++
++  if (BACKUPXE)
++  	fprintf(stderr,"\nwhat=cancel title=%s text=%s\n",szTitle,szBuf);
++
+   if (!getBatchMode())
+     {
+-      va_start(args, szText);
+       newtWinMessagev(szTitle, i18n("Cancel"), szText, args);
+-      va_end(args);
+     }
++   
++  va_end(args);
+ }
+ 
+ // =======================================================
+ void CInterfaceNewt::msgBoxError(char *szText, ...)
+ {
+   va_list args;
++  char szBuf[4096];
+   
+   va_start(args, szText);
++
++  vsnprintf(szBuf, sizeof(szBuf), szText, args);
++
++  if (BACKUPXE)
++  	fprintf(stderr,"\nwhat=error %s\n",szBuf);
++
+   newtWinMessagev(i18n("Error"), i18n("Cancel"), szText, args);
++
+   va_end(args);
+ }
+ 
+@@ -145,14 +166,20 @@
+   va_start(args, szText);
+   vsnprintf(szBuf, sizeof(szBuf), szText, args);
+   va_end(args);
+- 
++
+   if (!getBatchMode())
+     {
++      if (BACKUPXE)
++          fprintf(stderr,"\nwhat=continuecancel title=%s text=%s\n",szTitle,szBuf); 
++
+       nRes = newtWinChoice(szTitle, i18n("Continue"), i18n("Cancel"), szBuf);
+       return ((nRes == 1) ? MSGBOX_CONTINUE : MSGBOX_CANCEL);
+     }
+   else
+     {
++      if (BACKUPXE)
++          fprintf(stderr,"\nwhat=cancel title=%s text=%s\n",szTitle,szBuf); 
++
+       showDebug(1, "Error: %s\n", szBuf);
+       return MSGBOX_CANCEL;
+     }
+@@ -171,11 +198,17 @@
+ 
+   if (!getBatchMode())
+     {
++      if (BACKUPXE)
++        fprintf(stderr,"\nwhat=yesno title=%s text=%s\n",szTitle,szBuf); 
++
+       nRes = newtWinChoice(szTitle, i18n("Yes"), i18n("No"), szBuf);
+       return ((nRes == 1) ? MSGBOX_YES : MSGBOX_NO);
+     }
+   else
+     {
++      if (BACKUPXE)
++        fprintf(stderr,"\nwhat=no title=%s text=%s\n",szTitle,szBuf); 
++
+       showDebug(1, "Error: %s\n", szBuf);
+       return MSGBOX_NO;
+     }
+@@ -185,6 +218,10 @@
+ void CInterfaceNewt::StatusLine(char *str)
+ {
+   char szBuf[1024];
++
++  if (BACKUPXE)
++      fprintf(stderr,"\nwhat=status text=%s\n",str);
++
+   if (m_bPushDone)
+     newtPopHelpLine(); // work only if there is a previous push
+   snprintf(szBuf, sizeof(szBuf),
+--- partimage-0.6.4/src/client/main.cpp.orig	2007-07-25 08:25:41.000000000 +0200
++++ partimage-0.6.4/src/client/main.cpp	2007-07-25 08:31:53.000000000 +0200
+@@ -133,6 +133,7 @@
+     }*/
+ }
+ 
++char *BACKUPXE;
+ // =======================================================
+ int main(int argc, char *argv[])
+ {
+@@ -149,6 +150,8 @@
+   char szAux2[MAXPATHLEN+1];
+   char szFileSystem[1024];
+ 
++  BACKUPXE=getenv("REMOTESERVER");
++
+   // struct sched_param Param;
+ 
+   // initialize time
+--- partimage-0.6.4/src/client/gui_text.cpp.orig	2007-07-24 03:58:10.000000000 +0200
++++ partimage-0.6.4/src/client/gui_text.cpp	2007-07-25 08:59:45.000000000 +0200
+@@ -28,6 +28,7 @@
+ #include <string.h>
+ #include <stdlib.h>
+ #include <errno.h>
++#include <unistd.h>
+ 
+ // =======================================================
+ void CRestoreMbrWindow::addHardDisk(char *szText, DWORD dwNumber)
+@@ -507,6 +508,9 @@
+   RETURN_int(0);	
+ }
+ 
++extern char *BACKUPXE;
++time_t prevwget=0;
++
+ // =======================================================
+ void CSavingWindow::showStats(const time_t timeStart, QWORD qwBlockSize, QWORD qwBlocksDone, QWORD qwBlocksTotal)
+ {
+@@ -549,6 +553,12 @@
+       
+       SNPRINTF(szTemp, i18n("Data copied:.................%s / %s"), formatSize(qwDone, szTemp2), formatSize(qwTotal, szTemp3));
+       newtLabelSetText(m_labelStatsSpace, szTemp);
++
++      if ((BACKUPXE) && (!prevwget || (timeElapsed-prevwget>1))) {
++        fprintf(stderr,"\nwhat=save elapsed=%lu remaining=%lu bytespermin=%lu bytescopied=%lu bytestotal=%lu percent=%d\n",(unsigned long)timeElapsed,(unsigned long)timeRemaining,(unsigned long)qwBytesPerMin,(unsigned long)qwDone,(unsigned long)qwTotal,(unsigned int)qwPercent);
++        prevwget=timeElapsed;
++      }
++
+     }
+ 
+   newtRefresh();
+@@ -764,6 +774,11 @@
+       
+       SNPRINTF(szTemp, i18n("Data copied:......................%s / %s"), formatSize(qwDone, szTemp2), formatSize(qwTotal, szTemp3));
+       newtLabelSetText(m_labelStatsSpace, szTemp);
++
++      if ((BACKUPXE) && (!prevwget || (timeElapsed-prevwget>1))) {
++        fprintf(stderr,"\nwhat=save elapsed=%lu remaining=%lu bytespermin=%lu bytescopied=%lu bytestotal=%lu percent=%d\n",(unsigned long)timeElapsed,(unsigned long)timeRemaining,(unsigned long)qwBytesPerMin,(unsigned long)qwDone,(unsigned long)qwTotal,(unsigned int)qwPercent);
++        prevwget=timeElapsed;
++      }
+     }
+ 
+   newtRefresh();

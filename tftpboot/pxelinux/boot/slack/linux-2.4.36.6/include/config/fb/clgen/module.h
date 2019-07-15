@@ -1,0 +1,1 @@
+#define CONFIG_FB_CLGEN_MODULE 1

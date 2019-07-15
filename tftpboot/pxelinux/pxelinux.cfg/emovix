@@ -1,0 +1,88 @@
+prompt 0
+noescape 1
+default menu.c32
+menu master passwd pxemaster
+timeout 100
+ontimeout menu.c32 pxeboot.cfg/boot
+
+menu title eMoviX
+
+#default MoviX
+#prompt 1
+#timeout 70
+#display movix.msg
+#kbdmap bootkey.map
+#F1 mxhelp.txt
+#F2 trblst.txt
+#F3 mphelp.txt
+#F4 credits.txt
+#F5 trblst2.txt
+#F6 expert1.txt
+#F7 expert2.txt
+
+label MoviX
+  menu label MoviX
+  kernel boot/emovix/vmlinuz
+  append LABEL=MoviX video=vesa splash=silent vga=0x314 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label TV
+  menu label TV
+  kernel boot/emovix/vmlinuz
+  append LABEL=TV video=vesa:off splash=silent initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label NVidiaTV
+  menu label NVidiaTV
+  kernel boot/emovix/vmlinuz
+  append LABEL=TV video=vesa splash=silent vga=0x314 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesa
+  menu label vesa
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesa video=vesa:off splash=silent initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label Frame Buffer
+  menu label Frame Buffer
+  kernel boot/emovix/vmlinuz
+  append LABEL=FB video=vesa:off splash=silent initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesaFB
+  menu label vesaFB
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesaFB video=vesa splash=silent vga=0x314 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesaFB640
+  menu label vesaFB640
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesaFB video=vesa splash=silent vga=0x311 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesaFB800
+  menu label vesaFB800
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesaFB video=vesa splash=silent vga=0x314 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesaFB1024
+  menu label vesaFB1024
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesaFB video=vesa splash=silent vga=0x317 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesaFB1280
+  menu label vesaFB1280
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesaFB video=vesa splash=silent vga=0x31A initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label vesaFB1400
+  menu label vesaFB1400
+  kernel boot/emovix/vmlinuz
+  append LABEL=vesaFB video=vesa splash=silent vga=0x834 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label sdl
+  menu label sdl
+  kernel boot/emovix/vmlinuz
+  append LABEL=sdl video=vesa splash=silent vga=0x314 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label aa
+  menu label aa
+  kernel boot/emovix/vmlinuz
+  append LABEL=aa video=vesa:off splash=silent initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label aa1024
+  menu label aa1024
+  kernel boot/emovix/vmlinuz
+  append LABEL=aa video=vesa splash=silent vga=0x317 initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label aa1280
+  menu label aa1280
+  kernel boot/emovix/vmlinuz
+  append LABEL=aa video=vesa splash=silent vga=0x31A initrd=boot/emovix/initrd.gz load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=14342 rw root=/dev/ram0
+label retour                                               
+  menu label e^xit         - Revenir au menu precedent
+  menu default                                                                                                               
+  kernel menu.c32
+  append pxelinux.cfg/boot
+          

@@ -1,0 +1,1 @@
+#define CONFIG_ETHERTAP_MODULE 1

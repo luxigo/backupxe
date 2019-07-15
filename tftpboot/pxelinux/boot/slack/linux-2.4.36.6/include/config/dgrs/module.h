@@ -1,0 +1,1 @@
+#define CONFIG_DGRS_MODULE 1

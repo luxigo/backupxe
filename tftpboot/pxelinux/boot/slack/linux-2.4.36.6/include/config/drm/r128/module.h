@@ -1,0 +1,1 @@
+#define CONFIG_DRM_R128_MODULE 1

@@ -1,0 +1,1 @@
+#define CONFIG_I8K_MODULE 1

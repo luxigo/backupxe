@@ -1,0 +1,1 @@
+#define CONFIG_SCx200_I2C_SCL (12)

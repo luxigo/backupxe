@@ -1,0 +1,169 @@
+zftape-buffers.o: zftape-buffers.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/vmalloc.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h
+zftape-ctl.o: zftape-ctl.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcntl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/zft/dflt/blk/sz.h)
+zftape-ctl.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ioctl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mtio.h \
+   ../zftape/zftape-rw.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/zftape/module.h)
+	@touch zftape-ctl.h
+zftape-eof.o: zftape-eof.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-eof.h
+zftape-eof.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ftape-header-segment.h \
+   ../zftape/zftape-buffers.h
+	@touch zftape-eof.h
+zftape-init.o: zftape-init.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/version.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fs.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/signal.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/major.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/kmod.h) \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kmod.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/fcntl.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/wrapper.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/smp_lock.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/devfs_fs_kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-buffers.h \
+   ../zftape/zftape_syms.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/zft/compressor.h)
+zftape-init.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/ftape-header-segment.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-bsm.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-buffer.h \
+   ../lowlevel/ftape-format.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h
+	@touch zftape-init.h
+zftape-read.o: zftape-read.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h
+zftape-read.h: \
+   ../lowlevel/ftape-read.h
+	@touch zftape-read.h
+zftape-rw.o: zftape-rw.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/zft/dflt/blk/sz.h)
+zftape-rw.h: \
+   ../zftape/zftape-buffers.h \
+   $(wildcard /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/config/zft/dflt/blk/sz.h)
+	@touch zftape-rw.h
+zftape_syms.o: zftape_syms.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-buffers.h \
+   ../zftape/zftape-ctl.h
+zftape_syms.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h
+	@touch zftape_syms.h
+zftape-vtbl.o: zftape-vtbl.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/slab.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h
+zftape-vtbl.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/list.h \
+   ../lowlevel/ftape-tracing.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-rw.h
+	@touch zftape-vtbl.h
+zftape-write.o: zftape-write.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../zftape/zftape-vtbl.h
+.PRECIOUS:	zftape-ctl.h \
+	zftape-eof.h \
+	zftape-init.h \
+	zftape-read.h \
+	zftape-rw.h \
+	zftape_syms.h \
+	zftape-vtbl.h \
+

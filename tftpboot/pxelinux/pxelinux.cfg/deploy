@@ -1,0 +1,41 @@
+prompt 0
+noescape 1
+default menu.c32 
+menu master passwd pxemaster
+timeout 100
+ontimeout menu.c32 pxelinux.cfg/default
+ontimeout menu.c32 pxelinux.cfg/default
+
+menu title Deployement 
+
+label slackware
+  menu label ^slackware - Installer Slackware Linux
+  menu passwd stp
+  kernel boot/slackware/tftpboot/vmlinuz
+  append initrd=boot/slackware/tftpboot/initrd root=/dev/ram0 rw ramdisk_size=12000 EXEC=http://10.10.10.1/unattended.sh nousb toram
+	  
+label ubuntu
+  menu label ^ubuntu    - Installer Ubuntu Linux
+  menu passwd stp
+  kernel menu.c32
+  append pxelinux.cfg/ubuntu
+  
+label unattended
+  menu label ^windows   - Installer Windows
+  menu passwd stp
+  kernel boot/unattended/linuxboot/tftpboot/bzImage
+# Add options (z_user=..., z_path=..., etc.) to this line.
+  append initrd=boot/unattended/linuxboot/tftpboot/initrd z_path=//10.10.10.1/install
+
+label unattendedos
+  menu label win^dows   - Installer Windows (DOS bootdisk)
+  menu passwd stp
+  kernel menu.c32
+  append pxelinux.cfg/unattendedos
+   
+label retour
+  menu label e^xit      - Retour au menu principal
+  menu default
+  kernel menu.c32
+  append pxelinux.cfg/default
+

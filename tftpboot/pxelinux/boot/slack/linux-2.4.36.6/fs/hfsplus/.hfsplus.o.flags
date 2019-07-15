@@ -1,0 +1,3 @@
+ifeq (-e stext super.o options.o inode.o extents.o catalog.o dir.o btree.o bnode.o brec.o bfind.o tables.o unicode.o wrapper.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += hfsplus.o
+endif

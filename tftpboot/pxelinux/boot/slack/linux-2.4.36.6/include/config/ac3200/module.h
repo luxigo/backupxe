@@ -1,0 +1,1 @@
+#define CONFIG_AC3200_MODULE 1

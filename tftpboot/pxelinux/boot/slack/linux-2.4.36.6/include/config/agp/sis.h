@@ -1,0 +1,1 @@
+#define CONFIG_AGP_SIS 1

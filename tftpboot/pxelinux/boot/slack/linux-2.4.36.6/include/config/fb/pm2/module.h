@@ -1,0 +1,1 @@
+#define CONFIG_FB_PM2_MODULE 1

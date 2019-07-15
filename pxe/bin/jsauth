@@ -1,0 +1,18 @@
+NOAUTH=1
+if [ -z "$NOAUTH" ] ; then
+	[ -z "$MAXSESSIONTIME" ] && MAXSESSIONTIME=60
+	LASTHIT=`getrec /pxe/etc/lasthit $REMOTE_ADDR` || true
+	LASTHIT=`expr $LASTHIT + 0`
+	TIME=`date +%s` 
+	DURATION=`expr $TIME - $LASTHIT`
+	ALLOW=`getrec /pxe/etc/allow $REMOTE_ADDR` || true
+	if  [ "$ALLOW" != "1" ] || [ $DURATION -gt $MAXSESSIONTIME ] ; then
+		echo Content-Type: text/html
+		echo Pragma: no-cache
+		echo
+		echo 'document.location="https://'$SERVER_NAME'/pxe/auth.html";'
+		exit 0
+	else
+		setrec /pxe/etc/lasthit $REMOTE_ADDR $TIME
+	fi
+fi

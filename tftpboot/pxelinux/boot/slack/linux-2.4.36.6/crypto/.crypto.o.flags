@@ -1,0 +1,3 @@
+ifeq (-e stext api.o scatterwalk.o cipher.o digest.o compress.o autoload.o proc.o hmac.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += crypto.o
+endif

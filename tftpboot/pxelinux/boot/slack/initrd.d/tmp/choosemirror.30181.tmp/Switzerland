@@ -1,0 +1,156 @@
+
+
+<HTML>
+<TITLE>
+The Slackware Linux Project: Get Slack</TITLE>
+<BODY BACKGROUND="/grfx/shared/background.jpg" BGCOLOR="#fefefe"
+		         TEXT="#000000" LINK="#000000" VLINK="#000000"
+		         ALINK="#000000">
+<CENTER>
+
+<TABLE BORDER="0" WIDTH="85%" CELLSPACING="0" CELLPADDING="0">
+<TR>
+	<TD COLSPAN="3">
+		<TABLE WIDTH="95%" CELLSPACING="0" CELLPADDING="0">
+		<TR>
+			<TD ALIGN="center" VALIGN="bottom" WIDTH="55%">
+				<TABLE WIDTH="80%" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="6">
+	      <TR><TD BGCOLOR="#fefefe">
+				<CENTER><B>
+				Get Slack				</B></CENTER>
+				</TD></TR></TABLE>
+</TD></TR></TABLE>			</TD>
+			<TD VALIGN="bottom" ALIGN="right">
+				<TABLE CELLPADDING="0"><TR><TD BGCOLOR="##000000">
+				<TABLE CELLPADDING="0"><TR><TD BGCOLOR="#ffffff">
+				<A HREF="/index.html"><IMG SRC="/grfx/shared/logo.png" ALT="Slackware Logo" BORDER="0"></A>				</TD></TR></TABLE>
+				</TD></TR></TABLE>
+			</TD>
+		</TR>
+      <TR>
+         <TD COLSPAN="2"><BR></TD>
+      </TR>
+		</TABLE>
+	</TD>
+</TR>
+<TR VALIGN="top">
+	<TD WIDTH="10%">
+		<TABLE WIDTH="100%" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="14">
+	      <TR><TD BGCOLOR="#fefefe">
+<FONT SIZE="-1"><B>
+<A HREF="/index.html">News</A><P>
+<A HREF="/security/">Security Advisories</A><P><A HREF="/faq/">FAQ</A><P><A HREF="/book/">Book</A><P><A HREF="/info/">General Info</A><P></B></FONT>
+</TD></TR></TABLE>
+</TD></TR></TABLE><TABLE WIDTH="100%" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="14">
+	      <TR><TD BGCOLOR="#fefefe">
+<FONT SIZE="-1"><B>
+<A HREF="/getslack/">Get Slack</A></B></B></FONT>
+</TD></TR></TABLE>
+</TD></TR></TABLE><TABLE WIDTH="100%" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="14">
+	      <TR><TD BGCOLOR="#fefefe">
+<FONT SIZE="-1"><B>
+<P><A HREF="/zipslack/">ZipSlack</A><P><A HREF="/install/">Install Help</A><P><A HREF="/config/">Configuration</A><P><A HREF="/packages/">Packages</A><P><A HREF="/changelog/">ChangeLogs</A><P><A HREF="/~msimons/slackware/grfx/">Propaganda</A><P><A HREF="/ports/">Ports</A><P><A HREF="/links/">Other Sites</A><P><A HREF="/support/">Support</A><P><A HREF="/contact/">Contact</A><P><A HREF="/lists/">Mailing Lists</A><P><A HREF="/about/">About</A></B></FONT>
+</TD></TR></TABLE>
+</TD></TR></TABLE><P>	</TD>
+	<TD> &nbsp; </TD>
+	<TD>
+<TABLE WIDTH="100%" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="14">
+	      <TR><TD BGCOLOR="#fefefe">
+   
+	<TABLE BORDER="0"><TR>
+	<TD> &nbsp; </TD><TD>
+
+<!--
+   <A HREF="http://www.wccdrom.com/titles/linux/slack.phtml">Snag</A> the latest 
+   version of Slackware Linux plus the complete wccdrom.com Linux software 
+   archives (6 CDs in all) from <A HREF="http://www.wccdrom.com">
+   Walnut Creek</A>.
+
+   <BR><BR>
+   Also, if you're interested in some stylin' t-shirts, mousepads, etc. check
+   out the <A HREF="http://www.wccdrom.com/titles/linux/promotional.phtml">promo page</A> at Walnut
+   Creek.
+-->
+
+   <a href="http://store.slackware.com/">Order</a> the latest version of
+   Slackware Linux on CD-ROM (6 CDs in all)
+   from <b><a href="http://store.slackware.com">The Slackware Store</a></b>.
+   
+   <p>Or, you can download the complete Slackware distribution from the
+   following sites (please see the <A HREF="/contact/">Contact</A> section if
+   you have a mirror you want listed here.. you'll get a reply within a few days now):
+
+	</TD></TR></TABLE>
+
+</TD></TR></TABLE>
+</TD></TR></TABLE><TABLE WIDTH="100%" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="14">
+	      <TR><TD BGCOLOR="#fefefe">
+
+   <B>Latest Version is <FONT SIZE="+1"><B>12.1</B></FONT> </B><BR>
+
+
+	<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="8" WIDTH="100%">
+	<TR>
+		<TD><B>type</B></TD>
+		<TD><B>address</B></TD>
+		<TD><B>speed</B></TD>
+		<TD><B>max. users</B></TD>
+	</TR>
+
+
+	<TR>
+		<TD>HTTP</TD>
+		<TD><A HREF="http://mirror.switch.ch/ftp/mirror/slackware">
+		       mirror.switch.ch</A></TD>
+		<TD>1 Gbit/s</TD>
+		<TD></TD>
+	</TR>
+	
+
+	<TR>
+		<TD>FTP</TD>
+		<TD><A HREF="ftp://mirror.switch.ch/mirror/slackware/">
+		       mirror.switch.ch</A></TD>
+		<TD>1 Gbit/s</TD>
+		<TD></TD>
+	</TR>
+	
+
+	</TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+   </TD>
+</TR>
+<TR VALIGN="top">
+      <BR><BR><BR>
+
+<TD COLSPAN="3" ALIGN="right"><TABLE WIDTH="" CELLPADDING="0"><TR><TD BGCOLOR="#000000">
+
+	      <TABLE WIDTH="100%" CELLPADDING="4">
+	      <TR><TD BGCOLOR="#fefefe">
+
+<FONT SIZE="-2">
+Slackware&reg; is a <B><A HREF="http://slackware.com/trademark/trademark.php">registered trademark</A></B> of Slackware Linux, Inc.
+</FONT>
+
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+   </TD>
+</TR>
+</TABLE>
+
+</CENTER>
+
+</HTML>

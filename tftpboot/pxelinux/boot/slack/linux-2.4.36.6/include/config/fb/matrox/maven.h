@@ -1,0 +1,1 @@
+#undef  CONFIG_FB_MATROX_MAVEN

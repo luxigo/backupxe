@@ -1,0 +1,1 @@
+#define CONFIG_ATM_CLIP_MODULE 1

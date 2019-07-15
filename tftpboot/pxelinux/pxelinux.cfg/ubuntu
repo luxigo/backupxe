@@ -1,0 +1,54 @@
+prompt 0
+noescape 1
+default menu.c32
+menu master passwd pxemaster
+timeout 100
+ontimeout menu.c32 pxelinux.cfg/deploy
+menu title Installer Ubuntu
+display boot/ubuntu-installer/i386/boot-screens/syslinux.txt
+#default install
+
+F1 boot/ubuntu-installer/i386/boot-screens/f1.txt
+F2 boot/ubuntu-installer/i386/boot-screens/f2.txt
+F3 boot/ubuntu-installer/i386/boot-screens/f3.txt
+F4 boot/ubuntu-installer/i386/boot-screens/f4.txt
+F5 boot/ubuntu-installer/i386/boot-screens/f5.txt
+F6 boot/ubuntu-installer/i386/boot-screens/f6.txt
+F7 boot/ubuntu-installer/i386/boot-screens/f7.txt
+F8 boot/ubuntu-installer/i386/boot-screens/f8.txt
+F9 boot/ubuntu-installer/i386/boot-screens/f9.txt
+F0 boot/ubuntu-installer/i386/boot-screens/f10.txt
+
+label install
+  menu label ^install       - Installation standard
+	kernel boot/ubuntu-installer/i386/linux
+	append vga=normal initrd=boot/ubuntu-installer/i386/initrd.gz --
+
+label server
+  menu label ^server        - Installation de base
+	kernel boot/ubuntu-installer/i386/linux
+	append append base-installer/kernel/linux/extra-packages-2.6= tasks=standard pkgsel/language-pack-patterns= pkgsel/install-language-support=false vga=normal initrd=boot/ubuntu-installer/i386/initrd.gz  --
+
+label expert
+  menu label ^expert        - Installation standard en mode expert
+	kernel boot/ubuntu-installer/i386/linux
+	append priority=low vga=normal initrd=boot/ubuntu-installer/i386/initrd.gz  --
+
+label server-expert
+  menu label ^server-expert - Installation de base en mode expert
+	kernel boot/ubuntu-installer/i386/linux
+	append base-installer/kernel/linux/extra-packages-2.6= tasks=standard pkgsel/language-pack-patterns= pkgsel/install-language-support=false priority=low vga=normal initrd=boot/ubuntu-installer/i386/initrd.gz  --
+
+label rescue
+  menu label ^rescue        - Utilitaires de depannage
+	kernel boot/ubuntu-installer/i386/linux
+	append vga=normal initrd=boot/ubuntu-installer/i386/initrd.gz  rescue/enable=true --
+
+label retour
+  menu label e^xit          - Retour au menu precedent
+  menu default
+  kernel menu.c32
+  append pxelinux.cfg/deploy
+
+prompt 1
+timeout 0

@@ -1,0 +1,40 @@
+prompt 0
+noescape 1
+default menu.c32 
+menu master passwd pxemaster
+timeout 100
+ontimeout menu.c32 pxelinux.cfg/default
+
+menu title Sauvegarde/Restauration
+
+label partimage
+  menu label ^partimage - Utilitaire de sauvegarde
+  menu passwd stp
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=23100 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/usr/local/bin/partimage.sh reboot
+
+label save
+  menu label ^save      - Sauvegarde automatique
+#  menu default
+  menu passwd stp
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=23100 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/usr/local/bin/partimage-save.sh reboot
+
+label restore 
+  menu label ^restore   - Restauration automatique
+  menu passwd stp
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=23100 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/usr/local/bin/partimage-restore.sh reboot
+
+
+label mark
+  menu label re^ference - Referencer la machine 
+  menu passwd stp
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=23100 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/usr/local/bin/setup.sh reboot
+
+label retour
+  menu label e^xit      - Retour au menu principal
+  menu default
+  kernel menu.c32
+  append pxelinux.cfg/default

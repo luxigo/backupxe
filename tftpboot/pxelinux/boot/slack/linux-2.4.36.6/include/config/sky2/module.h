@@ -1,0 +1,1 @@
+#define CONFIG_SKY2_MODULE 1

@@ -1,0 +1,422 @@
+<html>
+
+<head>
+
+<script language="javascript" src="./tsm.js" type="text/javascript"></script>
+
+<style>
+.codeA
+{
+	font-family: courier new, arial;
+	font-size: 12px;
+	padding: 2px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: 1px solid #b0b0b0;
+	background-color: #f0f0f0;
+}
+
+.codeB
+{
+	font-family: courier new, arial;
+	font-size: 12px;
+}
+
+.codeC
+{
+	font-family: courier new, arial;
+	font-size: 12px;
+	color: green;
+}
+
+.codeComment
+{
+	font-family: courier new, arial;
+	font-size: 12px;
+	color: #c0c0c0;	
+}
+
+.highlight
+{
+	background-color: yellow;
+}
+
+.warning
+{
+	color: red;
+}
+
+</style>
+<script>
+var tsmShow = "<b><i>tsm v0.1</i></b>";
+
+function tsmInitAll()
+{
+	with (atsm = new tabStripMenu("showMe",800,700))
+	{
+		setMargin(5);
+	
+		addTab(	  tsmShow,
+		 		  "<p>"
+		 		+ "<br>Le javascript, ne se limite pas a gerer des formulaires, changer la couleur d'un texte, etc..."
+		 		+ "Il offre aussi une puissante implementation des classes et des objets en général."
+		 		+ "<br>tsm utilise cette puissance pour simuler un systeme d'onglet facile d'utilisation et paramétrable au maximum.<br>"
+		 		+ "<br>" + tsmShow + " permet:<br>"
+		 		+ "-Un nombre d'onglets et de menus 'illimité'.<br>" 
+		 		+ "-L'imbrication des menus.<br>"
+		 		+ "-La gestion des styles.<br>"
+		 		+ "-8 positions pour les entêtes.<br>"
+		 		+ "<br>Mais aussi:<br>"
+		 		+ "-Dimensions parametrables et qui s'adapte au contenu (pas de scrollbar pour le moment).<br>"
+		 		+ "-La gestion des marges entre les entêtes.<br>"
+		 		+ "-2 évènements pour changer d'onglets. (click ou mouseover)<br>"
+		 		+ "-Choix de l'onglet par défaut.<br>"
+		 		+ "</p>");
+
+		addTab(   "Installation, utilisation et réferences",
+				  "<p>"
+				+ "<br><b>· Installation</b><br>"
+				+ "<br>Dans la partie <span class='codeB'>&lt;head&gt;&lt;/head&gt;</span> de votre page, ajoutez:<br>"
+				+ "<div class='codeA'>&lt;script language=&quot;javascript&quot; src=&quot;CHEMIN/VERS/tsm.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</div>"
+	 			+ "<br>Si le repertoire du fichier html est different de celui du fichier js, ajoutez ceci:<br>"
+				+ "<div class='codeA'>&lt;script&gt;<br>&nbsp;&nbsp;&nbsp;tsmPath = \"CHEMIN/VERS/REPERTOIRE/DE/TSM/\";<br>&lt;/script&gt;</div>"
+				+ "<br>Modifiez la borne <span class='codeB'>&lt;body&gt;</span> pour créer et charger les menus."
+				+ "<div class='codeA'>&lt;body onLoad='tsmInitAll(); tsmLoadAll()'&gt;</div>"
+				+ "<br><b>· Utilisation</b><br>"
+				+ "<br>Pour declarer un menu, il faut créer une instance de la classe <span class='codeC'>tabStripMenu</span> à l'interieur de <span class='codeC'>tsmInitAll()</span>, procedez comme suit: dans l'header de la page ajoutez:"
+				+ "<div class='codeA'>&lt;script&gt;<br>"
+				+ "function tsmInitAll()<br>"
+				+ "{<br>"
+				+ "&nbsp;&nbsp;&nbsp;with (atsm = new tabStripMenu(<span class='highlight'>&quot;showMe&quot;</span>,<span class='highlight'>300</span>,<span class='highlight'>200</span>))<br>"
+				+ "&nbsp;&nbsp;&nbsp;{<br>"
+				+ "&nbsp;&nbsp;&nbsp;<span class='codeComment'>[...]</span><br>"
+				+ "&nbsp;&nbsp;&nbsp;}<br>"
+				+ "}<br>"
+				+ "&lt;/script&gt;</div>"
+				+ "<span class='highlight'><span class='codeB'>&quot;showMe&quot;</span></span> correspond à l'id d'une division (<span class='codeB'>&lt;div&gt;&lt;/div&gt;</span>) ou d'un autre conteneur.<br>"
+				+ "<span class='highlight'><span class='codeB'>300</span></span> correspond à la largeur du menu en pixel.<br>"
+				+ "<span class='highlight'><span class='codeB'>200</span></span> correspond à la hauteur du menu en pixel.<br>"
+				+ "<br>Pour declarer un autre menu, il suffit de creer une nouvelle instance de <span class='codeC'>tabStripMenu</span>, toujours dans <span class='codeC'>tsmInitAll()</span>, en donnant un nouvelle id ainsi que les dimensions du menu:"
+				+ "<div class='codeA'>"
+				+ "with (atsm = new tabStripMenu(&quot;showMe2&quot;,400,200))<br>{<br>"
+				+ "&nbsp;&nbsp;&nbsp;<span class='codeComment'>[...]</span><br>"
+				+ "}<br>"
+				+ "</div><br>"
+				+ "Une fois que vous avez declaré un menu, attribuez lui un ou plusieurs onglets en utilisant <span class='codeC'>addTab()</span>:<br>"
+				+ "<div class='codeA'>"
+				+ "addTab(<span class='highlight'>&quot;Presentation&quot;</span>,<span class='highlight'>&quot;En voila une presentation!!&quot;</span>);<br>"
+				+ "addTab(<span class='highlight'>&quot;Remerciement&quot;</span>,<span class='highlight'>&quot;Je remercie mon boucher.&quot;</span>);"
+				+ "</div>"
+				+ "Ici, nous avons crée deux onglets:<br>"
+				+ "<span class='highlight'><span class='codeB'>&quot;Presentation&quot;</span></span> est le texte affiché dans l'entête du premier onglet. (la partie toujours visible de l'onglet).<br>"
+				+ "<span class='highlight'><span class='codeB'>&quot;En voila une presentation!!&quot;</span></span> est le texte affiché dans le premier onglet.<br>"
+				+ "<span class='highlight'><span class='codeB'>&quot;Remerciement&quot;</span></span> est le texte affiché dans l'entête du second onglet.<br>"
+				+ "<span class='highlight'><span class='codeB'>&quot;Je remercie mon boucher.&quot;</span></span> est le texte affiché dans le second onglet.<br><br>"
+				+ "Comme vous pouvez le constater, cette methode n'est pas pratique si le contenu de votre onglet est de grande taille, vous pouvez utiliser <span class='codeC'>_extractSrcObj()</span> (pour plus d'informations sur sa syntaxe exacte, allez voir dans les références).<br>"
+				+ "<br>Lorsque vous avez déclaré tous les onglets du menu, utilisez <span class='codeC'>build()</span>, <span class='warning'>sans quoi votre menu ne sera pas pris en compte!<br>Autre chose importante: tout ce qui est apres <span class='codeB'>build()</span> ne sera appliqué.</span>"
+				+ "<div class='codeA'>build();</div><br>"
+				+ "Faites ainsi pour tous les menus.<br>"
+				+ "<br>Le code complet de notre exemple donnera, dans le cas ou le fichier html se trouve dans le meme repertoire que tsm.js:"
+				+ "<div class='codeA'>"
+				+ "<p>&lt;html&gt;<br>"
+				+ "&nbsp;&nbsp; &lt;head&gt;<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script language=&quot;javascript&quot; src=&quot;./tsm.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script&gt;<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function tsmInitAll()<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with (atsm = new tabStripMenu(&quot;showMe&quot;,300,200))<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addTab(&quot;Presentation&quot;,&quot;En voila une presentation!!&quot;);<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addTab(&quot;Remerciement&quot;,&quot;Je remercie mon boucher.&quot;);<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; build();<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with (atsm = new tabStripMenu(&quot;showMe2&quot;,400,200))<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addTab(&quot;Encore une presentation&quot;,&quot;Blabla!!&quot;);<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addTab(&quot;Encore des remerciements&quot;,&quot;Blablabla&quot;);<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; build();<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/script&gt;<br>"
+				+ "&nbsp;&nbsp; &lt;/head&gt;<br>"
+				+ "&nbsp;&nbsp; &lt;body onLoad='tsmInitAll(); tsmLoadAll()'&gt;<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id='showMe'&gt;&lt;/div&gt;<br>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id='showMe2'&gt;&lt;/div&gt;<br>"
+				+ "&nbsp;&nbsp; &lt;/body&gt;<br>"
+				+ "&lt;/html&gt;</p>"
+				+ "</div><br>"
+				+ "Le resultat final etant:<br><br>"
+				+ "<div id='ex1'></div><br><div id='ex2'></div>"
+				+ "<br><b>· Références</b><br>"
+				+ "<br>Le resultat est assez simple dans cet exemple mais vous avez plusieurs fonctions qui vont vous permettre de customiser vos menus. Voici la liste des méthodes qui vous sont accessibles:<br>"
+				+ "<br><span class='codeC'>tabStripMenu(string id, int width, int height)</span>: "
+				+ "Classe permettant de creer un menu. width et height sont en pixels.<br>"
+				+ "<span class='codeC'>tsmInitAll()</span>: "
+				+ "Permet de définir vos menus.<br>"
+				+ "<span class='codeC'>tsmLoadAll()</span>: "
+				+ "Permet de charger les menus sur la page.<br>"
+				+ "<span class='codeC'>addTab(string caption, string content)</span>: "
+				+ "Ajoute un onglet au menu.<br>"
+				+ "<span class='codeC'>build()</span>: "
+				+ "Construit le code html d'un menu.<br>"
+				+ "<br><span class='codeC'>setDefaultTab(int index)</span><br>"
+				+ "Choisir le menu qui aura le focus au chargement du menu. <span class='warning'>L'index équivaut à la position de l'onglet - 1</span><br>"
+				+ "<br><span class='codeC'>setMargin(int val)</span><br>"
+				+ "Definir l'espacement horizontal (resp vertical) pour les menus horizontaux (resp verticaux) entre les entêtes. val est en pixel.<br>"		
+				+ "<br><span class='codeC'>setDirection(menuTop|menuBottom|menuLeft|menuRight)</span><br>"
+				+ "Type de menu: menuTop affiche les entêtes en haut, menuBottom en bas, menuLeft à gauche et menuRight à droite.<br>"
+				+ "<br><span class='codeC'>setAlign(menuTop|menuBottom|menuLeft|menuRight)</span><br>"
+				+ "Definir l'alignement du menu:<br>"
+				+ "menuTop placera les entêtes en haut, menuBottom placera les entêtes en bas, si le menu est définit menuRight ou menuLeft.<br>"
+				+ "menuLeft placera les entêtes à gauche, menuRight placera les entêtes à droite, si le menu est définit menuTop ou menuBottom.<br>"
+				+ "<br><span class='codeC'>setEvent(onClick|onMouseOver)</span><br>"
+				+ "Selectionne la méthode de transfert de focus.<br>"
+				+ "onClick, en cliquant sur l'entête de l'onglet.<br>"
+				+ "onMouseOver, en le survolant simplement.<br>"
+				+ "<br><span class='codeC'>setStyles(style styOn, style styOff)</span><br>"
+				+ "Definit les propriétés graphique du menu.<br>"
+				+ "styOn, est le style de l'onglet selectionné.<br>"
+				+ "styOff, celui des onglets qui n'ont pas le focus.<br>"
+				+ "<i>Les informations sur le type style viendront dans quelques jours.</i><br>"
+				+ "<br>Les fonctions qui suivent ne sont pas associés à la classe tabStripMenu.<br>"
+				+ "<br><span class='codeC'>_extractSrcObj(string id)</span><br>"
+				+ "Retourne le contenu de l'objet d'id id (équivalent à un couper coller).<br><span class='warning'>L'objet n'est pas supprimé mais sont contenu est uniquement transfer dans la valeur de retour.<br> Cette fonction n'est pas fiable à 100%.</span><br>"
+				+ "</p>");
+			
+		addTab(   "Quelques exemples",
+				  "<p>"
+				+ "<br>Voyons ce que propose tsm pour cette première mouture:<br><br>"
+				+ "L'imbrication:<div id='exemple1'></div><br>"
+				+ "Un nombre illimité d'onglet:<div id='exemple2'></div><br>"
+				+ "Deux évenements pour changer d'onglet: (ici au survol de la souris)<div id='exemple3'></div><br>"
+				+ "Dimensions parametrables:<div id='exemple4'></div><br>"
+				+ "<div id='exemple5'></div><br>"
+				+ "Gestion des styles:<div id='exemple6'></div><br>"
+				+ "8 positions pour les entêtes:<div id='exemple7'></div><br>"
+				+ "<div id='exemple8'></div><br>"
+				+ "<div id='exemple9'></div><br>"
+				+ "<div id='exemple10'></div><br>"
+				+ "<div id='exemple11'></div><br>"
+				+ "<div id='exemple12'></div><br>"
+				+ "<div id='exemple13'></div><br>"
+				+ "<div id='exemple14'></div><br>"
+				+ "Le choix de l'onglet par defaut:<div id='exemple15'></div><br>"
+				+ "La posibilité d'ajouter des marges entres les entêtes:<div id='exemple16'></div><br>"
+				+ "</p>");
+
+		addTab(   "Compatibilité et bugs connus",
+				  "<p>"
+				+ "<br><b>" + tsmShow + " a été developpé sous:</b><br>"
+				+ "-Internet Explorer 6.0<br>"
+				+ "-Mozilla 1.6<br>"
+				+ "-Mozilla FireFox 0.6, 0.8<br>"
+				+ "<br>Si vous avez decouvert un bug, signalez le moi.(wonesek@aol.com)" 
+				+ "</p>");
+			
+		addTab(   "Prochainement",
+				  "<p>"
+				+ "<br><b>Pour un jour:</b><br>"
+				+ "-Docs sur la création de style.<br>"
+				+ "<br><b>Pour la version 0.2??</b><br>"
+				+ "-Hauteur et largeur fixables: utilisation des scrollbars.<br>"
+				+ "-Code plus clair.<br>"
+				+ "</p>");
+		
+		id=addTab(   "Autres",
+				  "<p>"
+				+ "<br>Ce script est sous liscence GNU/GPL, c'est à dire que vous pouvez le redistribuer et le modifier librement dans un but non lucratif et tant que votre version reste sous liscence GNU/GPL."
+				+ "<br>Respectez les efforts que j'ai fourni pour creer ce script en laissant mon pseudo dans les sources.<br>"
+				+ "Pour toutes questions ou critiques, vous pouvez m'envoyer un mail à <a href='mailto:wonesek@aol.com?subject=A%20propos%20de%20tsm'>wonesek@aol.com</a>.<br>"
+				+ "<br>Amusez vous bien!<br>"
+				+ "Wonesek."
+				+ "</p>");		
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple1",200,100))	   			 	
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple2",600,100))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		addTab("onglet 3", "contenu de l'onglet 3.");
+		addTab("onglet 4", "contenu de l'onglet 4.");
+		addTab("onglet 5", "contenu de l'onglet 5.");
+		addTab("onglet 6", "contenu de l'onglet 6.");
+		addTab("onglet 7", "contenu de l'onglet 7.");
+		addTab("onglet 8", "contenu de l'onglet 8.");
+		addTab("onglet 9", "contenu de l'onglet 9.");
+		addTab("onglet 10", "contenu de l'onglet 10.");
+		addTab("onglet 11", "contenu de l'onglet 11.");
+		addTab("onglet 12", "contenu de l'onglet 12.");
+		build();
+	}
+	
+	with (atsm = new tabStripMenu("exemple3",200,100))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setEvent(onMouseOver);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple4",400,30))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		build();
+	}
+		
+	with(atsm = new tabStripMenu("exemple5",140,400))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		build();
+	}
+	
+
+	with(otherStyleOn = new style)
+	{
+		$font_family		= "verdana";
+		$font_color			= "#666666";
+		$font_size			= "11px";
+		$font_style			= "normal";
+		$background_color	= "#99CCFF";
+		$border_size		= "1px";
+		$border_style		= "dashed";
+		$border_color		= "#66CCFF";
+		$padding			= "3px";			
+	}
+
+	with(otherStyleOff = new style)
+	{
+		$font_family		= "verdana";
+		$font_color			= "#CCCCCC";
+		$font_size			= "11px";
+		$font_style			= "normal";
+		$background_color		= "transparent";
+		$border_size		= "0px";
+		$border_style		= "dashed";
+		$border_color		= "#00bb00";
+		$padding			= "1px";			
+	}
+
+
+	with (atsm = new tabStripMenu("exemple6",300,300))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setStyles(otherStyleOn,otherStyleOff);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple7",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple8",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setAlign(menuRight);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple9",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setDirection(menuRight);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple10",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setDirection(menuRight);
+		setAlign(menuBottom);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple11",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setDirection(menuBottom);
+		setAlign(menuRight);
+		build();
+	}
+	
+	with (atsm = new tabStripMenu("exemple12",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setDirection(menuBottom);
+		build();
+	}
+	
+	with (atsm = new tabStripMenu("exemple13",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setDirection(menuLeft);
+		setAlign(menuBottom);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple14",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		setDirection(menuLeft);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple15",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		addTab("onglet 3", "contenu de l'onglet 3.");
+		setDefaultTab(2);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("exemple16",300,200))
+	{
+		addTab("onglet 1", "contenu de l'onglet 1.");
+		addTab("onglet 2", "contenu de l'onglet 2.");
+		addTab("onglet 3", "contenu de l'onglet 3.");
+
+		setDirection(menuLeft);
+		setMargin(10);
+		build();
+	}
+
+	with (atsm = new tabStripMenu("ex1",300,200))
+	{
+		addTab("Presentation","En voila une presentation!!");
+		addTab("Remerciement","Je remercie mon boucher.");
+		build();
+	}
+
+	with (atsm = new tabStripMenu("ex2",400,200))
+	{
+		addTab("Encore une presentation","Blabla!!");
+		addTab("Encore des remerciements","Blablabla");
+		build();
+	}
+}
+</script></head>
+
+<body onload="tsmInitAll(); tsmLoadAll()">
+<div id="showMe"></div>
+</body></html>

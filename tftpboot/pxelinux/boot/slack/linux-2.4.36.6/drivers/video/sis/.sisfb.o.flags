@@ -1,0 +1,3 @@
+ifeq (-e stext sis_main.o init.o init301.o sis_accel.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += sisfb.o
+endif

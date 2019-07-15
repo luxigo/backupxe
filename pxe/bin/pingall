@@ -1,0 +1,124 @@
+#!/bin/sh
+. /pxe/etc/config
+#set -x
+PXEUSER=root
+
+set -e
+
+[ -s /var/run/pxe/pingall.pid ] && kill -0 `cat /var/run/pxe/pingall.pid` 2> /dev/null && exit 0
+echo $$ > /var/run/pxe/pingall.pid
+
+
+#if [ ! which addrec > /dev/null 2> /dev/null ] ; then
+# . /pxe/bin/reclib.sh
+#fi
+
+#addrec () {
+#  if ! egrep -q "^$2 " "$1" ; then
+#    echo $2 $3 >> "$1" 
+#  fi
+#}
+
+
+#getrec() {
+#  ( egrep "^$2 " $1 2> /dev/null || true ) | cut -f 2 -d ' '
+#}
+
+
+while true ; do
+
+count=`cat /pxe/etc/machines | wc -l`
+i=1
+
+(
+
+while [ $i -le $count ] ; do
+  line=`sed -n -e ${i}p /pxe/etc/machines`
+  i=`expr $i + 1`
+
+  mac=`echo $line | cut -f 2 -d ' '`
+  pc=`echo $line | cut -f 1 -d ' '`
+
+  [ -z "$mac" ] &&  continue
+  [ -z "$pc" ] && continue
+
+  ip=`dhcplease $mac`
+  echo -n $pc 1>&2
+  
+  if [ -z "$ip" ] ; then
+    echo \ nolease 1>&2
+    echo $pc -1
+    continue
+  fi
+  
+  if ping -w 1 -c 1 $ip > /dev/null 2> /dev/null ; then
+  
+    if nc -z $ip 135 2>/dev/null ; then
+      echo \ crosoft 1>&2
+      echo $pc W
+    else
+      if nc -z $ip 111 2> /dev/null ; then
+        echo \ linux 1>&2
+        echo $pc L
+      else
+	if nc -z $ip 80 2> /dev/null ; then
+		if wget --tries=1 --timeout=5 -q http://$ip -O - | grep -q -i geexbox ; then
+			state=`wget --tries=1 --timeout=5 -q http://$ip/status -O -`
+			case $state in 
+			mplayer)
+				echo \ geexbox mplayer 1>&2
+				echo $pc GM
+				;;
+			error)
+				echo \ geexbox error 1>&2
+				echo $pc GE
+				;;
+			*)
+				echo \ geexbox 1>&2
+				echo $pc G
+				;;
+			esac
+		else
+			echo $reply
+			echo \ ping 1>&2
+			echo $pc 1
+		fi
+	else	
+		echo $reply
+		echo \ ping 1>&2
+		echo $pc 1
+	fi
+      fi
+    fi
+
+    addrec /pxe/etc/boottime $pc `date +%s` 2> /dev/null || true
+
+  else
+    
+    echo \ noping 1>&2
+    echo $pc 0
+
+    boottime=`getrec /pxe/etc/boottime $pc 2> /dev/null || true`
+
+    if [ -n "$boottime" ] ; then
+	
+	delrec /pxe/etc/boottime $pc || true
+#	sed -r -n -e "/^$pc .*/b" -e p /pxe/etc/boottime > /tmp/boottime.$$.tmp
+#        cat /tmp/boottime.$$.tmp > /pxe/etc/boottime
+#        rm /tmp/boottime.$$.tmp
+
+	curtime=`date +%s`
+	uptime=`expr $curtime - $boottime`
+	echo $pc $curtime $uptime >> /pxe/etc/uptimelog
+    fi
+  fi
+
+done
+
+) > /tmp/pingall.$$.tmp && cat /tmp/pingall.$$.tmp > /pxe/etc/pcstatus && rm /tmp/pingall.$$.tmp
+
+sleep 10 
+
+done
+
+echo -n > /var/run/pxe/pingall.pid

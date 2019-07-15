@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script src="/pxe/js/browser.js"></script>
+		<script src="/pxe/js/xhr.js"></script>
+		<script src="/pxe/js/pcclick.js"></script>
+		<script src="/pxe/js/pcstyle.js"></script>
+		<script src="/pxe/js/dragndrop.js"></script>
+	</head>
+	
+	<body onmousedown="getmousepos(event)">
+	
+		<img name="map" src="/pxe/pics/map.png" border="0" align="left">
+		<input type=button name=butt2 value="Ajouter un PC" onClick="pcassign()" class="button">
+		<input type=button name=butt4 value="Charger un plan"" onClick="xmlhttpget('/pxe/mapupload.html','divmapupload')" class="button">
+		<input type=button name=butt3 value="reload" onClick="loadicons('register')" class="button">
+
+		<div id="divicons"></div>
+		<br>
+		<br>
+		<div id="storepcstylediv"></div>
+                <div id="divconf"></div>
+                <div id="divconfbuttons"></div>
+                <div id="divassign"></div>
+                <div id="divpcedit"></div>
+		<div id="divmapupload"></div>
+		<div id="divmappreview"></div>
+
+		<script>
+			loadicons('register');
+		</script>
+	</body>
+</html>

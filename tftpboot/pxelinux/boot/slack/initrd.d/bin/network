@@ -1,0 +1,36 @@
+#!/bin/sh
+# This script configures support for ethernet cards needed during
+# installation for an NFS install.
+#
+# Normally this automatically loads an image from the ISO, and if
+# it cannot be found tries to load a floppy disk.
+#
+# You may also give a path to the network.dsk image, like this:
+# network /some/exact/path/network.dsk
+#
+
+echo
+echo "Network support for NFS install, 23-Sep-2004 volkerdi@slackware.com"
+echo
+
+# Now, let's call the network.sh script to actually do most of the work:
+
+if [ -r /scripts/network.sh ]; then
+  sh /scripts/network.sh
+fi
+
+# If we can get information from a local DHCP server, we store that for later:
+if ! grep -wq nodhcp /proc/cmdline ; then
+  for EDEV in $(cat /proc/net/dev | grep ':' | sed -e "s/^ *//" | cut -f1 -d: | grep -v lo) ; do
+    /sbin/dhcpcd -t 10 -T $EDEV 1>/dev/null 2>&1 &
+  done
+fi
+
+echo
+if [ ! "$1" = "--installer" ]; then
+ echo "The next step in your installation may be partitioning your hard drive"
+ echo "(if you're installing to a Linux partition) with 'fdisk' or 'cfdisk'"
+ echo "(the menu-driven version of fdisk).  If you already have a partition"
+ echo "prepared for Linux, run 'setup' to start the installer program."
+ echo
+fi

@@ -1,0 +1,3 @@
+ifeq (-e stext e1000_main.o e1000_hw.o e1000_ethtool.o e1000_param.o kcompat.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += e1000.o
+endif

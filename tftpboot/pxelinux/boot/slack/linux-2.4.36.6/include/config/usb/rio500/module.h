@@ -1,0 +1,1 @@
+#define CONFIG_USB_RIO500_MODULE 1

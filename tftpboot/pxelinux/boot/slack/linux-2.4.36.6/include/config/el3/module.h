@@ -1,0 +1,1 @@
+#define CONFIG_EL3_MODULE 1

@@ -1,0 +1,1 @@
+#define CONFIG_AGP_AMD_K8 1

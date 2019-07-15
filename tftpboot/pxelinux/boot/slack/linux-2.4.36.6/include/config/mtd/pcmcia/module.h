@@ -1,0 +1,1 @@
+#define CONFIG_MTD_PCMCIA_MODULE 1

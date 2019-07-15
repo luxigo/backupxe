@@ -1,0 +1,1 @@
+#define CONFIG_SCx200_GPIO_MODULE 1

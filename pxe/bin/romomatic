@@ -1,0 +1,84 @@
+#!/bin/sh
+
+set -e
+set -x
+
+WORKDIR=~/.rom-o-matic
+mkdir -p $WORKDIR || exit 1
+
+if [ "$1" = "-a" ] ; then
+ shift
+ ALL=1
+fi
+
+#uarch=`uname -i`
+#echo $uarch | ( grep -q i.86 && ROMARCH="i386") || true 
+[ -z "$ROMARCH" ] && ROMARCH=i386
+
+[ -f $WORKDIR/index.html ] || ( wget http://rom-o-matic.net -O $WORKDIR/index.html.tmp && mv $WORKDIR/index.html.tmp $WORKDIR/index.html )
+
+ROMVERSION=`sed -r -n -e 's/.*<a href=\"etherboot\/etherboot\-([0-9]\.[0-9]\.[0-9]+).*\/\".*/\1/p' -e T -e q $WORKDIR/index.html` 
+
+[ -z "$ROMVERSION" ] && ROMVERSION=5.4.2
+
+mkdir -p $WORKDIR/$ROMVERSION || exit 1
+
+ROMTYPE=$1
+[ -z "$ROMTYPE" ] && ROMTYPE=Floppy
+
+TMPFILE=$WORKDIR/version-$ROMVERSION.html
+[ -f "$TMPFILE" ] || ( wget http://rom-o-matic.net/etherboot/etherboot-$ROMVERSION/contrib/rom-o-matic -O $TMPFILE.tmp && mv $TMPFILE.tmp $TMPFILE )
+
+grep -i '<select name="nic">' $TMPFILE | sed -r -n -e "s/></>\n</pg" | sed -r -n -e 's/.*<option[^>]*>(.*)<\/option>.*/\1/pg' > $WORKDIR/niclist-$ROMVERSION
+grep -i '<select name="ofmt">' $TMPFILE | sed -r -n -e "s/></>\n</pg" | sed -r -n -e 's/.*<option[^>]*>(.*)<\/option>.*/\1/pg' > $WORKDIR/formats
+
+if [ -z "$ALL" ] ; then
+  echo -n > $WORKDIR/interfaces
+  for id in `lspci -n | sed -r -n -e 's/.*([0-9a-z]{4}):([0-9a-z]{4}).*/0x\1,0x\2/p'`; do
+    result=`grep $id $WORKDIR/niclist-$ROMVERSION || true`
+    [ -n "$result" ] && echo $result >> $WORKDIR/interfaces
+  done
+  sort -u $WORKDIR/interfaces > $WORKDIR/interfaces.new
+  mv $WORKDIR/interfaces.new $WORKDIR/interfaces
+  
+fi
+
+getroms() {
+
+  NICLIST=$1
+  OFMTu=`egrep -i "^$ROMTYPE" $WORKDIR/formats`
+  OFMT=`echo $OFMT | urlencode`
+
+  nictoget=`wc -l $NICLIST | cut -f 1 -d ' '`
+  while [ $nictoget -gt 0 ] ; do
+    NICu=`sed -n -e ${nictoget}p  $NICLIST` 
+    NIC=`echo $NICu | urlencode` 
+    set +e
+    nictoget=`expr $nictoget - 1`
+    set -e
+    if echo $NICu | egrep -q '\-\-' ; then
+      outfile=$WORKDIR/$ROMVERSION/eb-`echo $NICu | sed -r -n -e 's/^([^\ ]+)[^[]+\[([^]]+).*/\1:\2/p' | tr , : | tr : '_'`.`echo $OFMTu | sed -r -n -e 's/.*\(\.([^\)]+).*/\1/p'`
+    else
+      outfile=$WORKDIR/$ROMVERSION/eb-`echo $NICu | sed -r -n -e 's/^([^\ ]+).*/\1/p' | tr , : | tr : '_'`.`echo $OFMTu | sed -r -n -e 's/.*\(\.([^\)]+).*/\1/p'`
+    fi
+    echo $outfile
+# continue 
+    if [ -f "$outfile" ] ; then
+      continue
+    fi
+    wget -q --limit-rate=2k -c "http://rom-o-matic.net/etherboot/etherboot-$ROMVERSION/contrib/rom-o-matic/build.php?version=$ROMVERSION&F=&arch=$ROMARCH&nic=$NIC&ofmt=$OFMT&A=Get%20ROM"  -O "$outfile.part" && mv "$outfile.part" "$outfile"
+  
+  done
+
+}
+
+if [ -z "$ALL" ] ; then
+  getroms $WORKDIR/interfaces
+else
+  getroms $WORKDIR/niclist-$ROMVERSION
+fi
+
+exit
+
+http://rom-o-matic.net/5.4.2/build.php?version=5.4.2&F=&arch=i386&nic=rtl8139%3Artl8139+--+%5B0x10ec%2C0x8139%5D&ofmt=ISO+bootable+image+without+legacy+floppy+emulation+%28.iso%29&A=Configure
+

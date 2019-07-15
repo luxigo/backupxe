@@ -1,0 +1,1 @@
+#define CONFIG_ARCNET_COM90xx_MODULE 1

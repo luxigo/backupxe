@@ -1,0 +1,3 @@
+ifeq (-e stext e100_main.o e100_config.o e100_phy.o e100_eeprom.o e100_test.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += e100.o
+endif

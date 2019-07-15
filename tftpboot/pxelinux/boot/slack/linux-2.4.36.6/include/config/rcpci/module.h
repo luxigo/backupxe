@@ -1,0 +1,1 @@
+#define CONFIG_RCPCI_MODULE 1

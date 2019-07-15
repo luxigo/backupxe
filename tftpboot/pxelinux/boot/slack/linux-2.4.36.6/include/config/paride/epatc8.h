@@ -1,0 +1,1 @@
+#define CONFIG_PARIDE_EPATC8 1

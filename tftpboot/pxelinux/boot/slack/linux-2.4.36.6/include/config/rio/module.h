@@ -1,0 +1,1 @@
+#define CONFIG_RIO_MODULE 1

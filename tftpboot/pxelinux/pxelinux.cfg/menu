@@ -1,0 +1,36 @@
+prompt 0
+noescape 1
+
+default menu.c32 
+menu master passwd pxemaster
+ontimeout chain.c32 hd0
+#ontimeout menu.c32 pxelinux.cfg/boot
+
+timeout 40
+
+menu title Menu Principal
+label boot
+  menu label ^boot     - Demarrage
+  menu  default
+  kernel menu.c32
+  append  pxelinux.cfg/boot
+
+label deploy
+  menu label ^deploy   - Deployement
+  kernel menu.c32
+  append pxelinux.cfg/deploy
+  
+label ghost
+  menu label ^ghost    - Sauvegarde
+  kernel menu.c32
+  append pxelinux.cfg/ghost
+
+label tools
+  menu label ^tools    - Utilitaires 
+  kernel menu.c32
+  append pxelinux.cfg/tools
+
+label movies
+  menu label ^movies   - Films
+  kernel menu.c32
+  append pxelinux.cfg/movies

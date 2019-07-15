@@ -1,0 +1,1 @@
+#define CONFIG_ISAPNP_MODULE 1

@@ -1,0 +1,1 @@
+#define CONFIG_DEV_APPLETALK 1

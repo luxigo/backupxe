@@ -1,0 +1,1 @@
+#define CONFIG_MATH_EMULATION 1

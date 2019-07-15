@@ -1,0 +1,9 @@
+prompt 0
+noescape 1
+default restoreall
+timeout 1
+ontimeout restoreall
+label restoreall
+  kernel  boot/slack/2.6/bzImage
+		  append initrd=boot/slack/2.6/initrd.img load_ramdisk=1 prompt_ramdisk=0 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/pxe/bin/partimage-restore.sh reboot splash quiet vga=785
+

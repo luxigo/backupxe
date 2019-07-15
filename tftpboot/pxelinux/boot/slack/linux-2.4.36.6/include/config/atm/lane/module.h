@@ -1,0 +1,1 @@
+#define CONFIG_ATM_LANE_MODULE 1

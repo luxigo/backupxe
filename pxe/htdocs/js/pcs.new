@@ -1,0 +1,155 @@
+var pcStyle=new Array;
+var pcStyleElem=null;
+var pcstylechanged=0;
+var innerHTML_backup=new Array;
+var divedit_file=new Array;
+var divedit_menu=new Array;
+ 
+
+function loadicons(page,div) {
+  if (div==undefined) div='divicons';
+  if ((page=="") || (page==undefined)) return;
+  xmlhttpget("/cgi-bin/pxe/getpcicons.cgi?" + page,div,document.getElementById(div).innerHTML);
+}
+  
+function reloadicons(page) {
+  if ((page=="") || (page==undefined)) return;
+  xmlhttpget("/cgi-bin/pxe/getpcicons.cgi?" + page + "&reload",'eval');
+}
+
+function storepcstyle(pc) {
+
+  nodrag=1;
+ 
+  var xhr_object = null;
+  var querystring = "" ;
+
+  if(window.XMLHttpRequest) // Firefox
+          xhr_object = new XMLHttpRequest();
+  else if(window.ActiveXObject) // Internet Explorer
+         xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+  else {
+         alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
+         return;
+  }
+
+  if (pc!=undefined) {
+	querystring='pc' + pc + '=' + escape(pcStyle[pc]);
+  } else {
+ 
+	  var first=1;
+	  var i=1;
+	  while (i<pcStyle.length) {
+
+	    if (pcStyle[i]!=undefined) {
+
+	      if (first) {
+		querystring='pc' + i + '=' + escape(pcStyle[i]);
+		first=0;
+	      } else {
+		querystring+='&pc' + i + '=' + escape(pcStyle[i]);
+	      }
+
+	    }
+
+	    i++;
+	}
+  }
+
+  xhr_object.open("POST", "/cgi-bin/pxe/storepcstyle.cgi", true);
+
+  document.getElementById('storepcstylediv').innerHTML='';
+  xhr_object.onreadystatechange = function() {
+        if(xhr_object.readyState == 4) {
+		document.getElementById('storepcstylediv').innerHTML+=xhr_object.responseText;
+  		nodrag=0;
+	}
+  }
+  xhr_object.setRequestHeader=('Content-Type', 'application/x-www-form-urlencoded');
+  xhr_object.send(querystring);
+
+}
+
+function previewmap() {
+//  netscape.security.PrivilegeManager.enablePrivilege('UniversalFileRead');
+  document.getElementById('divmappreview').innerHTML='<img src="file://' + document.forms['mapupload'].newmap.value + '">';
+}
+
+function innerHTML_save(id) {
+        var element=document.getElementById(id);
+        innerHTML_backup[id]=element.innerHTML;
+	return element;
+}
+
+function innerHTML_restore(id) {
+        var element=document.getElementById(id);
+        element.innerHTML=innerHTML_backup[id];
+	return element;
+}
+
+function divedit(id,filename) {
+	var div=innerHTML_save(id);
+	xmlhttpget('/cgi-bin/pxe/editfile.cgi?file=' + filename + '&div=' + id,id);		
+}
+
+function divedit_init(subdir) {
+	xmlhttpget('/cgi-bin/pxe/editfile.cgi?list=' + subdir,'eval');
+}
+
+function divedit_menu_build(subdir) {
+	var i;
+	var select;
+	
+	select=document.getElementById('diveditmenu');
+
+	i=select.length;	
+	while (i-- > 0) select.remove(0);
+	
+	i=0;
+	while (i<divedit_menu.length) {
+		var opt=document.createElement('option');
+		opt.text=divedit_menu[i];
+		select.add(opt,null);	
+		++i;
+	}
+	showfile(select,divedit_file[select.selectedIndex],'editor_window');
+}
+
+function showfile(select,editor_filename,editor_window) {
+	if (table_edit_td!=undefined) {
+		table_edit_td.innerHTML=table_edit_backup;
+		table_edit_td=undefined;
+	}
+	var id=innerHTML_save(editor_window);
+	xmlhttpget('/cgi-bin/pxe/loadfile.cgi?file=' + divedit_file[select.selectedIndex] + '&div=' + editor_window,editor_window);
+	
+}
+
+var table_edit_backup;
+var table_edit_td;
+
+function editfile(select,editor_filename,editor_window) {
+	if (table_edit_td!=undefined) {
+		table_edit_td.innerHTML=table_edit_backup;
+		table_edit_td=undefined;
+	}
+	var id=innerHTML_save(editor_window);
+//	var div=document.getElementById(editor_filename);
+//	div.innerHTML=divedit_menu[select.selectedIndex];
+	divedit(editor_window,divedit_menu[select.selectedIndex]);
+}
+
+function table_edit(td) {
+	var content=td.innerHTML;
+	if (table_edit_td!=undefined) {
+		if (table_edit_td==td) {
+			return;
+		}
+		table_edit_td.innerHTML=table_edit_backup;
+	}
+	table_edit_backup=content;
+	table_edit_td=td;
+	
+	td.innerHTML='<input type="text" value="' + content + '" />'
+}
+

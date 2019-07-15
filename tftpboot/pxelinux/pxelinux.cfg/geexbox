@@ -1,0 +1,23 @@
+prompt 0
+noescape 1
+default menu.c32
+menu master passwd pxemaster
+timeout 100
+ontimeout menu.c32 pxeboot.cfg/boot
+
+menu title GeexBox
+
+DISPLAY boot/geexbox/boot.msg
+
+F1 boot/geexbox/help.msg
+
+LABEL geexbox
+  KERNEL boot/geexbox/vmlinuz
+  APPEND initrd=boot/geexbox/initrd.gz root=/dev/ram0 load_ramdisk=1 prompt_ramdisk=0 rw init=linuxrc boot=nfs lang=en remote=atiusb receiver=atiusb keymap=qwerty splash=silent vga=789 video=vesafb:ywrap,mtrr nfsroot=nfsserver:/nfs/geexbox/i386/GEEXBOX
+LABEL install
+  KERNEL boot/geexbox/vmlinuz
+  APPEND initrd=boot/geexbox/initrd.gz root=/dev/ram0 rw init=linuxrc boot=nfs installator nfsroot=nfsserver:/nfs/geexbox/i386/GEEXBOX
+LABEL debug
+  KERNEL boot/geexbox/vmlinuz
+  APPEND initrd=boot/geexbox/initrd.gz root=/dev/ram0 load_ramdisk=1 prompt_ramdisk=0 rw init=linuxrc boot=nfs lang=en remote=atiusb receiver=atiusb keymap=qwerty splash=0 vga=789 video=vesafb:ywrap,mtrr debugging nfsroot=nfsserver:/nfs/geexbox/i386/GEEXBOX
+

@@ -1,0 +1,10 @@
+prompt 0
+noescape 1
+default unattended 
+timeout 1
+ontimeout unattended 
+
+label unattended
+  kernel boot/unattended/linuxboot/tftpboot/bzImage
+# Add options (z_user=..., z_path=..., etc.) to this line.
+  append initrd=boot/unattended/linuxboot/tftpboot/initrd

@@ -1,0 +1,1 @@
+#define CONFIG_FB_ATY128_MODULE 1

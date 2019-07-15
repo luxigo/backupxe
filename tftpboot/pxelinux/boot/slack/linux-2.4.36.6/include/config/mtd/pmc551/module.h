@@ -1,0 +1,1 @@
+#define CONFIG_MTD_PMC551_MODULE 1

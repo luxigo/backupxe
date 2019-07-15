@@ -1,0 +1,336 @@
+#!/bin/sh
+MIRROR=`cat $ROOT/etc/slackware-mirror`
+WORKDIR=$ROOT/tmp/slackware
+TGZ_LIST=$WORKDIR/TGZLIST.TXT
+LOG=$ROOT/tmp/tagedit.log
+
+(
+	
+set -x
+set -e
+
+doexit () {
+
+  rm $ROOT/tmp/*.$$.tmp 2> /dev/null
+  rm $WORKDIR/*.$$.tmp 2> /dev/null
+  rm $WORKDIR/*/*.$$.tmp 2> /dev/null
+
+  exit $1
+
+}
+
+wgetit () {
+
+  fn=`echo $@ | sed -r -n -e 's/.*:\/\/[^\/]+\/(.*)/\1/p'`
+  derr=0
+  while true ; do
+
+    dialog --backtitle "Downloading..." --infobox "$fn" 7 70
+    echo > $ROOT/tmp/wget.$$.tmp
+    wget $@ 1>> $ROOT/tmp/wget.$$.tmp
+    echo "wget $@" >> $LOG
+    cat $ROOT/tmp/wget.$$.tmp >> $LOG
+    rm $ROOT/tmp/wget.$$.tmp
+
+    if [ $? -eq 0 ] ; then
+
+       return 0
+
+    else
+
+      dialog --backtitle "Error while getting $fn" --extra-button --ok-label Retry --extra-label Skip --yesno "`tail $ROOT/tmp/wget.$$.tmp`" 0 0
+      derr=$?
+
+      case $derr in
+# skip
+        3) return 1 ;;
+        1) doexit 1 ;;
+        0) continue ;;
+        *) doexit 1 ;;
+      esac
+
+    fi
+
+  done
+
+}
+
+savetagfiles () {
+
+  if [ -n "$1" ] ; then
+     filename="$1"
+  else
+
+    [ -z "$tagarchive" ] && tagarchive=default
+
+    set +e
+    dialog --backtitle 'Saving current tag files' --inputbox 'Save current tagfiles as:' 0 0 $tagarchive 2> $ROOT/tmp/tagarchive.$$.tmp
+    err=$?
+    set -e
+
+    if [ $err -ne 0 ] ; then
+      return 0 
+    fi
+
+    filename=`cat $ROOT/tmp/tagarchive.$$.tmp`
+
+  fi
+  CURDIR=`pwd` 
+  cd $WORKDIR 
+  mkdir -p tagfiles
+  tar -zcf tagfiles/$filename ./*/*/tagfile
+  cd "$CURDIR"
+
+}
+
+restoretagfiles() {
+  echo tar -zxf "$WORKDIR/tagfiles/$1" -C "$WORKDIR"
+  echo $@
+read
+  tar -zxf "$WORKDIR/tagfiles/$1" -C "$WORKDIR"
+}
+
+loadtagfiles() {
+
+  checklist=
+  for name in `find $WORKDIR/tagfiles/` ; do
+	[ "$name" = "$WORKDIR/tagfiles/" ] && continue
+	checklist="$checklist `basename $name` '' off"
+  done
+
+  set +e
+  eval "dialog --backtitle 'Restoring saved tagfiles' --ok-label Load --radiolist 'Load tagfiles from:' 0 0 0 $checklist 2> $ROOT/tmp/whichfile.$$.tmp"
+  err=$?
+  set -e
+  if [ $err -eq 0 ] && [ -s $ROOT/tmp/whichfile.$$.tmp ] ; then
+	restoretagfiles `cat $ROOT/tmp/whichfile.$$.tmp`
+  fi
+}
+
+
+initagfiles () {
+
+  if [ ! -f $WORKDIR/tagfiles/default ] ; then
+    CURDIR1=`pwd` 
+    for f in $TAGFILES ; do
+      mkdir -p $WORKDIR/`dirname $f`
+      cd "$WORKDIR/`dirname $f`"
+      if [ ! -f tagfile ] ; then 
+        echo dialog --infobox "Downloading $f" 10 70
+        wgetit $MIRROR/$f
+      fi
+    done
+    savetagfiles default 
+    cd $CURDIR1
+  fi
+
+}
+
+
+if [ ! -f $ROOT/etc/slackware-mirror ] ; then
+  choosemirror
+fi
+
+export MIRROR
+export WORKDIR
+export LOG
+echo "-------------------------- `date`" >> $LOG
+tagarchive="$1"
+
+if [ -n "$tagarchive" ] ; then
+
+  if [ ! -f "$WORKDIR/tagfiles/$tagarchive" ] ; then
+      dialog --backtitle "Error" --msgbox "File Not Found: $tagarchive" 0 0 
+      exit 1
+  fi
+
+  rm $WORKDIR/*/*/tagfile 2> /dev/null
+
+  tar -zxf $WORKDIR/tagfiles/$tagarchive -C $WORKDIR
+
+fi
+
+[ -z "$ROOT" ] && ROOT=/
+export ROOT
+
+verbose=0
+
+if killall -0 gpm ; then
+  echo killing gpm...
+  sleep 1
+  gpm -k
+fi
+
+mkdir -p $WORKDIR
+cd $WORKDIR
+
+if [ ! -f FILELIST.TXT ] ; then 
+  dialog --infobox "Downloading FILELIST.TXT" 10 70
+  wgetit -c $MIRROR/FILELIST.TXT
+fi
+grep \.tgz\$ FILELIST.TXT > $WORKDIR/TGZLIST.TXT
+
+TAGFILES=`sed -r -n -e 's/.* \.\/(.*\/tagfile$)/\1/p' $WORKDIR/FILELIST.TXT`
+export TAGFILES
+
+if [ ! -f $WORKDIR/tagfiles/default ] ; then
+  initagfiles
+fi
+
+while true ; do
+	set +e
+	dialog --separate-output \
+		--extra-button --extra-label Load \
+		--ok-label Continue \
+                --cancel-label Cancel \
+		--checklist "Initial package selection" 0 50 0 \
+			ADD "-> required" on \
+			REC "-> recommended" off \
+			OPT "-> optional" off \
+			SKP "-> skip" off \
+	2> $ROOT/tmp/whichtag.$$.tmp
+	err=$?
+	set -e
+        echo $err
+    read
+	case $err in
+	  3) loadtagfiles ;;
+	  0) break ;;
+	  1) doexit 0 ;;
+	esac
+done
+
+whichtag=`cat $ROOT/tmp/whichtag.$$.tmp`
+[ -z "$whichtag" ] && whichtag=none
+
+while true ; do
+  rm $WORKDIR/series.$$.tmp $WORKDIR/*/packages.$$.tmp 2> /dev/null || true
+  checklist=
+  for tagfile in $TAGFILES ; do
+    serie=`echo $tagfile | cut -d / -f 2` 
+    case "$serie" in 
+      a) comment="Base System" ;;
+      ap) comment="Applications" ;;
+      d) comment="Development" ;;
+      e) comment="emacs" ;;
+      f) comment="FAQs & HOW-TOs" ;;
+      ham) comment="Amateur Radio" ;;
+      k) comment="Kernel" ;;
+      kde) comment="KDE" ;;
+      kdei) comment="KDE international" ;;
+      l) comment="Libraries" ;;
+      n) comment="Networking" ;;
+      t) comment="tetex/xfig/transfig" ;;
+      tcl) comment="TCL" ;;
+      x) comment="X Windows" ;;
+      xap) comment="X Applications" ;; 
+      y) comment="BSD games" ;;
+      *) comment="" ;;
+    esac
+    
+    checklist="$checklist `dirname $tagfile` '$comment' off"
+  done
+
+  set +e
+  eval "dialog --separate-output --extra-button --extra-label Save --ok-label Select --cancel-label Done --checklist 'Choose tagfiles to modify' 0 0 0 $checklist 2> $WORKDIR/series.$$.tmp"
+  ret=$?
+  set -e
+  case $ret in
+     1) break ;;
+     3) savetagfiles ; continue;;
+  esac
+ 
+
+  dialog --infobox "Please wait..." 10 70
+
+  for serie in `cat $WORKDIR/series.$$.tmp` ; do
+
+    mkdir -p $WORKDIR/$serie || doexit 1
+    cd $WORKDIR/$serie || doexit 1
+
+    if [ ! -f tagfile ] ; then 
+      [ $verbose -gt 0 ] && echo getting slackware/$serie/tagfile
+      dialog --infobox "Downloading slackware/$serie/tagfile" 10 70
+      wgetit $MIRROR/slackware/$serie/tagfile || doexit 1
+    fi
+
+    cmd="dialog --separate-output --backtitle 'Serie $serie' --checklist 'Select packages' 0 0 0"
+ 
+    for pkg in `sed -n -r -e 's/^([^\ :]+):\ *[A-Z]{3}\$/\1/p' tagfile` ; do
+      pkgpath=`grep /$serie/$pkg\-\[0-9\] $TGZ_LIST | sed -r -n -e 's/.* \.\/(.*)/\1/p' || grep /$serie/$pkg\-\[^0-9\ \-\]*\[0-9\] $TGZ_LIST | sed -r -n -e 's/.* \.\/(.*)/\1/p'`
+      if [ -z "$pkgpath" ] ; then
+		dialog --msgbox "error: cant find $pkg in $TGZ_LIST" 0 0
+		echo error: cant find $pkg in $TGZ_LIST
+		continue
+      fi
+      url=$MIRROR/$pkgpath
+
+      [ -z "$url" ] &&  continue
+
+      if echo $url | grep -q '.*\.tgz.*\.tgz$' ; then
+         echo $url
+         echo multiple matches
+         doexit 1
+      fi
+
+      txt=`basename $url .tgz`.txt
+
+      if [ ! -f $txt ] ; then
+         [ $verbose -gt 0 ] && echo getting $txt
+         dialog --infobox "Downloading: $txt" 10 70
+         if ! wgetit `dirname $url`/$txt ; then
+           continue 
+         fi
+      fi
+  
+      #comment=`sed -r -n -e "s/^$pkg: //p" $txt -e q`
+      comment=`sed -r -n -e 's/\\\//g' -e "s/\"/\'/g" -e "s/^[^:]+: $pkg \((.*)\)/\1/p" -e 'T l01' -e q -e ': l01' -e "s/^[^:]+: $pkg\$//" -e t -e "s/^[^:]+: //p" -e T $txt -e q`
+
+      cmd0=
+      for TAG in $whichtag ; do 
+	if egrep -q -E ^$pkg\ *:\ *$TAG\ *\$ tagfile ; then
+          cmd0="$pkg \"$comment\" on"
+          break
+       fi
+      done
+      [ -z "$cmd0" ] && cmd0="$pkg \"$comment\" off"
+      cmd="$cmd $cmd0"
+
+    done
+
+    clear
+
+    rm packages.$$.tmp 2> /dev/null || true
+
+    set +e
+    eval $cmd 2> packages.$$.tmp
+    err=$?
+    set -e
+   
+    [ $err != 0 ] && break 
+
+    grep '^#' tagfile > tagfile.new || true
+	
+    for p in `sed -r -n -e 's/^([^: ]+):\ *[A-Z]{3}\$/\1/p' tagfile` ; do
+
+      if egrep -q -E \^$p\$ packages.$$.tmp ; then
+         echo $p: ADD >> tagfile.new
+      else
+         echo $p: SKP >> tagfile.new
+      fi
+
+    done
+
+    [ ! -f tagfile.orig ] && mv tagfile tagfile.orig
+    mv tagfile.new tagfile
+
+    rm packages.$$.tmp
+    cd ..
+
+  done
+
+done
+
+doexit 0 
+
+) 2>> $LOG || doexit 1

@@ -1,0 +1,3 @@
+ifeq (-e stext dir.o file.o flushd.o inode.o nfs2xdr.o pagelist.o proc.o read.o symlink.o unlink.o write.o nfs3proc.o nfs3xdr.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += nfs.o
+endif

@@ -1,0 +1,3 @@
+ifeq (-e stext ll_rw_blk.o blkpg.o genhd.o elevator.o floppy.o rd.o loop.o cpqarray.o cciss.o DAC960.o sx8.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += block.o
+endif

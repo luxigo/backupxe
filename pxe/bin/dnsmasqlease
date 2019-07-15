@@ -1,0 +1,16 @@
+#!/bin/sh
+#set -x
+
+LEASES=/tmp/dhcp.leases
+
+mac=`echo $1 | tr '\-' :`
+[ -z "$mac" ] && exit 
+
+LEASE=`grep -i $mac $LEASES`
+
+if [ -n "$LEASE" ] ; then
+	releasetime=`echo "$LEASE" | cut -f 1 -d ' '`
+	if [ `date +%s` -lt $releasetime ] ; then
+		echo $LEASE | cut -f 3 -d ' '
+	fi
+fi

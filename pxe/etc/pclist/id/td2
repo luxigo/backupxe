@@ -1,0 +1,1 @@
+<td class="c_id" ondblclick="table_edit(this,24,'+"'pcadd(table_edit_td.childNodes[0],"+i+")'"+')"> </td>

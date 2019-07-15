@@ -1,0 +1,3 @@
+ifeq (-e stext tbconvrt.o tbgetall.o tbget.o tbinstal.o tbrsdt.o tbutils.o tbxface.o tbxfroot.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += tables.o
+endif

@@ -1,0 +1,3 @@
+ifeq (-e stext proc.o dir.o cache.o sock.o inode.o file.o ioctl.o getopt.o symlink.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += smbfs.o
+endif

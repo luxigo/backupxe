@@ -1,0 +1,4 @@
+#!/bin/sh
+if [ -x /pxe/etc/$HWADDR/rc.d/rc.1 ] ; then
+  . /pxe/etc/$HWADDR/rc.d/rc.1
+fi

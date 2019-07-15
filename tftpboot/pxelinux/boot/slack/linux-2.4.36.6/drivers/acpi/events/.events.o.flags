@@ -1,0 +1,3 @@
+ifeq (-e stext evevent.o evgpeblk.o evgpe.o evmisc.o evregion.o evrgnini.o evsci.o evxface.o evxfevnt.o evxfregn.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += events.o
+endif

@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_NCR53C7xx_MODULE 1

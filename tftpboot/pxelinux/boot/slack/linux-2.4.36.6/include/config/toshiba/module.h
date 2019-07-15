@@ -1,0 +1,1 @@
+#define CONFIG_TOSHIBA_MODULE 1

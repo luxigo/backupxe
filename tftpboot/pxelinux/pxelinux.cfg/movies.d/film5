@@ -1,0 +1,22 @@
+prompt 0
+noescape 1
+menu master passwd stpxe
+default menu.c32
+ontimeout boot/geexbox/vmlinuz initrd=boot/geexbox/initrd5.gz root=/dev/ram0 load_ramdisk=1 prompt_ramdisk=0 rw init=linuxrc boot=nfs lang=fr remote=atiusb receiver=atiusb keymap=qwertz splash=silent vga=789 video=vesafb:ywrap,mtrr nfsroot=nfsrootserver:/nfs/geexbox/i386/GEEXBOX loopURL=http://movieserver/cgi-bin/pxe/getmovie.cgi?5 volume=90
+
+timeout 50 
+                
+menu title Film5
+                                                
+label film5                                     
+  menu label ^film5    - Voir le Film  5 en boucle
+  menu default                                                                                                               
+  kernel boot/geexbox/vmlinuz                                                                                                
+  append initrd=boot/geexbox/initrd5.gz root=/dev/ram0 load_ramdisk=1 prompt_ramdisk=0 rw init=linuxrc boot=nfs lang=fr remote=atiusb receiver=atiusb keymap=qwertz splash=silent vga=789 video=vesafb:ywrap,mtrr nfsroot=nfsrootserver:/nfs/geexbox/i386/GEEXBOX loopURL=http://movieserver/cgi-bin/pxe/getmovie.cgi?5 volume=90
+
+                                            
+label exit                                  
+  menu label ^exit    - Retour au menu Films
+  kernel menu.c32           
+  append pxelinux.cfg/movies
+

@@ -1,0 +1,19 @@
+export NODEBUG=1
+export NOAUTH=1
+. /pxe/etc/debug
+
+export MAXSESSIONTIME=6000
+#export BPXE_NETFS='sshfs'
+
+for conf in `ls -1 /pxe/etc/conf.d/ | sort`; do
+  [ -x "$conf" ] && . $conf
+done
+
+export PATH=/pxe/bin/`uname -m`:/pxe/bin:/usr/local/bin:$PATH
+if [ -n "$REMOTE_ADDR" ] && [ -z "$NOAUTH" ] ; then
+	if [ -z "$JS" ] ; then 
+		. /pxe/bin/cgiauth
+	else
+		. /pxe/bin/jsauth
+	fi
+fi

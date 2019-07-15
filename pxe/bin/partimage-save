@@ -1,0 +1,356 @@
+#!/bin/sh
+
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
+
+. /pxe/etc/config
+. /etc/config
+
+set -x
+		
+if [ "$1" = "-cat" ] ; then
+  CAT=yes
+  shift
+fi
+
+if [ "$1" = "-R" ] ; then
+  ONLY_REGISTER=1
+  IMAGE_DIR=/pxe/image
+  WORKDIR=$IMAGE_DIR/$HWADDR
+  PARTIMAGED=
+else 
+  PARTIMAGED="$1"
+  IMAGE_DIR="$2"
+fi
+
+myexit() {
+  if test -n "$MOUNTPOINT" && ( mount | grep -q $MOUNTPOINT ) ; then
+        cd
+        umount $MOUNTPOINT
+  fi
+  [ $1 -ne 0 ] && echo `logpfx`":error: $HWADDR: `basename $0` aborted." 1>&2
+  exit $1
+}
+
+logpfx () {
+  echo $0 $$ `date +%Y-%m-%d\ %H%M.%S`
+}
+
+if [ -z "$IMAGE_DIR" ] ; then
+  echo "usage: $0 \[ -R \] <partimaged_ip> <image_directory>" 1>&2
+  myexit 1
+fi
+
+echo "`logpfx` notice: =========> `date`" 1>&2 
+
+if echo $IMAGE_DIR | egrep -q ^/dev/ ; then
+	MOUNTPOINT="/mnt/`basename $IMAGE_DIR`" 
+	mkdir -p $MOUNTPOINT
+	if ! mount.sh $IMAGE_DIR $MOUNTPOINT ; then
+		echo "`logpfx` error: *** impossible de monter $IMAGE_DIR sur $MOUNTPOINT" 1>&2
+		myexit 1
+	fi
+	IMAGE_DIR=$MOUNTPOINT
+	WORKDIR=$IMAGE_DIR/$HWADDR
+	PARTIMAGED=
+fi
+if [ -z "$MOUNTPOINT" ] ; then
+  if ! echo $IMAGE_DIR | egrep -q ^/pxe/image ; then
+    if ! echo $IMAGE_DIR | egrep -q ^/usr/local/image ; then
+      MOUNTPOINT="/mnt/$PARTIMAGED/$IMAGE_DIR"
+      mkdir -p $MOUNTPOINT
+      echo "`logpfx` :notice: --- mounting $PARTIMAGED:$IMAGE_DIR" 1>&2
+      if ! mount.sh $PARTIMAGED:$IMAGE_DIR $MOUNTPOINT ; then
+        echo "`logpfx` error: *** impossible de monter $PARTIMAGED:$IMAGE_DIR sur $MOUNTPOINT" 1>&2
+        myexit 1
+      fi
+      IMAGE_DIR=$MOUNTPOINT
+      WORKDIR=$IMAGE_DIR/$HWADDR
+      PARTIMAGED=
+    fi
+  fi
+fi
+
+[ -n "$NOPARTIMAGED" ] && PARTIMAGED=        
+[ -n "$PARTIMAGED" ] && PARTIMAGED=-s$PARTIMAGED 
+
+if [ -z "$WORKDIR" ] ; then
+	WORKDIR=`getrec /pxe/etc/savepath $HWADDR 2> /dev/null || true`
+	if [ -z "$WORKDIR" ] ; then
+		WORKDIR=$IMAGE_DIR/$HWADDR
+	fi
+	if echo $WORKDIR | egrep -q ^/dev/ ; then
+		MOUNTPOINT="/mnt/`basename $WORKDIR`" 
+		mkdir -p $MOUNTPOINT
+		if ! mount.sh $WORKDIR $MOUNTPOINT ; then
+			echo "`logpfx` error: *** impossible de monter $WORKDIR sur $MOUNTPOINT" 1>&2
+			myexit 1
+		fi
+		IMAGE_DIR=$MOUNTPOINT
+		WORKDIR=$IMAGE_DIR/$HWADDR
+		PARTIMAGED=
+	fi
+fi
+
+if [ -f "$WORKDIR/_ok" ] ; then
+	savdate=`cat $WORKDIR/_ok | cut -f 1 -d . | tr ' ' _`
+	mkdir -p `dirname $WORKDIR`/old/$savdate || myexit 1
+	mv $WORKDIR `dirname $WORKDIR`/old/$savdate/$HWADDR || myexit 1
+fi
+
+if ! mkdir -p $WORKDIR ; then
+  echo "`logpfx` error: *** impossible de creer le repertoire $WORKDIR" 1>&2
+  myexit 1
+fi
+
+LOGDATE=`date +%Y-%m-%d\ %H%M.%S`
+echo $LOGDATE > $WORKDIR/_date || myexit 1
+
+partitioncount=0
+
+for disk in `sed -r -n -e 's/.* [0-9]+ ([a-z]+)$/\1/p' /proc/partitions` ; do
+
+  if ! cd $WORKDIR ; then
+    echo "`logpfx` error: *** impossible d'acceder au repertoire $WORKDIR" 1>&2
+    myexit 1
+  fi
+  
+#  addrec /pxe/etc/savesf "$HWADDR $disk" 1
+#  savesf=`getrec /pxe/etc/savesf $HWADDR\ $disk 2> /dev/null` || true
+#  [ -z "$savesf" ] && savesf=1
+
+#  if [ $savesf -eq 1 ] ; then
+    if ! sfdisk -d /dev/$disk > $disk.sf ; then 
+      echo "`logpfx` error: *** impossible de copier la table de partition dans `pwd`/$disk.sf" 1>&2
+      echo "`logpfx` warning: *** skipped: $disk" 1>&2
+      continue
+    fi
+ # fi
+  
+  if [ ! -s $disk.sf ] ; then
+      rm $disk.sf 2> /dev/null || true
+      echo "`logpfx` warning: *** skipped: $disk" 1>&2
+      continue
+  fi
+
+  addrec /pxe/etc/restoresf "$HWADDR $disk" 1 2> /dev/null || true
+
+#  addrec /pxe/etc/savembr "$HWADDR $disk" 1
+#  savembr=`getrec /pxe/etc/savembr $HWADDR\ $disk 2> /dev/null` || true
+#  [ -z "$savembr" ] && savembr=1
+
+#  if [ $savembr -eq 1 ] ; then
+    if ! dd if=/dev/$disk of=$disk.mbr count=1 bs=512 ; then
+      echo `logpfx` error: "*** impossibe de copier le MBR dans `pwd`$disk.mbr" 1>&2
+      myexit 1
+    fi
+#  fi
+  
+  addrec /pxe/etc/restorembr "$HWADDR $disk" 1 2> /dev/null || true
+
+#  if ! MD5=`cat $disk.sf | md5sum | sed -r -n -e 's/([^ ]+).*/\1/p'` ; then
+#     MD5=""
+#  fi
+#
+#  if [ -z "$MD5" ] ; then
+#    echo "`logppfx` error: *** regular expression not working here and now" 1>&2
+#    myexit 1
+#  fi
+
+  if ! mkdir -p $WORKDIR/$disk ; then
+    echo "`logpfx` error: *** impossible de creer le repertoire $WORKDIR/$disk" 1>&2
+    myexit 1
+  fi
+
+  if ! cd $WORKDIR/$disk ; then
+    echo "`logpfx` error: *** impossible d'acceder au repertoire $WORKDIR/$disk" 1>&2
+    myexit 1
+  fi
+ 
+#  if [ -f $disk.sf.md5 ] ; then
+#    if [ "$MD5" != "`cat $disk.sf.md5`" ] ; then
+#      echo "`logppfx` error: *** partition table has changed ($HWADDR/$disk)" 1>&2
+#      myexit 1
+#    fi
+#  else
+#    echo $MD5 > $disk.sf.md5
+#  fi
+
+  if [ -f ok ] ; then
+      if [ -n "$RESUME" ] ; then
+        continue
+      fi
+  fi 
+
+  if ! cp ../$disk.sf . ; then
+     echo "`logpfx` error: *** impossible de copier ../$disk.sf dans `pwd`" 1>&2
+     myexit 1
+  fi
+
+  if ! cp ../$disk.mbr . ; then
+    echo `logpfx` error: "*** impossible de copier le ../$disk.mbr dans `pwd`" 1>&2
+    myexit 1
+  fi
+
+  if [ ! -f ./partitions.save ] || [ -n "$ONLY_REGISTER" ] ; then
+    rm ./partitions.restore 2> /dev/null || true
+    sed -r -n -e 's/.*Id= 0$//' \
+              -e 's/.*Id= 5$//' \
+              -e 's/.*Id= 6$//' \
+              -e 's/.*Id= f$//' \
+              -e 's/.*Id=82$//' \
+              -e 's/.*Id=85$//' \
+              -e 's/.*Id=b8$//' \
+              -e "s/(\/dev\/$disk[0-9]+) :.*/\1/p" $disk.sf > partitions.save
+  fi
+
+  partitionstosave=0
+  partitionsaved=0
+  done=1
+
+  if [ -z "$RESUME" ] ; then
+    rm ./*.ok 2> /dev/null
+  fi
+
+  for PARTITION in `cat ./partitions.save | sed -r -n -e 's/#.*//' -e "s/.*($disk[0-9]+).*/\1/p"` ; do
+
+    if grep -q "/dev/$PARTITION " /proc/mounts > /dev/null ; then
+    	continue
+    fi
+    
+    partitionstosave=`expr $partitionstosave + 1`
+    partitioncount=`expr $partitioncount + 1`
+
+    if [ -f $PARTITION ] ; then
+      if [ ! -w $PARTITION ] ; then
+         echo `logpfx` notice: "*** `pwd`/$PARTITION is not writable: skipped" 1>&2
+         continue
+      fi
+      if [ -f $PARTITION.ok ] ; then
+         continue
+      fi
+    fi
+
+    if [ -z "$ONLY_REGISTER" ] ; then
+      
+      if [ -n "$CAT" ] ; then
+        
+	cmd="cat /dev/$PARTITION | gzip -c  | split -a 3 -b 2147483648 -d - ${PARTITION}_cat."
+	echo `logpfx` running: $cmd 1>&2
+	
+	if ! cat /dev/$PARTITION | gzip -c | split -a 3 -b 2147483648 -d - ${PARTITION}_cat. ; then
+          echo `logpfx` error: *** la sauvegarde a echoue 1>&2
+          done=0
+          break
+	fi
+
+      else
+      
+        cmd="partimage $PARTIMAGESAVE_OPTIONS -o -d -b $PARTIMAGED save \
+ 	  /dev/$PARTITION $WORKDIR/$disk/$PARTITION"
+	echo `logpfx` exec: $cmd 1>&2
+   
+      
+        if ! partimage $PARTIMAGESAVE_OPTIONS -o -d -b -f3 $PARTIMAGED save \
+    	  /dev/$PARTITION $WORKDIR/$disk/$PARTITION ; then
+          echo `logpfx` error: *** la sauvegarde a echoue 1>&2
+          done=0
+          break
+        fi
+      
+      fi
+    
+      touch $PARTITION.ok
+      echo `logpfx` done: $PARTITION 1>&2
+      LOGDATE=`date +%Y-%m-%d\ %H%M.%S`
+      echo "$HWADDR $LOGDATE saved $WORKDIR/$disk/$PARTITION" >> /pxe/log/journal
+      echo "$HWADDR $LOGDATE saved $PARTITION" >> $WORKDIR/$disk/journal
+    
+    else
+    
+      touch $WORKDIR/$disk/$PARTITION || myexit 1
+      chmod a-rw $WORKDIR/$disk/$PARTITION || myexit 1
+    
+    fi
+
+    partitionsaved=`expr $partitionsaved + 1` 
+
+  done
+
+  if [ $partitionstosave -eq 0 ] ; then 
+    echo 1>&2
+    echo `logpfx` "error: --- Aucune partition a sauvegarder." 1>&2
+    myexit 1
+  fi
+
+  if [ $done -eq 0 ] ; then
+    echo 1>&2
+    echo "--- Interruption: $cmd" 1>&2
+    myexit 1
+  fi
+
+  if [ $partitionsaved -eq 0 ] ; then
+    echo 1>&2
+    echo `logpfx` "error: --- aucune partition n'a pu etre sauvegardee." 1>&2
+    myexit 0
+  fi
+
+  if [ $partitionsaved -gt 0 ] ; then
+    echo `logpfx` "notice: --- $disk: $partitionsaved partitions sauvegardees avec succes" 1>&2
+  fi
+  
+  rm *.ok 2> /dev/null
+  addrec /pxe/etc/restorepath $HWADDR $WORKDIR || true
+  
+  LOGDATE=`date +%Y-%m-%d\ %H%M.%S`
+  if [ -z "$ONLY_REGISTER" ] ; then
+    echo "$HWADDR $LOGDATE saved $WORKDIR/$disk" >> /pxe/log/journal
+    echo "$HWADDR $LOGDATE saved $disk" >> $WORKDIR/$disk/journal
+    if ! touch ok ; then
+      myexit 1
+    fi 
+  fi
+
+  echo `logpfx` done: $disk 1>&2
+
+done
+
+if [ $partitioncount -eq 0 ] ; then 
+    echo 1>&2
+#  echo "--- Maybe you need to load a module for your hard disk,"
+#  echo "--- maybe there is no hard disk connected or "
+#  echo "--- maybe the partition table is empty"
+    echo "`logpfx` notice: --- Vous devez peut-etre charger un module pour votre" 1>&2
+    echo "`logpfx` notice: --- disque dur, il n'y a peut-etre pas de disque dur" 1>&2
+    echo "`logpfx` notice: --- connecte, ou alors la table de partition est peut-etre" 1>&2
+    echo "`logpfx` notice: --- vide, dans un format non reconnu, voir illisible." 1>&2
+    if [ -z "$ONLY_REGISTER" ] ; then
+    	echo "`logpfx` error: --- Aucune partition n'a pu etre detectee." 1>&2
+     	myexit 1
+    fi
+fi
+
+if [ -z "$ONLY_REGISTER" ] ; then
+  rm $WORKDIR/_date
+  echo $LOGDATE >  $WORKDIR/_ok || myexit 1
+  if [ -z "$MOUNTPOINT" ] ; then
+    echo "$HWADDR $LOGDATE saved $WORKDIR $LOGDATE" >> /pxe/log/journal
+    echo "$HWADDR $LOGDATE saved $WORKDIR $LOGDATE" >> $WORKDIR/$disk/journal
+  else
+    echo "$HWADDR $LOGDATE saved $MOUNTPOINT/$HWADDR $LOGDATE" >> /pxe/log/journal
+    echo "$HWADDR $LOGDATE saved $MOUNTPOINT/$HWADDR $LOGDATE" >> $WORKDIR/$disk/journal
+  fi
+  echo `logpfx` done: $HWADDR $LOGDATE 1>&2
+  sync
+  sleep 3
+fi
+
+if [ -n  "$MOUNTPOINT" ] ; then
+	LOCALSAVLIST=/pxe/log/$HWADDR/_ok.`basename $MOUNTPOINT`
+	echo -n > $LOCALSAVLIST
+  	[ -f $WORKDIR/_ok ] && cat $WORKDIR/_ok > $LOCALSAVLIST
+  	for _ok in `find $MOUNTPOINT/old -name _ok` ; do
+  		cat $_ok >> $LOCALSAVLIST 
+  	done
+fi
+
+myexit 0

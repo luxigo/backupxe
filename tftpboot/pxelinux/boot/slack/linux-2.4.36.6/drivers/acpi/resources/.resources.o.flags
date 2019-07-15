@@ -1,0 +1,3 @@
+ifeq (-e stext rsaddr.o rscalc.o rscreate.o rsdump.o rsio.o rsirq.o rslist.o rsmemory.o rsmisc.o rsutils.o rsxface.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += resources.o
+endif

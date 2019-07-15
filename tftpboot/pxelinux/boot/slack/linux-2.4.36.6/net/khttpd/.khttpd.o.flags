@@ -1,0 +1,3 @@
+ifeq (-e stext main.o accept.o datasending.o logging.o misc.o rfc.o rfc_time.o security.o sockets.o sysctl.o userspace.o waitheaders.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += khttpd.o
+endif

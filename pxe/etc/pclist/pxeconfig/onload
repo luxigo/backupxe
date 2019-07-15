@@ -1,0 +1,1 @@
+echo "SimpleContextMenu.attach('columnPXEconfig', 'menu6',menuUpdate);"

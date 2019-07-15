@@ -1,0 +1,36 @@
+#!/bin/sh
+
+set -e
+
+BROWSER=lynx
+TMP=/tmp/manh.`date +%Y%m`
+
+if ( echo $1 | egrep -q "^[0-9]+$" ) ; then
+	HTMLVERSION=$1
+	shift
+else
+	HTMLVERSION=401
+fi
+
+ELEMENTS=http://www.w3.org/TR/html$HTMLVERSION/index/elements.html
+
+if [ ! -f "$TMP" ] ; then
+
+	if ! wget -q $ELEMENTS  -O $TMP ; then
+		echo cannot download $ELEMENTS
+		exit 1
+	fi
+
+        sed -r -n -e 's/.*<td title="Name"><a href="([^"]+)">([^<]+)<\/a><\/td>.*/\2\t\1/p' $TMP > $TMP.tmp
+
+	mv $TMP.tmp $TMP
+fi
+
+urltail=`egrep -i "^$1[^A-Z]" $TMP | cut -f 2`
+if [ -z "$urltail" ] ; then 
+	echo $1: man page not found
+	exit 1
+fi
+
+$BROWSER `dirname $ELEMENTS`/$urltail 
+echo `dirname $ELEMENTS`/$urltail 

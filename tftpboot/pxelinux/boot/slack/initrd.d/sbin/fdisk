@@ -1,0 +1,3 @@
+#!/bin/sh
+fdisk.bin $*
+/dev/makedevs.sh

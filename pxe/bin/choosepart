@@ -1,0 +1,8 @@
+#!/bin/sh
+#sfdisk -l | sed -r -n -e 's/^(\/[^\ ]+) +(\* *)?([^ ]+) +([^ ]+) +([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/\1 \8 \6/p'0
+
+checklist=`sfdisk -l | sed -r -n -e /xtended/b -e '/Linux swap/b' -e 's/^(\/[^\ ]+) +(\* *)?([^ ]+) +([^ ]+) +([^ ]+) +([1-9][0-9]+)[^ ]? +([^ ]+) +(.+)$/\1 \"\8 \6\" off/p'`
+cmd="dialog --checklist 'Select the target partition:' 0 0 0 $checklist "
+eval $cmd 2> /tmp/targetPartition.tmp || exit
+mv /tmp/targetPartition.tmp /tmp/targetPartition
+

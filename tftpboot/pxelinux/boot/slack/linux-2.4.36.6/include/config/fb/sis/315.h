@@ -1,0 +1,1 @@
+#define CONFIG_FB_SIS_315 1

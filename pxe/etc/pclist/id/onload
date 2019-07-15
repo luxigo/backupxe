@@ -1,0 +1,1 @@
+echo "SimpleContextMenu.attach('pclisthead', 'menu3',menuUpdate);"

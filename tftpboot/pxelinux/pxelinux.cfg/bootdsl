@@ -1,0 +1,9 @@
+prompt 0
+noescape 1
+default dsl
+timeout 1
+ontimeout dsl
+label dsl
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=791 xmodule=fbdev initrd=boot/dsl/minirt24.gz nomce noapic quiet BOOT_IMAGE=knoppix frominitrd
+

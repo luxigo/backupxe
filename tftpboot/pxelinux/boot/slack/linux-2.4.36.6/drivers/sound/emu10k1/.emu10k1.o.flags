@@ -1,0 +1,3 @@
+ifeq (-e stext audio.o cardmi.o cardmo.o cardwi.o cardwo.o ecard.o efxmgr.o emuadxmg.o hwaccess.o irqmgr.o main.o midi.o mixer.o passthrough.o recmgr.o timer.o voicemgr.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += emu10k1.o
+endif

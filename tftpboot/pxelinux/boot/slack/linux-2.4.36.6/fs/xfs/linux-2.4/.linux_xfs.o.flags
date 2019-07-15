@@ -1,0 +1,3 @@
+ifeq (-e stext xfs_stats.o xfs_sysctl.o xfs_aops.o xfs_file.o xfs_fs_subr.o xfs_globals.o xfs_ioctl.o xfs_iops.o xfs_lrw.o xfs_super.o xfs_vfs.o xfs_vnode.o xfs_buf.o mrlock.o kmem.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += linux_xfs.o
+endif

@@ -1,0 +1,3 @@
+ifeq (-e stext i2o_core.o i2o_pci.o i2o_config.o i2o_block.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += i2o.o
+endif

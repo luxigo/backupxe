@@ -1,0 +1,1 @@
+#define CONFIG_3C515_MODULE 1

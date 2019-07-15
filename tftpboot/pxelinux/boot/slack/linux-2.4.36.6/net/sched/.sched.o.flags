@@ -1,0 +1,3 @@
+ifeq (-e stext sch_generic.o sch_api.o sch_fifo.o estimator.o cls_api.o police.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += sched.o
+endif

@@ -1,0 +1,9 @@
+prompt 0
+noescape 1
+default backupall
+timeout 1
+ontimeout backupall
+label backupall
+  kernel  boot/slack/2.6/bzImage
+  append initrd=boot/slack/2.6/initrd.img load_ramdisk=1 prompt_ramdisk=0 rw USR_LOCAL=/pxe EXEC=/pxe/bin/partimage-save.sh reboot splash vga=785 quiet
+

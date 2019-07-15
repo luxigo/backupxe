@@ -1,0 +1,9 @@
+bzip2
+dcron
+dhcpcd
+module-init-tools
+openssh
+openssl-solibs
+shadow
+usplash
+zlib

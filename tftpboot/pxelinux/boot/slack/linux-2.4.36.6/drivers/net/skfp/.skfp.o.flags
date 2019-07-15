@@ -1,0 +1,3 @@
+ifeq (-e stext skfddi.o hwmtm.o fplustm.o smt.o cfm.o ecm.o pcmplc.o pmf.o queue.o rmt.o smtdef.o smtinit.o smttimer.o srf.o lnkstat.o smtparse.o hwt.o drvfbi.o ess.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += skfp.o
+endif

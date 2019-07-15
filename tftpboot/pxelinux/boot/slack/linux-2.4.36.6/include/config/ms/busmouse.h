@@ -1,0 +1,1 @@
+#undef  CONFIG_MS_BUSMOUSE

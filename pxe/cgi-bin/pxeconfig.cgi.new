@@ -1,0 +1,136 @@
+#!/bin/sh
+. /pxe/etc/config
+
+ACTION=/cgi-bin/pxe/pxeconfig_apply.cgi
+MACLINK=/cgi-bin/pxe/choosesav.cgi
+WORKDIR=/pxe
+PXEUSER=Administrateur
+
+echo Content-type: application/x-javascript
+echo Pragma: no-cache
+echo
+
+echo "var script='';"
+echo "var optlist='';"
+echo "var html='<H3>PXE Configuration</H3>';"
+
+echo "html+='S&eacute;lectionnez le fichier de d&eacute;marrage r&eacute;seau';"
+echo 'html+="<br><br>";'
+echo "html+='<form action=\"$ACTION\" method=\"POST\">';"
+
+echo 'html+="<table>";'
+echo 'html+="<tr>"'
+echo 'html+="<td>"'
+echo 'html+="<input type=checkbox name=default>Par D&eacute;faut"'
+echo 'html+="</td>"'
+echo 'html+="<td>"'
+
+echo "html+='<select name=\"cfg.default\">';"
+
+cd /tftpboot/pxelinux/pxelinux.cfg
+if [ $? -eq 1 ] ; then
+   echo cannot change to directory /tftpboot/pxelinux/pxelinux.cfg
+   exit 1
+fi
+
+list=`ls -1`
+default_one=`ls -l default | sed -r -n -e 's/.* -> (.*)/\1/p'`
+i=0
+selected=
+for pxeconfig in $list ; do
+
+  [ "$pxeconfig" = "default" ] && continue
+  echo $pxeconfig | egrep -q ^01- && continue
+
+  if [ "$pxeconfig" = "$default_one" ] ; then
+      selected=$i
+  fi
+
+  echo "optlist+='<option value=\"$pxeconfig\">$pxeconfig</option>'"
+
+  i=`expr $i + 1` 
+done
+
+echo "script+='document.getElementsByName(\"cfg.default\")[0].getElementsByTagName(\"option\")[$selected].selected=true;'"
+echo 'html+=optlist+"</select>"'
+echo 'html+="</td></tr>"'
+echo 'html+="<tr><td></td></tr>"'
+
+
+cd /tftpboot/pxelinux/pxelinux.cfg
+if [ $? -eq 1 ] ; then
+   echo cannot change to directory /tftpboot/pxelinux/pxelinux.cfg
+   exit 1
+fi
+
+first=1  
+pclist=`sed -r -n -e 's/([^\ ]+).*/\1/p' /pxe/etc/machines | tr "\n" ' '`
+for pc in $pclist ; do
+
+  mac=`getrec /pxe/etc/machines $pc`
+
+  name=`getrec /pxe/etc/hosts.mac $mac`
+  if [ -z "$name" ] ; then
+       name=$mac
+  fi
+
+  echo 'html+="<tr>"'
+  echo 'html+="<td>"'
+  echo "html+='<input type=checkbox name=\"$mac\" style=\"display: hidden\">$name'"
+  echo 'html+="</td>"'
+  echo 'html+="<td>"'
+  echo "html+='<select name=cfg.$mac>'"
+
+
+  if [ -z "$list" ] ; then 
+  	list=`ls -1`
+  	default_one=`ls -l default | sed -r -n -e 's/.* -> (.*)/\1/p'`
+  fi
+  
+  current_one=
+  if [ -f "01-$mac" ] ; then
+       current_one=`ls -l "01-$mac" | sed -r -n -e 's/.* -> (.*)/\1/p'`
+  fi
+
+  i=0
+  selected=
+  for pxeconfig in $list ; do
+
+    echo $pxeconfig | egrep -q ^01- && continue 
+
+    if [ -n "$current_one" ] ; then
+       if [ "$pxeconfig" = "$current_one" ] ; then
+          selected=$i
+          [ -z "$first" ] && break
+       fi
+    else
+       if [ "$pxeconfig" = "default" ] ; then
+          selected=$i
+          [ -z "$first" ] && break
+       fi
+    fi
+    i=`expr $i + 1`
+
+  done
+  [ -n "$first" ] && echo "optlist='<option value=\"default\">default</option>'+optlist"
+  first=
+  
+  echo 'html+=optlist+"</select>"'
+  echo 'html+="</td>"'
+  echo 'html+="</tr>"'
+
+  echo "script+=\"document.getElementsByName('cfg.$mac')[0].getElementsByTagName('option')[$selected].selected='true';\""
+  
+done
+
+echo 'html+="<tr>"'
+echo 'html+="<td>"'
+echo 'html+="</td>"'
+echo 'html+="</tr>"'
+echo 'html+="</table>"'
+
+echo "html+='<input type=\"submit\" value=\"Appliquer\" name=\"submit\">'"
+echo 'html+="</form>"'
+
+echo 'document.body.innerHTML=html;'
+echo 'eval(script);'

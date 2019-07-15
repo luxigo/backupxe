@@ -1,0 +1,12 @@
+<html>
+
+<body>
+<script>
+var client = new XMLHttpRequest();
+client.open('GET', 'test.txt', false);
+client.send();
+print(client.getAllResponseHeaders());
+</script>
+
+</body>
+</html>

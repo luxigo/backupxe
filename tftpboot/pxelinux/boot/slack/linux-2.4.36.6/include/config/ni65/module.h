@@ -1,0 +1,1 @@
+#define CONFIG_NI65_MODULE 1

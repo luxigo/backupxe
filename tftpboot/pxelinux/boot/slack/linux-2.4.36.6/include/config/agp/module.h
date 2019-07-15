@@ -1,0 +1,1 @@
+#define CONFIG_AGP_MODULE 1

@@ -1,0 +1,7 @@
+prompt 0
+noescape 1
+default local
+timeout 1
+ontimeout localboot 0
+label local
+  localboot 0

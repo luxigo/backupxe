@@ -1,0 +1,3 @@
+ifeq (-e stext bond_main.o bond_3ad.o bond_alb.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += bonding.o
+endif

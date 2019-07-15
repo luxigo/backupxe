@@ -1,0 +1,1 @@
+#define CONFIG_FTL_MODULE 1

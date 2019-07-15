@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ "$1" = "--master" ] ; then
+  master=" master"
+  shift 1
+fi
+ 
+currentpass="$1"
+newpass="$2"
+
+if [ -z "$newpass" ] ; then
+  echo "usage: pxepasswd [ --master ] <current_password> <new_password>"
+  echo
+  exit 1
+fi
+
+cd /tftpboot/pxelinux/pxelinux.cfg/
+for f in `ls -1 *` ; do
+   sed -r -e 's/menu'$master' passwd +'$currentpass' *$/menu passwd '$newpass/ $f > $f.new || exit 1
+done

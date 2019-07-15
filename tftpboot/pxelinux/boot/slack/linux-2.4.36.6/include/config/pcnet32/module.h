@@ -1,0 +1,1 @@
+#define CONFIG_PCNET32_MODULE 1

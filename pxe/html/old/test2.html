@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="js/xhr.js"></script>
+<script src="js/tabledit.js"></script>
+</head>
+<body>
+<select id="diveditmenu" style="width: 100%" onkeyup="FileEditor.showfile(this,'edit','text')"  onchange="FileEditor.showfile(this,'edit','text')">
+</select>
+                                                                                                                                                                                
+<div id="editor_filename">
+</div>
+
+<div id="edit">
+</div>
+
+<script>
+  FileEditor.list('.');
+  FileEditor.showfile('/pxe/etc/hosts.mac','edit','text');
+</script>
+
+</body>
+</html>

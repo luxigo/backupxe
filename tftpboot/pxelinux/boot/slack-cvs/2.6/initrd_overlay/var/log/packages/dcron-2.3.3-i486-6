@@ -1,0 +1,45 @@
+PACKAGE NAME:     dcron-2.3.3-i486-6
+COMPRESSED PACKAGE SIZE:     20 K
+UNCOMPRESSED PACKAGE SIZE:     60 K
+PACKAGE LOCATION: dcron-2.3.3-i486-6.tgz
+PACKAGE DESCRIPTION:
+dcron: dcron (Dillon's Cron daemon)
+dcron:
+dcron: The cron daemon runs in the background and executes tasks on behalf of
+dcron: users at the appropriate time.  Many timed system tasks are started
+dcron: with cron, such as the nightly indexing with updatedb.
+dcron:
+dcron: dcron was written entirely from scratch by Matthew Dillon.
+dcron:
+FILE LIST:
+./
+usr/
+usr/bin/
+usr/bin/crontab
+usr/bin/run-parts
+usr/sbin/
+usr/sbin/crond
+usr/doc/
+usr/doc/dcron-2.3.3/
+usr/doc/dcron-2.3.3/CHANGES
+usr/doc/dcron-2.3.3/README
+usr/doc/dcron-2.3.3/dcron-2.3.3.lsm
+usr/man/
+usr/man/man1/
+usr/man/man1/crontab.1.gz
+usr/man/man8/
+usr/man/man8/crond.8.gz
+usr/man/man8/run-parts.8.gz
+install/
+install/doinst.sh
+install/slack-desc
+var/
+var/spool/
+var/spool/cron/
+var/spool/cron/crontabs/
+var/spool/cron/crontabs/root.new
+etc/
+etc/cron.daily/
+etc/cron.hourly/
+etc/cron.monthly/
+etc/cron.weekly/

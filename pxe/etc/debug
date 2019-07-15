@@ -1,0 +1,7 @@
+( [ -z "$NODEBUG" ] || [ "$NODEBUG" = "0" ] ) && export DEBUG=1
+if [ -n "$DEBUG" ] ; then
+	echo 1>&2
+	echo 1>&2
+	echo "====================> script: $0" 1>&2
+	set -x
+fi

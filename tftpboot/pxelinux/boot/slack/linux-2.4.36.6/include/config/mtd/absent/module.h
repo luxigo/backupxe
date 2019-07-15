@@ -1,0 +1,1 @@
+#define CONFIG_MTD_ABSENT_MODULE 1

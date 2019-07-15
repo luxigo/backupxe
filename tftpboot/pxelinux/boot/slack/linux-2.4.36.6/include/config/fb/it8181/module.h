@@ -1,0 +1,1 @@
+#define CONFIG_FB_IT8181_MODULE 1

@@ -1,0 +1,76 @@
+<html>
+	<head>
+  		<title>BackuPXE Control Panel</title>
+
+		<script src="/pxe/js/xhr.js"></script>
+		<script src="/pxe/js/pcclick.js"></script>
+		<script src="/pxe/js/pcstyle.js"></script>
+
+		<script src="/pxe/js/browser.js"></script>
+		<script src="/pxe/js/infobulles.js"></script>
+		<script src="/pxe/js/prototype.js" type="text/javascript"></script>
+		<script src="/pxe/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+<style type="text/css">
+      .listbox { padding: 4px; height: 320px; overflow-x: hidden; overflow-y: auto; }
+      span.listbox { padding: 4px; }
+</style>
+	</head>
+	<body>
+	  <table>
+	    <tr>
+		<td valign="top">
+		  <IMG src="/pxe/pics/map.png" border="0">
+		  <div id="divicons">
+	 	  </div>
+		</td>
+		<td valign="top">
+		  <br>
+		  <div id="divdf"></div>
+		  <table>
+		    <tr>
+		      <td>Selection:</td>
+		      <td>
+			<INPUT type="button" value="ON" style="width: 64;" class="button"  onclick="confirm_action('on');" >
+		      </td> <td>
+		  	<INPUT type="button" value="OFF" style="width: 64;" class="button"  onclick="confirm_action('off');" >
+		      </td> <td>
+		  	<INPUT type="button" value="SAVE" style="width: 64;" class="button"  onclick="confirm_action('save');" >
+		      </td> <td>
+		  	<INPUT type="button" value="RESTORE" style="width: 80;" class="button"  onclick="confirm_action('restore');" >
+		      </td> <td>
+		  	<INPUT type="button" value="Choisir" style="width: 80;" class="button"  onclick="confirm_action('selectimage');" >
+		      </td> <td>
+		  	<INPUT type="button" value="Enlever" style="width: 80;" class="button"  onclick="confirm_action('removepc');" >
+		      </td>
+		    </tr>
+		    <tr>
+		      <td>Select:</td>
+		      <td>
+			<INPUT type="button" value="All" style="width: 64;" class="button" onclick="pcclickall(1)">
+		      </td> <td>
+			<INPUT type="button" value="None" style="width: 64;" class="button" onclick="pcclickall(0)">
+		      </td> <td>
+			<INPUT type="button" value="Invert" style="width: 64;" class="button" onclick="pcclickall('invert')">
+		      </td>
+		    </tr>
+		  </table>
+		  <div id="divconf" class="listbox"></div>
+		  <div id="divconfbuttons"></div>
+		  <div id="divlog"></div>
+		</td>
+	    </tr>
+	  </table>
+
+	  <script>
+		InitBulle('black','yellow','black',1);
+		loadicons('default');
+		setInterval("reloadicons('default')",10000);
+		xmlhttpget('/cgi-bin/pxe/exec.cgi?df','divdf');
+		xmlhttpget('/cgi-bin/pxe/loadglobals.cgi','eval');
+                xmlhttpget('/cgi-bin/pxe/loadbackuplist.cgi','eval');
+		setInterval("xmlhttpget('/cgi-bin/pxe/loadglobals.cgi','eval');",10000);
+		setInterval("xmlhttpget('/cgi-bin/pxe/exec.cgi?df','divdf');",60000);
+	  </script>
+
+	</body>
+</html>

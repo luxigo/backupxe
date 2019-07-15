@@ -1,0 +1,3 @@
+#!/bin/sh
+cfdisk.bin $*
+/dev/makedevs.sh

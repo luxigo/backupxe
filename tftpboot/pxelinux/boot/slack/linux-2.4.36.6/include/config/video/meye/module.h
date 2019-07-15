@@ -1,0 +1,1 @@
+#define CONFIG_VIDEO_MEYE_MODULE 1

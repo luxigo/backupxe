@@ -1,0 +1,6 @@
+#define UTS_VERSION "#2 jeudi 31 juillet 2008, 17:12:51 (UTC+0200)"
+#define LINUX_COMPILE_TIME "17:12:51"
+#define LINUX_COMPILE_BY "root"
+#define LINUX_COMPILE_HOST "ubuntu"
+#define LINUX_COMPILE_DOMAIN "lan"
+#define LINUX_COMPILER "version gcc 3.4.6 (Ubuntu 3.4.6-6ubuntu5)"

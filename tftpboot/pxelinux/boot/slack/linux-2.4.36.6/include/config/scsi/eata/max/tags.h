@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_EATA_MAX_TAGS (16)

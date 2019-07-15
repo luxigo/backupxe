@@ -1,0 +1,1 @@
+#define CONFIG_AUTOFS_FS_MODULE 1

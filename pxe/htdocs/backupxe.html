@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+		<link type="text/css" rel="stylesheet" href="/pxe/backupxe.css" />
+		<script src="/cgi-bin/pxe/init.cgi?backupxe&js"></script>
+		<script src="/cgi-bin/pxe/onload.cgi"></script>
+		<script src="/cgi-bin/pxe/pclist.cgi"></script>
+		<script src="/cgi-bin/pxe/loadglobals.cgi?init=1"></script>
+		<script src="/cgi-bin/pxe/savlist.cgi"></script>
+
+		<script> 
+			function body_onload(event) {
+				if (typeof(backupxe_onload)!='undefined')
+					 backupxe_onload(event);
+			}
+			function body_mousedown(event) {
+				if (typeof(getmousepos)!=undefined)
+					getmousepos(event);
+			}
+		</script>
+	</head>
+
+	<body class="body" onload="body_onload(event);" onmousedown="body_mousedown(event);">
+		<div id="geexbox_menubar" style="position:absolute; top: 0; left: 0;">
+			<table>
+				<tr>
+				<td>
+					<input type="button" class="button" value="Play" onclick="javascript:guixbox_unpause()">
+				</td>
+				<td>
+					<input type="button" class="button" value="Stop" onclick="javascript:guixbox_pause()">
+				</td>
+				<td>
+					<input type="button" class="button" name="mute" value="Silence" onclick="javascript:guixbox_mute()">
+				</td>
+				<td>
+					<input type="button" class="button" name="unmute" value="Ecouter" onclick="javascript:guixbox_unmute()">
+				</td>
+				<td>
+					&nbsp;&nbsp;
+				</td>
+				<td>
+					<input type="button" class="button" value="Tous" onclick="javascript:pcclickall(1)">
+				</td>
+				<td>
+					<input type="button" class="button" value="Aucun" onclick="javascript:pcclickall(0)">
+				</td>
+				</tr>
+			</table>
+		</div>
+		<div id="gui" style="border-top-style: solid black 1px;">
+			<div id="menus"></div>
+ 		</div>
+		<script>
+			if (typeof(InitBulle)!='undefined') InitBulle('black','yellow','black',1);
+		</script>
+
+	</body>
+	<head>
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	</head>
+</html>

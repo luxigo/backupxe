@@ -1,0 +1,6 @@
+cat << EOF
+var pcmovie=new Array;
+SimpleContextMenu.attach('columnMovie', 'menuMovie',menuUpdate);
+
+
+EOF

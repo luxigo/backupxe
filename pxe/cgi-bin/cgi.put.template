@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. /pxe/etc/config
+
+set -e
+
+echo Content-type: text/html
+echo
+
+for param in `sed -r -e 's/\\\&/ /g' -e 's/&/ /g'` ; do
+
+	varname=`echo $param | cut -f 1 -d = | urldecode`
+	value=`echo $param | cut -f 2 -d =  | urldecode`
+	case "$varname" in 
+		div) divId="$value" ;;
+	esac
+done
+

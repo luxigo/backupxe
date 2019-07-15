@@ -1,0 +1,100 @@
+prompt 0
+noescape 1
+default menu.c32
+timeout 100
+ontimeout menu.c32 pxelinux.cfg/deploy
+
+menu title unattended - DOS bootdisks
+
+label b44
+    menu label b44
+    kernel memdisk
+    append initrd=boot/unattended/images/b44.imz
+
+label b57
+    menu label b57
+    kernel memdisk
+    append initrd=boot/unattended/images/b57.imz
+
+label dc21x4
+    menu label dc21x4
+    kernel memdisk
+    append initrd=boot/unattended/images/dc21x4.imz
+
+label dp83815
+    menu label dp83815
+    kernel memdisk
+    append initrd=boot/unattended/images/dp83815.imz
+
+label e100b
+    menu label e100b
+    kernel memdisk
+    append initrd=boot/unattended/images/e100b.imz
+
+label e1000
+    menu label e1000
+    kernel memdisk
+    append initrd=boot/unattended/images/e1000.imz
+
+label elpc575
+    menu label elpc575
+    kernel memdisk
+    append initrd=boot/unattended/images/elpc575.imz
+
+label el556
+    menu label el556
+    kernel memdisk
+    append initrd=boot/unattended/images/el556.imz
+
+label el90x
+    menu label el90x
+    kernel memdisk
+    append initrd=boot/unattended/images/el90x.imz
+
+label el94x
+    menu label el94x
+    kernel memdisk
+    append initrd=boot/unattended/images/el94x.imz
+
+label fetnd
+    menu label fetnd
+    kernel memdisk
+    append initrd=boot/unattended/images/fetnd.imz
+
+label ngrpci
+    menu label ngrpci
+    kernel memdisk
+    append initrd=boot/unattended/images/ngrpci.imz
+
+label pcntnd
+    menu label pcntnd
+    kernel memdisk
+    append initrd=boot/unattended/images/pcntnd.imz
+
+label rtsnd
+    menu label rtsnd
+    kernel memdisk
+    append initrd=boot/unattended/images/rtsnd.imz
+
+label rtgbnd
+    menu label rtgbnd
+    kernel memdisk
+    append initrd=boot/unattended/images/rtgbnd.imz
+
+label sis900
+    menu label sis900
+    kernel memdisk
+    append initrd=boot/unattended/images/sis900.imz
+
+label undis3c
+    menu label undis3c
+    kernel memdisk
+    append initrd=boot/unattended/images/undis3c.imz keeppxe
+    
+label exit
+   menu label e^xit
+   menu default
+   kernel menu.c32
+   append pxelinux.cfg/deploy
+   
+	   

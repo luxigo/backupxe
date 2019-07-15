@@ -1,0 +1,1 @@
+#define CONFIG_ATM_BR2684_MODULE 1

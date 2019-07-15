@@ -1,0 +1,1 @@
+#define CONFIG_HIGHMEM4G 1

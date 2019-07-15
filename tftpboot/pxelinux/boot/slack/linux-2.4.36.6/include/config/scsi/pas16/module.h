@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_PAS16_MODULE 1

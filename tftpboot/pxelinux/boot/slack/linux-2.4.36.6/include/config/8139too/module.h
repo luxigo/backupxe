@@ -1,0 +1,1 @@
+#define CONFIG_8139TOO_MODULE 1

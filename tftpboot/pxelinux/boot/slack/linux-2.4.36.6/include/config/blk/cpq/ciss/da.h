@@ -1,0 +1,1 @@
+#define CONFIG_BLK_CPQ_CISS_DA 1

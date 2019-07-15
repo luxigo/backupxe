@@ -1,0 +1,1 @@
+<td class="columnSave" name="lpc'+pc+'">'+((pcsavepath[pc]==undefined)?'/pxe/image/'+pcmac[pc]:pcsavepath[pc])+'</td>

@@ -1,0 +1,21 @@
+table {
+text-align: center;
+font-size: 12px;
+font-family: verdana;
+background: #c0c0c0;
+}
+table thead {
+cursor: pointer;
+}
+table thead tr,
+table tfoot tr {
+background: #c0c0c0;
+}
+table tbody tr {
+background: #f0f0f0;
+}
+td, th {
+border: 0px solid white;
+}
+
+tbody.pclist { overflow-x: hidden; overflow-y: scroll; }

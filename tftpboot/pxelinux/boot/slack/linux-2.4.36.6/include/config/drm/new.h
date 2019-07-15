@@ -1,0 +1,1 @@
+#define CONFIG_DRM_NEW 1

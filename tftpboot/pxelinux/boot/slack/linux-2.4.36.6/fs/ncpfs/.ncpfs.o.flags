@@ -1,0 +1,3 @@
+ifeq (-e stext dir.o file.o inode.o ioctl.o mmap.o ncplib_kernel.o sock.o symlink.o ncpsign_kernel.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += ncpfs.o
+endif

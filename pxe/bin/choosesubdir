@@ -1,0 +1,61 @@
+#!/bin/sh
+
+TEMP=$ROOT/tmp/choosesubdir.$$.tmp
+
+if [ -z "$SOURCE" ] ; then
+  export SOURCE=slackware
+fi
+
+doexit() {
+   rm $TEMP -r 2> /dev/null
+   exit $1
+}
+
+mkdir -p $TEMP || exit 1
+cd $TEMP 
+
+# no final slash, no "slackware-" tail directory
+  index=`sed -r -e 's/\/*$//' -e 's/(.*)\/.lackware-.*/\1/' $ROOT/etc/$SOURCE-mirror` 
+
+# download mirror index
+  wget -q $index/ -O mirror_index.html 
+  if [ $? -ne 0 ] ; then
+     dialog --msgbox "$index Download Failed" 6 70 2> /dev/null
+     doexit 1
+  fi
+
+### select a slackware version
+  available_versions=`sed -r -n \
+                      -e 's/.*.lackware-([0-9\.]+)\/.*/\1/p' \
+                      -e 's/.*.lackware-(current).*/\1/p' \
+                      mirror_index.html | sort -u -n`
+
+# build radiolist
+  for version in $available_versions; do
+     folder=`sed -r -n -e  's/.*(.lackware-'$version')\/.*/\1/p' -e T -e q  mirror_index.html`
+     radiolist=$radiolist" $folder \"\" off "
+  done
+
+  if [ -z "$radiolist" ] ; then
+
+# check if we are already in the place 
+    wget -q $index/slackware/FILE_LIST -O FILE_LIST
+    if [ $? -eq 0 ] ; then
+        doexit 0
+    fi
+     doexit 1
+  fi
+
+# select a version
+  eval "dialog --radiolist 'Select a version' 0 0 0 $radiolist 2> mirror_subdir"
+  if [ $? -ne 0 ] ; then
+     doexit 1
+  fi
+
+  subdir=`cat mirror_subdir`
+
+  if [ -n "$subdir" ] ; then
+    echo $index/$subdir > $ROOT/etc/$SOURCE-mirror
+    doexit 0
+
+  fi

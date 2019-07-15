@@ -1,0 +1,3 @@
+ifeq (-e stext dir.o inode.o ioctl.o mangle.o namei.o rdir.o emd.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += umsdos.o
+endif

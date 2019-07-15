@@ -1,0 +1,95 @@
+#!/bin/sh
+#\
+exec tclsh "$0" "$@"
+
+
+if {[file exists /pxe/etc/leases]} {
+	set LEASES [ exec cat /pxe/etc/leases ]
+} else {
+  set LEASES {}
+}
+
+if {[file exist /tmp/dhcp.leases]} {
+  exec echo $LEASES > /pxe/etc/leases
+  puts stdout [exec /pxe/bin/dnsmasqlease [lindex $argv 0]]
+  exit
+} 
+
+if {("$LEASES"=={}) || (![file exist "$LEASES"])} {
+
+	set LEASES /var/state/dhcp/dhcpd.leases
+	if {![file exist "$LEASES"]} {
+	   set LEASES /var/lib/dhcp/dhcpd.leases
+	}
+	if {![file exist "$LEASES"]} {
+	   set LEASES /var/lib/dhcp3/dhcpd.leases
+	}
+
+	if {![file exist "$LEASES"]} {
+	   set LEASES [ exec find /var/ -name dhcpd.leases | head -n 1 ]
+	   if { "$LEASES" == {} } {
+	      puts stderr {dhcplease: Cant find dhcpd.leases}
+	      exit 1
+		
+	   }
+	}
+	exec echo $LEASES > /pxe/etc/leases
+}
+
+set mac [lindex $argv 0]
+
+if [ string is alnum $mac ] {
+  if [catch { set mac [exec /pxe/bin/getrec /pxe/etc/hosts.mac $mac] } ]  {
+    exit
+  }
+}
+
+set mac [string tolower $mac]
+regsub -all {\-} $mac {:} mac
+set f [ open $LEASES r ]
+
+set level 1
+set l [gets $f]
+
+while {![eof $f]} {
+
+   switch $level {
+     1 {
+          if {([regexp -- {^lease ([0-9.]+)} $l {} ip])} {
+             set level 2
+          }
+     }
+
+     2 {
+          if {([regexp -- {binding state free} $l])} {
+             set level 1
+          } else {
+            if {[regexp -- {binding state active} $l]} {
+              set level 3
+            }
+          }
+     }
+
+     3 {
+          if {[regexp -- {hardware ethernet ([0-9a-f\:]+)} $l {} hw]} {
+             if {$hw==$mac} {
+               set lastip $ip
+             }
+             set level 1
+          }
+     }
+
+   }
+
+   set l [gets $f]
+
+}
+
+close $f
+
+if {![info exist lastip]} {
+  exit 1
+}
+
+puts stdout $lastip
+exit 0

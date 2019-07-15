@@ -1,0 +1,1 @@
+#define CONFIG_DRM_GAMMA_MODULE 1

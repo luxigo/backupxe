@@ -1,0 +1,52 @@
+PACKAGE NAME:     module-init-tools-3.4-i486-1
+COMPRESSED PACKAGE SIZE:     409 K
+UNCOMPRESSED PACKAGE SIZE:     870 K
+PACKAGE LOCATION: module-init-tools-3.4-i486-1.tgz
+PACKAGE DESCRIPTION:
+module-init-tools: module-init-tools (kernel module utilities)
+module-init-tools:
+module-init-tools: Utilities to load and unload kernel modules.  These are used on Linux
+module-init-tools: to load extra drivers or other features into the running kernel.
+module-init-tools:
+FILE LIST:
+./
+etc/
+etc/modprobe.conf.new
+etc/modprobe.d/
+install/
+install/slack-desc
+install/doinst.sh
+usr/
+usr/man/
+usr/man/man5/
+usr/man/man5/depmod.conf.5.gz
+usr/man/man5/modprobe.conf.5.gz
+usr/man/man5/modules.dep.5.gz
+usr/man/man8/
+usr/man/man8/lsmod.8.gz
+usr/man/man8/rmmod.8.gz
+usr/man/man8/depmod.8.gz
+usr/man/man8/insmod.8.gz
+usr/man/man8/modprobe.8.gz
+usr/man/man8/modinfo.8.gz
+usr/doc/
+usr/doc/module-init-tools-3.4/
+usr/doc/module-init-tools-3.4/TODO
+usr/doc/module-init-tools-3.4/CODING
+usr/doc/module-init-tools-3.4/ChangeLog
+usr/doc/module-init-tools-3.4/COPYING
+usr/doc/module-init-tools-3.4/AUTHORS
+usr/doc/module-init-tools-3.4/README
+usr/doc/module-init-tools-3.4/NEWS
+usr/doc/module-init-tools-3.4/HACKING
+usr/doc/module-init-tools-3.4/FAQ
+usr/doc/module-init-tools-3.4/INSTALL
+bin/
+sbin/
+sbin/modprobe
+sbin/depmod
+sbin/insmod
+sbin/rmmod
+sbin/lsmod
+sbin/modinfo
+sbin/insmod.static

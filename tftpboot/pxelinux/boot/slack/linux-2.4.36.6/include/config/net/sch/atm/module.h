@@ -1,0 +1,1 @@
+#define CONFIG_NET_SCH_ATM_MODULE 1

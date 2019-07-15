@@ -1,0 +1,1 @@
+#define CONFIG_FB_RADEON_MODULE 1

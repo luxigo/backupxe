@@ -1,0 +1,1 @@
+#define CONFIG_8139CP_MODULE 1

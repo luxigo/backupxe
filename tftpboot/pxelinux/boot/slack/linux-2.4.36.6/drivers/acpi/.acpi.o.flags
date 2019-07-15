@@ -1,0 +1,3 @@
+ifeq (-e stext acpi_ksyms.o tables.o blacklist.o osl.o utils.o dispatcher/dispatcher.o events/events.o executer/executer.o hardware/hardware.o namespace/namespace.o parser/parser.o resources/resources.o tables/tables.o utilities/utilities.o bus.o motherboard.o ec.o pci_root.o pci_link.o pci_irq.o pci_bind.o power.o system.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += acpi.o
+endif

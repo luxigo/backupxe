@@ -1,0 +1,53 @@
+PACKAGE NAME:     module-init-tools-3.2.2-i486-3
+COMPRESSED PACKAGE SIZE:     412 K
+UNCOMPRESSED PACKAGE SIZE:     880 K
+PACKAGE LOCATION: module-init-tools-3.2.2-i486-3.tgz
+PACKAGE DESCRIPTION:
+module-init-tools: module-init-tools (kernel module utilities)
+module-init-tools:
+module-init-tools: Utilities to load and unload kernel modules.  These are used on Linux
+module-init-tools: to load extra drivers or other features into the running kernel.
+module-init-tools:
+FILE LIST:
+./
+bin/
+etc/
+etc/cron.hourly/
+etc/cron.hourly/kmod
+etc/modprobe.conf.new
+etc/modprobe.d/
+usr/
+usr/doc/
+usr/doc/module-init-tools-3.2.2/
+usr/doc/module-init-tools-3.2.2/FAQ
+usr/doc/module-init-tools-3.2.2/NEWS
+usr/doc/module-init-tools-3.2.2/TODO
+usr/doc/module-init-tools-3.2.2/README
+usr/doc/module-init-tools-3.2.2/AUTHORS
+usr/doc/module-init-tools-3.2.2/INSTALL
+usr/doc/module-init-tools-3.2.2/ChangeLog
+usr/doc/module-init-tools-3.2.2/COPYING
+usr/doc/module-init-tools-3.2.2/CODING
+usr/man/
+usr/man/man5/
+usr/man/man5/modprobe.conf.5.gz
+usr/man/man5/modules.dep.5.gz
+usr/man/man8/
+usr/man/man8/depmod.8.gz
+usr/man/man8/modprobe.8.gz
+usr/man/man8/modinfo.8.gz
+usr/man/man8/lsmod.8.gz
+usr/man/man8/rmmod.8.gz
+usr/man/man8/insmod.8.gz
+sbin/
+sbin/lsmod
+sbin/rmmod
+sbin/modprobe
+sbin/insmod.static
+sbin/depmod
+sbin/modinfo
+sbin/insmod
+sbin/generate-modprobe.conf
+install/
+install/doinst.sh
+install/slack-desc

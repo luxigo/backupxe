@@ -1,0 +1,216 @@
+#!/bin/sh
+#
+#exec tclsh "$0" "$@"
+. /pxe/etc/config
+
+PXEUSER=Administrateur
+REBOOT_DELAY=120
+[ -n "$QUERY_STRING" ] && BR='<br>'
+
+logprefix () {
+  echo $0 `date +%Y%m%d-%H%M.%S`
+}
+
+restorepxebootfile() {
+ (mv $PXEBOOTFILE.tmp $PXEBOOTFILE || rm $PXEBOOTFILE) 2> /dev/null
+ rm $PXEBOOTFILE.lock 2> /dev/null
+}
+restartmachine () {
+
+     bcast=`echo $ip | sed -r -n -e 's/^([0-9]+\.[0-9]+\.[0-9]+\.).*/\1/p'`255
+     wakeonlan -p 9 -i $bcast $macaddr > /dev/null 2>&1
+     ping $ip -W 2 -c 1 > /dev/null 2>&1 || return 0
+
+     ssh -o strictHostKeyChecking=no -o PasswordAuthentication=no root@$ip /sbin/reboot > /dev/null 2>&1 && return $?
+     ssh -o strictHostKeyChecking=no -o PasswordAuthentication=no $PXEUSER@$ip shutdown -r -c Sorry -t 3 -f > /dev/null 2>&1 
+     return $?
+
+}
+
+wakeupmachine () {
+  
+  timer=90
+  
+  rm $LOGDIR/problem 2> /dev/null || true
+  rm $LOGDIR/done 2> /dev/null || true
+  rm $LOGDIR/busy 2> /dev/null || true
+  rm $LOGDIR/bye 2> /dev/null || true
+
+  touch $LOGDIR/ready
+
+  chmod a+rw $LOGDIR -R
+
+  while [ $timer -gt 0 ] ; do
+    
+    if [ -n "$ip" ] ; then
+      bcast=`echo $ip | sed -r -n -e 's/^([0-9]+\.[0-9]+\.[0-9]+\.).*/\1/p'`255
+      wakeonlan -p 9 -i $bcast $macaddr > /dev/null 2>&1
+      ping -c 1 -W 2 $ip > /dev/null 2>&1 && break
+    else
+      for destip in `cat /pxe/etc/wakeonlan.destip` ; do
+        wakeonlan -p 9 -i $destip $macaddr > /dev/null 2>&1
+      done
+    fi
+    
+    [ ! -f $LOGDIR/ready ] && break
+    sleep 5 
+    timer=`expr $timer - 10`
+
+  done
+ 
+   restorepxebootfile
+
+   if  [ $timer -eq 0 ] ; then
+     echo timeout !
+     rm /pxe/jobq/$macaddr2 2> /dev/null
+     exit 1
+   fi
+}
+
+usage='usage: bootandrun <mac_address|netbios_name|number> <pxe_config> [ <name>=<value> ... ] [ <command> [<args>] ]'
+if echo $1 | egrep -q '^[0-9]+$' ; then
+   macaddr=`getrec /pxe/etc/machines $1`
+else 
+  while true; do
+    netbiosname=`echo $1 | tr a-z A-Z`
+    macaddr=`egrep -i " $netbiosname\$" /pxe/etc/hosts.mac | cut -f 1 -d ' '`
+    if [ -z "$macaddr" ] ; then
+      macaddr=`echo $1 | tr A-Z a-z | tr ':' '\-'`
+      netbiosname=`getrec /pxe/etc/hosts.mac $macaddr`
+      if [ -z "$netbiosname" ] ; then
+          macaddr="";
+          if [ -z "$maclisted" ] ; then
+            /pxe/bin/maclist.sh -more > /dev/null
+            maclisted=1
+            continue
+          fi
+      fi
+    fi
+    break
+  done
+fi
+
+if [ -z "$macaddr" ] ; then
+  echo "error: cant guess mac address" 
+  exit 1
+fi
+
+pxe_config=$2
+if [ -z "$1" ] || [ "$1" = "-h" ] || [ -z "$2" ] ; then
+  echo $usage
+  exit 1
+fi
+
+shift 2
+
+macaddr2=$macaddr
+macaddr=`echo $macaddr | tr '\-' ':' | tr a-z A-Z`
+
+LOGDIR=/pxe/log/$macaddr2
+mkdir -p $LOGDIR
+
+if ! cd $LOGDIR ; then
+  echo `logprefix` error: cannot change directory to $LOGDIR$BR
+  exit 1
+fi
+
+PXEBOOTFILE=/tftpboot/pxelinux/pxelinux.cfg/01-$macaddr2
+if [ -f $PXEBOOTFILE ] ; then
+   if [ -f $PXEBOOTFILE.lock ] ; then
+        echo `logprefix` error: you cant run a job on $macaddr because$BR
+        echo `logprefix` error: `ls -l $PXEBOOTFILE | sed -r -n -e 's/[^\/]+//p'` is active$BR
+        exit 1
+   fi
+   if ! mv $PXEBOOTFILE $PXEBOOTFILE.tmp 2> /dev/null ; then 
+     echo `logprefix` error: cannot create $PXEBOOTFILE.tmp$BR
+     exit 1
+   fi
+fi
+
+touch $PXEBOOTFILE.lock || exit 1
+
+first=1
+TMPCFG=/tmp/`basename $PXEBOOTFILE`.$$
+while ( echo $1 | egrep -q '[^=]+=[^=]*' ) ; do
+	if [ $first -eq 1 ] ; then
+
+		cp /tftpboot/pxelinux/pxelinux.cfg/$pxe_config $TMPCFG.tmp || exit 1
+		first=0
+	fi
+
+	name=`echo $1 | cut -f 1 -d =`
+	value=`echo $1 | cut -f 2 -d =`
+
+
+	if [ -n "$value" ] ; then
+		if ! ( egrep -q " $name " $TMPCFG.tmp || egrep -q " $name\$" $TMPCFG.tmp ) ; then
+			sed -r -e 's/(^[ \t]*append[ \t]+.*)/\1 '$name=$value'/' $TMPCFG.tmp > $TMPCFG.2.tmp
+		fi
+	else
+		sed -r -e 's/ '$name'=[^\ ]+/ '$name=$value'/' $TMPCFG.tmp > $TMPCFG.2.tmp
+		if ! (egrep -q " $name\$" $TMPCFG.2.tmp || egrep -q " $name " $TMPCFG.2.tmp) ; then
+			sed -r -e 's/(^[ \t]*append[ \t]+.*)/\1 '$name'/' $TMPCFG.tmp > $TMPCFG.2.tmp
+		fi
+	fi
+
+	cat $TMPCFG.2.tmp > $PXEBOOTFILE
+#	rm $TMPCFG.*.tmp
+	echo `logprefix` notice: the pxe configuration has been temporarily modified$BR
+	shift
+done
+if [ ! -f "$PXEBOOTFILE" ] ; then
+	ln -sf $pxe_config $PXEBOOTFILE
+
+	if [ $? -ne 0 ] ; then
+	  echo `logprefix` error: could not link $pxe_config to $PXEBOOTFILE$BR
+	  restorepxebootfile
+	  exit 1
+	else
+	  echo `logprefix` notice: the pxe configuration has been temporarily replaced$BR
+	fi
+fi
+
+if [ -n "$1" ] ; then
+  mkdir -p /pxe/jobq
+  echo $@ > /pxe/jobq/$macaddr2
+  if [ $? -ne 0 ] ; then
+    echo `logprefix` error: could not write to /pxe/jobq/$macaddr2$BR
+    restorepxebootfile
+    exit 1
+  fi
+  echo `logprefix` notice: the job has been queued$BR
+fi
+
+ip=`/pxe/bin/dhcplease $macaddr2`
+
+if [ -n "$ip" ] ; then
+    restartmachine
+    if [ $? -ne 0 ] ; then
+      if ping -W 2 -c 1 $ip > /dev/null 2>&1 ; then
+        echo `logprefix` error: could not restart $ip $macaddr$BR
+	restorepxebootfile
+        exit 1
+      fi
+    else
+      echo `logprefix` notice: restarting $ip $macaddr$BR
+      while ping -W 2 -c 1 $ip > /dev/null 2>&1 ; do
+        sleep 1
+      done
+    fi 
+fi
+
+echo `logprefix` notice: waiting for $macaddr to wake up$BR
+
+
+wakeupmachine
+if [ $? -ne 0 ] ; then
+   restorepxebootfile
+   exit 1
+fi
+
+echo `logprefix` notice: machine is ready$BR
+
+clientip=`/pxe/bin/dhcplease $macaddr2`
+echo `logprefix` notice: client IP=$clientip$BR
+
+restorepxebootfile

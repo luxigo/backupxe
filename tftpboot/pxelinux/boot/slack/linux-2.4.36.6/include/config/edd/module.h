@@ -1,0 +1,1 @@
+#define CONFIG_EDD_MODULE 1

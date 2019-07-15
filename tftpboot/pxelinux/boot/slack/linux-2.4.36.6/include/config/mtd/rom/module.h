@@ -1,0 +1,1 @@
+#define CONFIG_MTD_ROM_MODULE 1

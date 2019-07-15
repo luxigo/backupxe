@@ -1,0 +1,185 @@
+#!/bin/sh
+# Copyright 2006 Luc Deschenaux
+#
+# Redistribution and use of this script, with or without modification, is 
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# usage: choosemirror [ ftp | http [ <mirrors_list_url> | <mirror_url> ] ]
+# 
+# this script allows selection of a http or ftp mirror using slackware.org
+# official list of mirror that is normalized (thanks !)
+#
+# the server name is held in /etc/slackware-mirror
+
+# 29.03.2006 initial release 
+
+TEMP=$ROOT/tmp/choosemirror.$$.tmp
+
+if [ -z "$SOURCE" ] ; then
+  SOURCE=slackware
+fi
+
+doexit () {
+  cd
+  echo  rm -rf $TEMP 2> /dev/null
+  exit $1 ;
+}
+
+# command line arguments
+
+TYPE="$1"
+
+if [ -z "$2" ] ; then
+
+  case $SOURCE in
+    slackware)
+      URL=http://www.slackware.org/getslack ;;
+    linuxpackages)
+      URL=http://www.linuxpackages.net/mirrors.php ;;
+    default)
+      exit 1 ;;
+  esac
+
+else
+
+  URL="$2"
+
+fi
+
+if [ "$TYPE" != "" -a "$TYPE" != "ftp" -a "$TYPE" != "http" ] ; then
+  echo 'usage: choosemirror [ ftp | http [ <mirrors_list_url> | other ] ]'
+  echo
+  doexit 1
+fi
+
+# creating temporary folder
+mkdir -p $TEMP
+if [ $? -ne 0 ] ; then
+  dialog --msgbox "Cannot make dir $TEMP 0 0
+  doexit 1
+fi
+
+cd $TEMP 
+if [ $? -ne 0 ] ; then
+  dialog --msgbox "Cannot change to dir $TEMP 0 0
+  doexit 1
+fi
+
+# download mirror location list
+dialog --infobox "Downloading $URL" 6 60
+wget -q $URL -O $TEMP/index.html
+if [ $? -ne 0 ] ; then
+   dialog --msgbox "$URL: Download Failed" 0 0 2> /dev/null
+   radiolist='"Use another mirror" "" on '$radiolist
+fi
+
+# selecting a transfer protocol if none specified
+if [ -z "$TYPE" ] ; then
+  dialog --radiolist "Select a transfer protocol" 0 0 0 http "" on ftp "" off 2> $TEMP/protocol
+  if [ $? -ne 0 ] ; then
+     echo http > $TEMP/protocol
+  fi
+  TYPE=`cat $TEMP/protocol`
+fi
+
+# creating mirror location radiolist 
+if [ -z "$radiolist" ] ; then
+  case "$SOURCE" in
+    slackware)
+      radiolist=`sed -r -n -e 's/.*?country=([^" ]+).*/\1 \"\" off/p' $TEMP/index.html` ;;
+    linuxpackages)
+      radiolist=`sed -r -n  -e 's/REPOS_ROOT=([^%]+)%('$TYPE'[^\<]+).*/\2 \"\1\" off/p' $TEMP/index.html` ;;
+#REPOS_ROOT=Telecoms%http://linuxpackages.telecoms.bg/Slackware-xx/<br>
+
+  esac
+  if [ -z "$radiolist" ] ; then
+     dialog --msgbox "Parsing of mirror list failed !"
+     echo $TEMP/index.html
+     exit 1 
+  fi
+  radiolist='"Use another mirror" "" on '$radiolist
+fi
+
+while true ; do
+	# selecting mirror location or
+	eval dialog --radiolist Please\\ select\\ a\\ location 0 0 0 $radiolist 2> $TEMP/location
+	if [ $? -ne 0 ] ; then
+	   dialog --msgbox `cat $TEMP/location` 0 0 2> /dev/null
+	   doexit 1
+	fi
+
+	# specifying a custom server address instead
+	if [ "`cat $TEMP/location`" = "Use another mirror" ] ; then
+	  dialog --inputbox "Enter a custom $TYPE url" 0 50 "$TYPE://" 2> $TEMP/customurl
+	  if [ $? -eq 0 ] ; then
+	#### storing mirror address
+	     mkdir -p $ROOT/etc || doexit 1
+	     cat $TEMP/customurl > $ROOT/etc/$SOURCE-mirror
+	     choosesubdir || doexit 1
+	     doexit 0
+	  fi
+	  continue 
+	else
+	  break
+	fi
+done
+
+case "$SOURCE" in
+
+  slackware)
+# downloading the server list 
+    country=`cat $TEMP/location`
+    dialog --infobox "Downloading $URL/list.php?country=$country" 6 70
+    wget -q $URL/list.php?country=$country -O $TEMP/$country
+    if [ $? -ne 0 ] ; then
+       dialog --msgbox "$URL/list.php?country=$country: Download Failed" 6 70
+       doexit 1
+    fi
+
+    # creating the server list radiolist
+    err=0
+    radiolist=`sed -r -n -e 's/.*<TD><A HREF="('$TYPE':\/\/[^"]+).*/\1 "'$country'" off/p' $TEMP/$country || err=\$?`
+    if [ -z "$radiolist" ] ; then
+      if [ $err -ne 0 ] ; then
+        dialog --msgbox "Theres no $TYPE $SOURCE mirror in $country (or parsing the server list failed) !\nTry another protocol or location." 9 70
+        doexit 1
+      else
+        dialog --msgbox "Parsing the server list failed: `cat err`" 6 70
+        echo $TEMP/$country
+        exit 1 
+      fi
+    fi
+
+    # selecting a server in the list
+    eval dialog --radiolist Please\\ select\\ a\\ mirror\\ in\\ your\\ area 0 0 0 $radiolist 2> $TEMP/mirror
+    if [ $? -ne 0 ] ; then
+       doexit 1 
+    fi ;;
+
+  linuxpackages)
+    mv $TEMP/location $TEMP/mirror ;;
+
+esac
+ 
+#### storing mirror address
+if [ -f $TEMP/mirror ] ; then
+  mkdir -p $ROOT/etc || doexit 1
+  cat $TEMP/mirror > $ROOT/etc/$SOURCE-mirror || doexit 1
+  choosesubdir || doexit 1
+fi
+
+doexit 0

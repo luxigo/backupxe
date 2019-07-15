@@ -1,0 +1,60 @@
+prompt 0
+noescape 1
+default menu.c32
+menu master passwd dslmaster
+timeout 100
+ontimeout menu.c32 pxeboot.cfg/boot
+
+menu title Damn Small Linux
+
+label dsl
+  menu label dsl          - Damn Small Linux
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=791 initrd=boot/dsl/minirt24.gz nomce noapic quiet BOOT_IMAGE=knoppix frominitrd
+
+label txt
+  menu label txt          - Damn Small Linux en mode texte
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=normal initrd=boot/dsl/minirt24.gz nomce noapic quiet BOOT_IMAGE=knoppix frominitrd
+
+label expert
+  menu label expert       - Damn Small Linux en mode expert
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=791 initrd=boot/dsl/minirt24.gz nomce BOOT_IMAGE=expert frominitrd
+
+label dsl-fb1280x1024
+  menu label fb1280x1024  - Frame buffer 1280x1024
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=794 xmodule=fbdev initrd=boot/dsl/minirt24.gz nomce noapic quiet BOOT_IMAGE=knoppix frominitrd
+
+label dsl-fb1024x768
+  menu label fb1024x768   - Frame buffer 1024x768
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=791 xmodule=fbdev initrd=boot/dsl/minirt24.gz nomce noapic quiet BOOT_IMAGE=knoppix frominitrd
+
+label dsl-fb800x600
+  menu label fb800x600    - Frame buffer 800x600
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=788 xmodule=fbdev initrd=boot/dsl/minirt24.gz nomce noapic quiet BOOT_IMAGE=knoppix frominitrd
+
+label dsl-lowram
+  menu label lowram       - DamnSmallLinux minimal
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=normal initrd=boot/dsl/minirt24.gz noscsi noideraid nosound nousb nofirewire noicons minimal nomce noapic noapm quiet BOOT_IMAGE=knoppix frominitrd
+
+label dsl-install
+  menu label install      - Installer DamnSmallLinux
+  menu passwd stp
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us apm=power-off vga=normal initrd=boot/dsl/minirt24.gz noscsi noideraid nosound nofirewire noicons base norestore _install_ nomce noapic noapm quiet BOOT_IMAGE=knoppix frominitrd
+
+label dsl-failsafe
+  menu label failsafe     - DSL en mode sans echec
+  kernel boot/dsl/linux24
+  append ramdisk_size=100000 init=/etc/init lang=us vga=normal atapicd nosound noscsi nousb nopcmcia nofirewire noagp nomce nodhcp xmodule=vesa initrd=boot/dsl/minirt24.gz BOOT_IMAGE=knoppix frominitrd
+
+label retour
+  menu label e^xit         - Revenir au menu precedent
+  menu default
+  kernel menu.c32
+  append pxelinux.cfg/boot

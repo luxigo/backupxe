@@ -1,0 +1,47 @@
+prompt 0
+noescape 1
+default menu.c32
+ontimeout menu.c32 pxelinux.cfg/default
+timeout 100
+menu master passwd pxemaster
+
+menu title Utilitaires 
+
+label partedmagic
+  menu label ^partedmagic  - Utilitaires Disque
+  menu passwd pxemaster
+  kernel boot/pmagic_ok/bzImage
+  append noapic initrd=boot/pmagic_ok/initrd.gz root=/dev/ram0 init=/linuxrc ramdisk_size=100000
+
+label supergrub
+  menu label ^supergrub    - Utilitaires de Recuperation du MBR
+  menu passwd pxemaster
+  kernel memdisk
+  append initrd=boot/disks/supergrubdisk.img
+
+label memtest
+  menu label ^memtest      - Tester la RAM
+  kernel boot/disks/memtestp.img
+
+label aida
+  menu label ^aida         - Detecter le Materiel
+  kernel memdisk
+  append initrd=boot/disks/aida.img
+
+label ntpass
+  menu label ^ntpass       - Changer le mot de passe de Windows
+  menu passwd masterofthekeys
+  kernel memdisk
+  append initrd=boot/disks/ntpass.img
+
+label linpass
+  menu label ^linpass      - Effacer le mot de passe de Linux
+  menu passwd masterofthekeys
+  kernel memdisk
+  append initrd=boot/slack/vmlinuz ramdisk_size=23000 initrd=boot/slack/initrd.img USR_LOCAL=/pxe EXEC=/usr/local/bin/linpass 
+
+label main
+  menu label e^xit         - Retour au menu principal
+  menu default
+  kernel menu.c32
+  append pxelinux.cfg/menu

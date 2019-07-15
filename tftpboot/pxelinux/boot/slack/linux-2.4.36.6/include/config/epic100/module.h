@@ -1,0 +1,1 @@
+#define CONFIG_EPIC100_MODULE 1

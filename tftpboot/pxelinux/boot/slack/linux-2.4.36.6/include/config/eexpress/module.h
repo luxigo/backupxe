@@ -1,0 +1,1 @@
+#define CONFIG_EEXPRESS_MODULE 1

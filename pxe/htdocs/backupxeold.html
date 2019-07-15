@@ -1,0 +1,178 @@
+<html>
+	<head>
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+		<script src="/cgi-bin/pxe/init.cgi?backupxe"></script>
+		<link type="text/css" rel="stylesheet" href="/pxe/backupxe.css" />
+		                
+	</head>
+	
+	<body onmousedown="getmousepos(event)" onload="backupxe_onload(event)">
+		<table class="backupxe" cellpadding="0" cellspacing="0" style="width: 100%;">
+			<tr>
+				<td valign="top" align="left">
+					<div id="mapdiv">
+						<img id="map" name="map" src="/pxe/pics/map.png" onmousedown="mapclick(event)" class="map">
+						<div id="divicons"></div>
+					</div>
+				</td>
+
+				<td name="cartable" class="pclist" valign="top" style="top: 0px; width: 100%;">
+					<div id="cartouche" style="width: 100%;"> 
+					<table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+						<tr style="width: 100%;">
+							<td valign="top" colspan="3" class="page_header" style="width: 100%;">
+								<table cellspacing="0" border="0" style="width: 100%;">
+									<tr id="roomName" style="width: 100%;">
+										<td class="roomName" style="width: 100%;" colspan>
+											<h2>Charly</h2>
+										</td>
+									</tr>
+									<tr style="display: none;">
+										<td colspan="2" class="label" align="center">
+											<select id="diveditmenu" style="width: 100%" onkeyup="showfile(this,'editor_filename','editor_window')"  onchange="showfile(this,'editor_filename','editor_window')">
+											</select>
+										</td>
+									</tr>
+									<tr id="editor" style="display: none;">
+										<td class="editableend" colspan="3">
+											<div id="editor_window">
+											</div>
+										</td>
+									</tr>
+
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div id="divmapupload"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div id="pctable"></div>
+							</td>
+						</tr>
+					</table>
+					</div>
+					<br><br>	
+					<div id="prefs"></div>
+					<div id="storepcstylediv"></div>
+					<div id="divconf"></div>
+       					<div id="divconfbuttons"></div>
+					<div id="divassign"></div>
+					<div id="divpcedit"></div>
+					<div id="divnewroom"></div>
+					<div id="divmappreview"></div>
+					<div id="divlog"></div>
+					<div id="addmachine_errormsg"></div>
+				</td>
+			</tr>
+		</table>
+		<div id="selrect" class="selrect" style></div>
+		<!-- pc icon -->
+		<ul id="menu1" class="SimpleContextMenu">  
+			<li><a name="contextOn" href="javascript:action('on',numSuffix(SimpleContextMenu._attachedElement))">Allumer</a></li>
+			<li class="separator"><a name="contextOff" href="javascript:action('off',numSuffix(SimpleContextMenu._attachedElement))">Eteindre</a></li>  
+			<li class="separator"><a href="javascript:action('bootdsl',numSuffix(SimpleContextMenu._attachedElement))">Boot DSL</a></li>  
+			<li class="separator"><a href="javascript:action('register',numSuffix(SimpleContextMenu._attachedElement))">R&eacute;pertorier</a></li>  
+			<li><a name="contextSave" href="javascript:action('save',numSuffix(SimpleContextMenu._attachedElement))">Sauvegarder</a></li>  
+			<li class="separator"><a name="contextRestore" href="javascript:action('restore',numSuffix(SimpleContextMenu._attachedElement))">Restaurer</a></li>  
+			<li name="contextToSel"><a href="javascript:pcclickall(1)">Tout S&eacute;lectioner</a></li>  
+			<li name="contextSel"><a href="javascript:pcclickall(0)">Tout D&eacute;s&eacute;lectioner</a></li>  
+			<li class="separator"><a href="javascript:pcclickall('invert')">Inverser la S&eacute;lection</a></li>  
+			<li class="separator"><a href="javascript:switchIconMode()">Editer le Plan</a></li>  
+			<li class="separator" name="switchInfobulles"><a href="javascript:enableInfobulles()">Activer les Infobulles</a></li>  
+		</ul>  
+		<!-- map -->
+		<ul id="menu1b" class="SimpleContextMenu">
+			<li name="contextSel"><a href="javascript:action('on')">Allumer Selection</a></li>  
+			<li name="contextSel" class="separator"><a href="javascript:action('off')">Eteindre Selection</a></li>  
+			<li class="separator"><a href="javascript:action('bootdsl')">Boot DSL</a></li>  
+			<li class="separator"><a href="javascript:action('register')">R&eacute;pertorier</a></li>  
+			<li name="contextSel"><a href="javascript:action('save')">Sauvegarder Selection</a></li>  
+			<li name="contextSel" class="separator"><a href="javascript:action('restore')">Restaurer Selection</a></li>  
+			<li name="contextToSel"><a href="javascript:pcclickall(1)">Tout S&eacute;lectioner</a></li>  
+			<li name="contextSel"><a href="javascript:pcclickall(0)">Tout D&eacute;s&eacute;lectioner</a></li>  
+			<li class="separator"><a href="javascript:pcclickall('invert')">Inverser la S&eacute;lection</a></li>  
+			<li class="separator"><a href="javascript:switchIconMode()">Editer le Plan</a></li>  
+			<li class="separator" name="switchInfobulles"><a href="javascript:enableInfobulles()">Activer les Infobulles</a></li>  
+		</ul>
+		<!-- pc register -->
+		<ul id="menu2" class="SimpleContextMenu">  
+			<li class="separator"><a href="#">Changer l'Icone</a></li>  
+			<li class="separator"><a name="contextRemove" href="javascript:pcremove(numSuffix(SimpleContextMenu._attachedElement))">Enlever cette Machine</a></li>  
+			<li name="contextToSel"><a href="javascript:pcclickall(1)">Tout S&eacute;lectioner</a></li>  
+			<li name="contextSel"><a href="javascript:pcclickall(0)">Tout D&eacute;s&eacute;lectioner</a></li>  
+			<li class="separator"><a href="javascript:pcclickall('invert')">Inverser la S&eacute;lection</a></li>  
+			<li class="separator" name="quitEdit"><a href="javascript:switchIconMode()">Quitter l'Editeur</a></li>  
+		</ul>  
+		<!-- map register -->
+		<ul id="menu2b" class="SimpleContextMenu">
+			<li class="separator"><a href="javascript:alert('Double-cliquez dans une case vide de la premiere colonne de la liste (Id), entrez un numero de machine, puis placez la machine sur le plan.' )">Ajouter une Machine</a></li>
+			<li class="separator"><a href="javascript:xmlhttpget('/cgi-bin/pxe/auth.cgi?mapupload.html','divmapupload');">Uploader un Plan</a></li>
+			<li name="contextSel" class="separator"><a href="javascript:pcremove();">Enlever les machines selectionnees</a></li>  
+			<li name="contextToSel"><a href="javascript:pcclickall(1)">Tout S&eacute;lectioner</a></li>  
+			<li name="contextSel"><a href="javascript:pcclickall(0)">Tout D&eacute;s&eacute;lectioner</a></li>  
+			<li class="separator"><a href="javascript:pcclickall('invert')">Inverser la S&eacute;lection</a></li>  
+			<li class="separator" name="quitEdit"><a href="javascript:switchIconMode()">Quitter l'Editeur</a></li>  
+		</ul>
+		<!-- columns list  -->
+		<ul id="menu3" class="SimpleContextMenu">
+			<li><a href="#"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Id</td></tr></table></a></li>
+			<li><a href="javascript:toggleColumns('name')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Name</td></tr></table></a></li>
+			<li><a href="javascript:toggleColumns('ip')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>IP</td></tr></table></a></li>
+			<li><a href="javascript:toggleColumns('mac')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>MAC</td></tr></table></a></li>
+			<li><a href="javascript:toggleColumns('pxeconfig')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/nomark.png"></td><td>Network Boot</td></tr></table></a></li>
+			<li><a href="javascript:toggleColumns('save')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Save</td></tr></table></a></li>
+			<li class="separator"><a href="javascript:toggleColumns('restore')"><table cellspacing="0" cellpadding="0"><tr><td><img border="0" src="/pxe/pics/checkmark.png"></td><td>Restore</td></tr></table></a></li>
+		</ul>
+		<!-- restore  -->
+		<ul id="menu4" class="SimpleContextMenu">
+			<li class="separator"><a href="#"><table><tr><td name="contextPcIcon"><img src='/pxe/pics/thumbs/pc.png'></td><td name="contextPcName"></td></tr></table></a></li>
+			<li><a href="#">Sauvegarde&nbsp;&agrave;&nbsp;Restaurer:</a></li>
+			<li class="separator"><table id="restorePath" cellborder="0" cellspacing="0" style="border-width: 0px; border-style: none;"></table></li>
+			<li><a href="#">Disque&nbsp;&agrave;&nbsp;Disque depuis:</a></li>
+			<li class="separator"><table id="srcList" cellspacing="0" cellpadding="0"></table></li>
+			<li><a href="javascript:">Restaurer&nbsp;le&nbsp;MBR</a></li>
+			<li class="separator"><a>Restaurer&nbsp;Table&nbsp;de&nbsp;Partitions</a></li>
+		</ul>
+		<!-- save  -->
+		<ul id="menu5" class="SimpleContextMenu">
+			<li class="separator"><a href="#"><table><tr><td name="contextPcIcon"><img src="/pxe/pics/thumbs/pc.png"></td><td name="contextPcName"></td></tr></table></a></li>
+			<li><a href="#">Partitions&nbsp;&agrave;&nbsp;Sauvegarder:</a></li>
+			<li class="separator"><table id="partList" cellspacing="0" cellpadding="0"></table></li>
+			<li><a href="#">Destination Sauvegarde:</a></li>
+			<li><a href="#"><table cellspacing="0" cellpadding="0"><tr><td><img style="border-style: none;" src="/pxe/pics/checkmark.png"></td><td>Network</td></tr></table></a></li>
+			<li class="separator"><table id="destList" cellspacing="0" cellpadding="0"></table></li>
+		</ul>
+		<!-- pxeconfig  -->
+		<ul id="menu6" class="SimpleContextMenu">
+			<li><a href="#">D&eacute;marrage r&eacute;seau</a></li>
+			<li class="separator"><table id="pxeconfig"></table></li>
+		</ul>
+		<script>
+			function backupxe_onload(event) {
+				Unselectable.enable(event);
+			}
+				busy();
+				xmlhttpget('/cgi-bin/pxe/loadglobals.cgi?what=all','eval',undefined,'ready()');
+				xmlhttpget('/cgi-bin/pxe/savlist.cgi?','eval');
+				loadicons("default");
+				SimpleContextMenu.setup({'preventDefault':true, 'preventForms':false}); 
+				SimpleContextMenu.attach('pcIcon', 'menu1',menuUpdate);
+				SimpleContextMenu.attach('map', 'menu1b',menuUpdate);
+				SimpleContextMenu.attach('pclisthead', 'menu3',menuUpdate);
+				SimpleContextMenu.attach('columnRestore', 'menu4',menuUpdate);
+				SimpleContextMenu.attach('columnSave', 'menu5',menuUpdate);
+				SimpleContextMenu.attach('columnPXEconfig', 'menu6',menuUpdate);
+				reloadIconsInterval=setInterval("reloadicons('default')",10000);
+				loadGlobalsInterval=setInterval("xmlhttpget('/cgi-bin/pxe/loadglobals.cgi','eval');",30000);
+				InitBulle('black','yellow','black',1);      
+				mapselrect=new SelRect('mapselrect','map',mapselrect_callback);
+		</script>
+	</body>
+	<head>
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	</head>
+</html>

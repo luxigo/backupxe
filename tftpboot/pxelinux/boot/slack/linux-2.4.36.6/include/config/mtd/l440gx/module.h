@@ -1,0 +1,1 @@
+#define CONFIG_MTD_L440GX_MODULE 1

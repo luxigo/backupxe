@@ -1,0 +1,1 @@
+#define CONFIG_FB_MATROX_MODULE 1

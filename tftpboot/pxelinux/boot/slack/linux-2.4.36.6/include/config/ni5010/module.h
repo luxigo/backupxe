@@ -1,0 +1,1 @@
+#define CONFIG_NI5010_MODULE 1

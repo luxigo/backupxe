@@ -1,0 +1,1 @@
+#define CONFIG_LTPC_MODULE 1

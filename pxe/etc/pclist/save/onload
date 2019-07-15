@@ -1,0 +1,1 @@
+echo "SimpleContextMenu.attach('columnSave', 'menu5',menuUpdate);"

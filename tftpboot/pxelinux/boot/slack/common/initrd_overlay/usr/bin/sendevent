@@ -1,0 +1,49 @@
+#!/bin/sh
+. /etc/config
+# ssh -p $SSHPORT $USER@$REMOTESERVER `basename $0` $IPADDR $HWADDR $@ 
+
+WORKDIR=/pxe/log/$HWADDR
+mkdir -p $WORKDIR || exit 1
+
+if [ -z "$CMD" ] ; then
+  CMD=`basename $0`
+fi
+#if [ -z "$1" ] || [ -z "$2" ] ; then
+#  echo $CMD: not enough parameters 1>&2
+#  exit 1
+#fi
+if [ -z "$HWADDR" ] ; then
+   echo HWADDR is not set 1>&2
+   exit 1
+fi
+
+echo `date +%Y-%m-%d\\ %k%M.%S` $CMD $@ >> $WORKDIR/messages
+if [ $? -ne 0 ] ; then
+  echo $CMD: cant write to $WORKDIR/messages 1>&2
+  exit 1
+fi
+
+[ "$CMD" = "notice" ] && exit 
+
+for cmd in ready busy problem done bye ; do
+   if [ "$cmd" != "$CMD" ] && [ -f $WORKDIR/$cmd ]; then
+     if ! rm $WORKDIR/$cmd ; then
+       echo $CMD: cant remove $WORKDIR/$CMD 1>&2
+       exit 1
+     fi
+   fi
+done
+
+if ! touch $WORKDIR/$CMD ; then
+  echo $CMD: cant touch $WORKDIR/$CMD 1>&2
+  exit 1
+fi
+
+echo $1 > $WORKDIR/$CMD
+
+#       ready   -> machine is ready to work
+#       busy    -> machine is on a job
+#       problem -> a problem occured. human intervention needed, job queue stopped
+#       done    -> job terminated successfuly
+#       bye     -> machine is shutting down (use only in /etc/rc.d/rc.0)
+

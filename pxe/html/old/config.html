@@ -1,0 +1,82 @@
+<html>
+<head>
+                <script src="/pxe/js/xhr.js"></script>
+                <script src="/pxe/js/pcclick.js"></script>
+                <script src="/pxe/js/pcstyle.js"></script>
+
+                <script src="/pxe/js/browser.js"></script>
+                <script src="/pxe/js/infobulles.js"></script>
+                <script src="/pxe/js/prototype.js" type="text/javascript"></script>
+                <script src="/pxe/js/scriptaculous/scriptaculous.js" type="text/javascript"></script>
+		<script>
+		 	var loadpclistinterval;	
+		 	var loadglobalsinterval;	
+		 	var loadbackuplistinterval;	
+			var namelist=new Array;
+			var backupdir=new Array;
+
+			function showpcconfig() {};
+			
+			function loadpclist(divid) {
+
+				if (pcname==undefined || !pcname.length) return
+				clearInterval(loadglobalsinterval);
+				if (backupdir==undefined || !backupdir.length) return
+				clearInterval(loadbackuplistinterval);
+				clearInterval(loadpclistinterval);
+
+				var div=document.getElementById(divid);
+				var html='';
+				div.innerHTML='';
+
+				switch(divid) {
+					case "pclist":
+	        				for(var i=1; i < pcname.length; i++) {
+							if (pcname[i]==undefined) continue;
+							html+="<div id=\"divlist3_" + i + "\" onclick=\"divlistselect(3,"+i+','+i+",'showpcconfig("+i+")')\"";
+							html+=((listselection[3]==i)?' style="background-color: cyan">':'>');
+							html+='<table><tr><td><img src="/pxe/thumbs/pc' + i  + '.png" align=left></td>' ;
+                                //       	html+='<td valign="center">'+pcmac[i]+'</td>';
+                                  //     	html+='<td valign="center">'+((pcname[i]=='')?'n/a':pcname[i])+'</td>';
+					        	html+='</tr></table></div>';
+						}
+						div.innerHTML=html;
+						loadpclist("backuplist");
+						break;
+					case "backuplist":
+						for (var i=0; i < backupdir.length; ++i) {
+							html+="<div id=\"divlist4_" + i + "\" onclick=\"divlistselect(4,"+i+','+i+",'setbackup("+i+")')\"";
+							html+=((listselection[4]==i)?' style="background-color: cyan">':'>');
+							html+='<table><tr><td>'+backupdir[i]+'</td>' ;
+					        	html+='</tr></table></div>';
+						}
+						div.innerHTML=html;
+						break;
+				}		
+			}
+
+		</script>
+
+</head>
+<body>
+	<table>
+	  <tr>
+	    <td valign="center">
+		<div id="pclist" class="listbox" style="height: 460px; width: 72; overflow-x: hidden; overflow-y: auto">Loading...</div>
+	    </td>
+	    <td>
+		<div id="backuplist" class="listbox" style="height: 460px; width: 200; overflow-x: hidden; overflow-y: auto">Loading...</div>
+	    </td>
+	  </tr>
+	</table>
+	<script>
+                InitBulle('black','yellow','black',1);
+                xmlhttpget('/cgi-bin/pxe/loadglobals.cgi','eval');
+                xmlhttpget('/cgi-bin/pxe/loadbackuplist.cgi','eval');
+                loadglobalsinterval=setInterval("xmlhttpget('/cgi-bin/pxe/loadglobals.cgi','eval');",10000);
+                loadbackuplistinterval=setInterval("xmlhttpget('/cgi-bin/pxe/loadbackuplist.cgi','eval');",10000);
+		loadpclistinterval=setInterval('loadpclist("pclist");',1000);
+	</script>
+
+</body>
+</html>

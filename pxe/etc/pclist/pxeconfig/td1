@@ -1,0 +1,1 @@
+<td class="columnPXEconfig" name="lpc'+pc+'">'+((pcpxeconfig[pc]==undefined)?'default':pcpxeconfig[pc])+'</td>

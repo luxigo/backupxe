@@ -1,0 +1,3 @@
+ifeq (-e stext af_decnet.o dn_nsp_in.o dn_nsp_out.o dn_route.o dn_dev.o dn_neigh.o dn_timer.o sysctl_net_decnet.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += decnet.o
+endif

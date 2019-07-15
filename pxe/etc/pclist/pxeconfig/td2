@@ -1,0 +1,1 @@
+<td class="columnPXEconfig" name="lpc'+hostsmac[i][0]+'">'+hostsmac[i][3]+'</td>

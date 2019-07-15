@@ -1,0 +1,1 @@
+#define CONFIG_BLK_DEV_UMEM_MODULE 1

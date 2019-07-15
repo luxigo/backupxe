@@ -1,0 +1,1 @@
+#define CONFIG_MTD_PCI_MODULE 1

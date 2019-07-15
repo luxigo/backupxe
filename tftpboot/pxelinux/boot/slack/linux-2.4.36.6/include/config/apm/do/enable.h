@@ -1,0 +1,1 @@
+#undef  CONFIG_APM_DO_ENABLE

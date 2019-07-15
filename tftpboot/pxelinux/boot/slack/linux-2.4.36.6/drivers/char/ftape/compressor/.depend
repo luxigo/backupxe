@@ -1,0 +1,30 @@
+lzrw3.o: lzrw3.c \
+   ../compressor/lzrw3.h
+lzrw3.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/types.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/string.h
+	@touch lzrw3.h
+zftape-compress.o: zftape-compress.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/errno.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zftape.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/segment.h \
+   ../zftape/zftape-init.h \
+   ../zftape/zftape-eof.h \
+   ../zftape/zftape-ctl.h \
+   ../zftape/zftape-write.h \
+   ../zftape/zftape-read.h \
+   ../zftape/zftape-rw.h \
+   ../compressor/zftape-compress.h \
+   ../zftape/zftape-vtbl.h \
+   ../compressor/lzrw3.h
+zftape-compress.h: \
+   ../zftape/zftape-buffers.h \
+   ../zftape/zftape-vtbl.h \
+   ../compressor/lzrw3.h
+	@touch zftape-compress.h
+.PRECIOUS:	lzrw3.h \
+	zftape-compress.h \
+

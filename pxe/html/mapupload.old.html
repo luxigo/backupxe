@@ -1,0 +1,40 @@
+<form name="mapupload" method="post" action="/cgi-bin/pxe/mapupload.cgi" enctype="multipart/form-data">
+	<table align="center">
+		<tr>
+			<td>
+			Plan: 
+			</td>
+			<td>
+				<input type="file" class="file" name="newmap" value="..." onchange="previewmap()" >
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Salle: 
+			</td>
+			<td>
+			<input type="text" name="room" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<br>
+			<table width="100%">
+			<tr>
+			<td colspan="2">
+			<input type="button" class="button" value="Annuler" onclick="innerHTML_restore('divmapupload')" style="width: 100%" />
+			</td>
+			</tr>
+			<tr>
+			<td>
+			<input type="submit" class="button" value="Nouvelle Salle" style="width: 100%" />
+			</td>
+			<td>
+			<input type="submit" class="button" value="Changer Carte" style="width: 100%" />
+			</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</form>
+<div id="divmappreview"></div>

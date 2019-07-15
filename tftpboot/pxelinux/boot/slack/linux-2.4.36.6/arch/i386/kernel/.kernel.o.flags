@@ -1,0 +1,3 @@
+ifeq (-e stext process.o semaphore.o signal.o entry.o traps.o irq.o vm86.o ptrace.o i8259.o ioport.o ldt.o setup.o time.o sys_i386.o pci-dma.o i386_ksyms.o i387.o bluesmoke.o dmi_scan.o pci-i386.o pci-pc.o pci-irq.o mtrr.o acpi.o earlyquirk.o acpi_wakeup.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += kernel.o
+endif

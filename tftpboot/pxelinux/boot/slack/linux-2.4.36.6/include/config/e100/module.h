@@ -1,0 +1,1 @@
+#define CONFIG_E100_MODULE 1

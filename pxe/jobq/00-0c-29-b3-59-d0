@@ -1,0 +1,4 @@
+dd if=/dev/sda of=/pxe/image/00-0c-29-b3-59-d0/sda-cfbaa9a02a87707258dd5212e87113ba/sda.mbr bs=512 count=1
+partimage-save.sh /dev/sda1 /pxe/image/00-0c-29-b3-59-d0/sda-cfbaa9a02a87707258dd5212e87113ba/sda1
+dd of=/dev/sda if=/pxe/image/00-0c-29-b3-59-d0/sda-cfbaa9a02a87707258dd5212e87113ba/sda.mbr bs=512 count=1
+partimage-restore.sh /dev/sda1 /pxe/image/00-0c-29-b3-59-d0/sda-cfbaa9a02a87707258dd5212e87113ba/sda1

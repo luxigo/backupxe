@@ -1,0 +1,1 @@
+#define CONFIG_IDEDMA_ONLYDISK 1

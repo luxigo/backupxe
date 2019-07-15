@@ -1,0 +1,51 @@
+infblock.o: infblock.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zutil.h \
+   infblock.h \
+   inftrees.h \
+   infcodes.h \
+   infutil.h
+infcodes.o: infcodes.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zutil.h \
+   inftrees.h \
+   infblock.h \
+   infcodes.h \
+   infutil.h \
+   inffast.h
+infcodes.h: \
+   infblock.h
+	@touch infcodes.h
+inffast.o: inffast.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zutil.h \
+   inftrees.h \
+   infblock.h \
+   infcodes.h \
+   infutil.h \
+   inffast.h
+inflate.o: inflate.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zutil.h \
+   infblock.h \
+   infutil.h
+inflate_syms.o: inflate_syms.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/module.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/init.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zlib.h
+inftrees.o: inftrees.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zutil.h \
+   inftrees.h \
+   infutil.h \
+   inffixed.h
+infutil.o: infutil.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zutil.h \
+   infblock.h \
+   inftrees.h \
+   infcodes.h \
+   infutil.h
+infutil.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/zconf.h \
+   inftrees.h \
+   infcodes.h
+	@touch infutil.h
+.PRECIOUS:	infcodes.h \
+	infutil.h \
+

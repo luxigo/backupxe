@@ -1,0 +1,3 @@
+ifeq (-e stext dsfield.o dsinit.o dsmethod.o dsmthdat.o dsobject.o dsopcode.o dsutils.o dswexec.o dswload.o dswscope.o dswstate.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += dispatcher.o
+endif

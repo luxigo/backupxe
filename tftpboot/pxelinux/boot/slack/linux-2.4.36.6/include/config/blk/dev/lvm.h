@@ -1,0 +1,1 @@
+#define CONFIG_BLK_DEV_LVM 1

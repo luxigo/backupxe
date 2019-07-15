@@ -1,0 +1,1 @@
+#define CONFIG_SKFP_MODULE 1

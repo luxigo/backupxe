@@ -1,0 +1,1 @@
+#define CONFIG_NE2K_PCI_MODULE 1

@@ -1,0 +1,1 @@
+#define CONFIG_LP486E_MODULE 1

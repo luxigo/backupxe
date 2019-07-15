@@ -1,0 +1,76 @@
+#!/bin/sh
+
+# First, determine our slackware kernel name:
+for ELEMENT in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 ; do
+  if $(cat /proc/cmdline | cut -f $ELEMENT -d ' ' | grep -q SLACK_KERNEL) ; then
+    SLACK_KERNEL=$(cat /proc/cmdline | cut -f $ELEMENT -d ' ' | cut -f 2 -d =)
+  fi
+done
+unset ELEMENT
+
+# Next, find the kernel's release version:
+VERSION=$(uname -r)
+
+# If someone tries to install kernels from a CD that doesn't contain any,
+# we'll give them one chance to find a disc that does.
+swapdisks() {
+  CDDEVICE=$(cat $TMP/SeTCDdev)
+  umount $CDDEVICE 1> /dev/null 2> /dev/null
+  eject $CDDEVICE
+  dialog --title "REINSERT KERNEL DISC TO INSTALL $SLACK_KERNEL kernel" --msgbox \
+"Please reinsert the Slackware disc containing the collection \
+of Linux kernels.  Usually this is disc number one (the disc \
+that you boot from).  Once you've inserted the disc, hit ENTER \
+to continue." \
+8 61
+  mount $CDDEVICE /var/log/mount 1> /dev/null 2> /dev/null
+}
+
+# Check symlinks /nfs and /cdrom pointing to /var/log/mount:
+if mount | grep -q "type nfs" ; then
+  PLINK=nfs
+else
+  PLINK=cdrom
+fi
+# Point KDIR to the install kernel's directory:
+KDIR=/$PLINK/kernels/${SLACK_KERNEL}
+
+( cd boot || exit
+  if [ ! "$SLACK_KERNEL" = "speakup.s" ]; then
+    if [ "$SLACK_KERNEL" = "hugesmp.s" ]; then
+      KNAME=huge-smp
+    elif [ "$SLACK_KERNEL" = "huge.s" ]; then
+      KNAME=huge
+    fi
+    if [ -r ${KDIR}/bzImage ]; then
+      rm -f vmlinuz config System.map
+      cp -a ${KDIR}/bzImage vmlinuz-${KNAME}-${VERSION}
+      cp -a ${KDIR}/config config-${KNAME}-${VERSION}
+      cp -a ${KDIR}/System.map.gz System.map-${KNAME}-${VERSION}.gz
+      gzip -d --force System.map-${KNAME}-${VERSION}.gz
+      ln -sf vmlinuz-${KNAME}-${VERSION} vmlinuz
+      ln -sf config-${KNAME}-${VERSION} config
+      ln -sf System.map-${KNAME}-${VERSION} System.map
+    fi
+  elif [ "$SLACK_KERNEL" = "speakup.s" ]; then
+    if [ "$PLINK" = "cdrom" -a ! -d /cdrom/kernels ]; then
+      swapdisks
+    fi
+    KNAME=speakup
+    if [ -r ${KDIR}/bzImage ]; then
+      rm -f vmlinuz config System.map
+      cp -a ${KDIR}/bzImage vmlinuz-${KNAME}-${VERSION}
+      cp -a ${KDIR}/config config-${KNAME}-${VERSION}
+      cp -a ${KDIR}/System.map.gz System.map-${KNAME}-${VERSION}
+      gzip -d --force System.map-${KNAME}-${VERSION}.gz
+      ln -sf vmlinuz-${KNAME}-${VERSION} vmlinuz
+      ln -sf config-${KNAME}-${VERSION} config
+      ln -sf System.map-${KNAME}-${VERSION} System.map
+    fi
+    # flunk
+    if [ ! -d /$PLINK/kernels ]; then
+      break; # we've done all we can do -- grab a body bag.
+    fi
+  fi
+)
+

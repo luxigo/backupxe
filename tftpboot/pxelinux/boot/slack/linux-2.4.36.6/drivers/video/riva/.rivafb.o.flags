@@ -1,0 +1,3 @@
+ifeq (-e stext fbdev.o riva_hw.o accel.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += rivafb.o
+endif

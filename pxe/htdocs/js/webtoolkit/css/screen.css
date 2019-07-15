@@ -1,0 +1,37 @@
+body {
+	background: #F9FAF6;
+	margin: 0px;
+	padding: 0px;
+	color: #000000;
+	font-family: arial,sans-serif;
+	font-size: 11px;
+}
+
+iframe {
+	position: relative;
+	margin-left: -2px;
+}
+
+input {
+	font-family: verdana,arial,sans-serif;
+}
+
+p, form, dd, dl, dt {
+	margin: 0px;
+	padding: 0px;
+}
+
+a,
+a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #018C01;
+}
+
+#container {
+	border: 1px solid silver;
+	background: #ffffff;
+	padding: 20px;
+	margin: 30px;
+	-moz-border-radius: 8px;
+}

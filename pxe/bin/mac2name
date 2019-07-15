@@ -1,0 +1,9 @@
+#!/bin/sh
+mac=`echo "$1" | tr A-Z a-z | tr : -`
+
+name=`grep "$mac" /pxe/etc/hosts.mac | cut -f 2 -d ' '`
+if [ -z "$name" ] ; then
+  name=$mac
+fi
+echo $name
+

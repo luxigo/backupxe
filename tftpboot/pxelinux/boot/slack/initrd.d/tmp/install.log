@@ -1,0 +1,96 @@
+--------------------------jeudi 31 juillet 2008, 16:24:42 (UTC+0200)
+wget http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/FILELIST.TXT
+wget http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/PACKAGES.TXT
+wget -c http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/slackware/a/bzip2-1.0.5-i486-1.tgz
+WARNING: pkgtools are unstable with tar > 1.13.
+         You should provide a "tar-1.13" in your $PATH.
+Installing package bzip2-1.0.5-i486-1... 
+PACKAGE DESCRIPTION:
+bzip2: bzip2 (a block-sorting file compressor)
+bzip2:
+bzip2: Bzip2 compresses files using the Burrows-Wheeler block sorting text
+bzip2: compression algorithm, and Huffman coding.  Compression is generally
+bzip2: considerably better than that achieved by more conventional LZ77/LZ78-
+bzip2: based compressors, and approaches the performance of the PPM family of
+bzip2: statistical compressors. 
+bzip2:
+bzip2: Julian Seward <jseward@acm.org> is the author of bzip2.
+bzip2:
+Executing install script for bzip2-1.0.5-i486-1...
+
+wget -c http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/slackware/a/dcron-2.3.3-i486-6.tgz
+WARNING: pkgtools are unstable with tar > 1.13.
+         You should provide a "tar-1.13" in your $PATH.
+Installing package dcron-2.3.3-i486-6... 
+PACKAGE DESCRIPTION:
+dcron: dcron (Dillon's Cron daemon)
+dcron:
+dcron: The cron daemon runs in the background and executes tasks on behalf of
+dcron: users at the appropriate time.  Many timed system tasks are started
+dcron: with cron, such as the nightly indexing with updatedb.
+dcron:
+dcron: dcron was written entirely from scratch by Matthew Dillon.
+dcron:
+Executing install script for dcron-2.3.3-i486-6...
+
+wget -c http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/slackware/n/dhcpcd-2.0.4-i486-2.tgz
+WARNING: pkgtools are unstable with tar > 1.13.
+         You should provide a "tar-1.13" in your $PATH.
+Installing package dhcpcd-2.0.4-i486-2... 
+PACKAGE DESCRIPTION:
+dhcpcd: dhcpcd (DHCP client daemon)
+dhcpcd:
+dhcpcd: The DHCP client program dhcpcd is used to connect to a network by
+dhcpcd: contacting a DHCP server.  dhcpcd gets an IP address and other
+dhcpcd: information from a corresponding DHCP server, configures the network
+dhcpcd: interface automatically, and tries to renew the lease time according
+dhcpcd: to RFC2131 or RFC1541 depending on the command line option.
+dhcpcd:
+
+wget -c http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/slackware/a/module-init-tools-3.4-i486-1.tgz
+WARNING: pkgtools are unstable with tar > 1.13.
+         You should provide a "tar-1.13" in your $PATH.
+Installing package module-init-tools-3.4-i486-1... 
+PACKAGE DESCRIPTION:
+module-init-tools: module-init-tools (kernel module utilities)
+module-init-tools:
+module-init-tools: Utilities to load and unload kernel modules.  These are used on Linux
+module-init-tools: to load extra drivers or other features into the running kernel.
+module-init-tools:
+Executing install script for module-init-tools-3.4-i486-1...
+
+wget -c http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/patches/packages/openssh-5.1p1-i486-1_slack12.1.tgz
+WARNING: pkgtools are unstable with tar > 1.13.
+         You should provide a "tar-1.13" in your $PATH.
+Installing package openssh-5.1p1-i486-1_slack12.1... 
+PACKAGE DESCRIPTION:
+openssh: openssh (Secure Shell daemon and clients)
+openssh:
+openssh: ssh (Secure Shell) is a program for logging into a remote machine and
+openssh: for executing commands on a remote machine.  It is intended to replace
+openssh: rlogin and rsh, and provide secure encrypted communications between
+openssh: two untrusted hosts over an insecure network.  sshd (SSH Daemon) is
+openssh: the daemon program for ssh.  OpenSSH is based on the last free version
+openssh: of Tatu Ylonen's SSH, further enhanced and cleaned up by Aaron
+openssh: Campbell, Bob Beck, Markus Friedl, Niels Provos, Theo de Raadt, and
+openssh: Dug Song.  It has a homepage at http://www.openssh.com/
+openssh:
+Executing install script for openssh-5.1p1-i486-1_slack12.1...
+
+--------------------------jeudi 31 juillet 2008, 16:26:16 (UTC+0200)
+Already installed: bzip2
+Already installed: dcron
+Already installed: dhcpcd
+Already installed: module-init-tools
+Already installed: openssh-5.1p1-i486-1_slack12.1
+--------------------------jeudi 31 juillet 2008, 16:27:15 (UTC+0200)
+Already installed: bzip2
+Already installed: dcron
+Already installed: dhcpcd
+Already installed: module-init-tools
+Already installed: openssh-5.1p1-i486-1_slack12.1
+--------------------------jeudi 31 juillet 2008, 16:32:47 (UTC+0200)
+Already installed: bzip2
+Already installed: dcron
+Already installed: dhcpcd
+Already installed: module-init-tools

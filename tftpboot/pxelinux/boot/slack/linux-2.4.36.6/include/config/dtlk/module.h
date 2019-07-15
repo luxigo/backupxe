@@ -1,0 +1,1 @@
+#define CONFIG_DTLK_MODULE 1

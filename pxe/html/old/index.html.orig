@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd">
+<HTML>
+<HEAD>
+<TITLE>PXE BACKUP CONFIGURATION</TITLE>
+<script type="text/javascript">
+
+maccount=0;
+mac = new Array();
+
+function switchBox(cb) {
+    eval("top.frame1.document.choosemac." + cb + ".checked=!top.frame1.document.choosemac." + cb + ".checked");
+  }
+
+function checkAll() {
+  for (var j = 0; j < maccount; j++) {
+    eval("top.frame1.document.choosemac.M" + mac[j] + ".checked='on'");
+  }
+}
+
+function uncheckAll() {
+  for (var j = 0; j < maccount; j++) {
+    eval("top.frame1.document.choosemac.M" + mac[j] + ".checked=''");
+  }
+}
+
+function switchAll() {
+  for (var j = 0; j < maccount; j++) {
+    eval("top.frame1.document.choosemac.M" + mac[j] + ".checked=!top.frame1.document.choosemac.M" + mac[j] + ".checked");
+  }
+}
+
+function showitem(l,t,r,b) {
+  top.frame2.document.test.style.left=l+(r-l)/2;
+  top.frame2.document.test.style.top=t+(b-t)/2;
+}
+
+
+</script>
+</HEAD>
+<FRAMESET rows="8%, 92%">
+  <FRAME src="/pxe/home.html" name=frame0 frameborder=0>
+    <FRAMESET cols="37%, 63%">
+      <FRAME src="/pxe/status.html" name=frame1 frameborder=0>
+      <FRAME src="/pxe/backuplan2.html" name=frame2 frameborder=0>
+      <NOFRAMES>
+        <P>This frameset document contains:
+        <UL>
+           <LI><A href="/pxe/home.html">home</A>
+        </UL>
+      </NOFRAMES>
+   </FRAMESET>
+</FRAMESET>
+</HTML>

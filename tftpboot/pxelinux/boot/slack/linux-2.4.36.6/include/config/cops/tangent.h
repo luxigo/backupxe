@@ -1,0 +1,1 @@
+#define CONFIG_COPS_TANGENT 1

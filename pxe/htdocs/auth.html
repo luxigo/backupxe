@@ -1,0 +1,53 @@
+<html>
+	<head>
+                <link type="text/css" rel="stylesheet" href="/pxe/auth.css" />
+
+		<script>
+
+			function auth_onload() {
+				var div=document.getElementById('login');
+				div.style.top=document.body.clientHeight/3-document.getElementById('login').clientHeight/2;
+				div.style.opacity=1;
+			}
+
+		</script>
+
+	</head>
+
+	<body onload="auth_onload()">
+
+		<div id="login" class="login" align="center" style="position: relative; opacity: 0;">
+
+			<form method="POST" action="/cgi-bin/pxe/auth.cgi">
+
+				<table class="login">
+
+					<tr class="login">
+
+						<td class="login">
+							Username:
+						</td>
+
+						<td class="login">
+							<input class="login" type="text" id="user" name="user" onkeypress="javascript:if(event.keyCode==13) document.getElementById('pass').focus();"></input>
+						</td>
+					</tr>
+
+					<tr class="login">
+
+						<td class="login">
+							Password:
+						</td>
+
+						<td class="login">
+							<input type="password" id="pass" name="pass" onkeypress="javascript:if(event.keyCode==13) document.forms[0].submit();"></input>
+							<input type="submit" style="opacity: 0;">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+</body>
+
+</html>

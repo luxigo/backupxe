@@ -1,0 +1,3 @@
+ifeq (-e stext dummycon.o vgacon.o font_8x8.o font_8x16.o fbmem.o fbcmap.o modedb.o fbcon.o fonts.o vesafb.o fbcon-cfb8.o fbcon-cfb16.o fbcon-cfb24.o fbcon-cfb32.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += video.o
+endif

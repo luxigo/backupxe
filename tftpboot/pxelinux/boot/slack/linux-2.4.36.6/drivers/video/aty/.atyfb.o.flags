@@ -1,0 +1,3 @@
+ifeq (-e stext atyfb_base.o mach64_accel.o mach64_gx.o mach64_ct.o mach64_cursor.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += atyfb.o
+endif

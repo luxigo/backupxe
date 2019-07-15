@@ -1,0 +1,1 @@
+#define CONFIG_ARCNET_MODULE 1

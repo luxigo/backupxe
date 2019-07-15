@@ -1,0 +1,5 @@
+module-init-tools: module-init-tools (kernel module utilities)
+module-init-tools:
+module-init-tools: Utilities to load and unload kernel modules.  These are used on Linux
+module-init-tools: to load extra drivers or other features into the running kernel.
+module-init-tools:

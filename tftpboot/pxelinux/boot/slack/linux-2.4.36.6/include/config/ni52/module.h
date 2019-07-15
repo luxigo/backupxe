@@ -1,0 +1,1 @@
+#define CONFIG_NI52_MODULE 1

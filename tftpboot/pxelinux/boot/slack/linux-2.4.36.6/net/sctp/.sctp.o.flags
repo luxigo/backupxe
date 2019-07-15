@@ -1,0 +1,3 @@
+ifeq (-e stext endpointola.o output.o sm_make_chunk.o associola.o outqueue.o sm_sideeffect.o transport.o bind_addr.o input.o primitive.o sm_statefuns.o tsnmap.o command.o inqueue.o proc.o sm_statetable.o ulpevent.o protocol.o socket.o ulpqueue.o debug.o ssnmap.o crc32c.o chunk.o sysctl.o ipv6.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += sctp.o
+endif

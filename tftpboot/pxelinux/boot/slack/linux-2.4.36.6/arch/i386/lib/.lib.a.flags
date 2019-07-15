@@ -1,0 +1,3 @@
+ifeq (checksum.o old-checksum.o delay.o usercopy.o getuser.o memcpy.o strstr.o,$(strip $(subst $(comma),:,$(EXTRA_ARFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += lib.a
+endif

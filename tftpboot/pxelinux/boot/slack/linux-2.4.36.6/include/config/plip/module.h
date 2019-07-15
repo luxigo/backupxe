@@ -1,0 +1,1 @@
+#define CONFIG_PLIP_MODULE 1

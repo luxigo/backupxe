@@ -1,0 +1,279 @@
+td.tab {
+	 background-color: white;
+	 border-style: solid;
+	 border-width: 1px;
+	 border-bottom-style: none;
+	 padding-bottom: 0px;
+}
+td.tabback {
+	 background-color: #dfdfff;
+	 border-style: solid;
+	 border-width: 1px;
+	 border-bottom-style: solid;
+	 padding-bottom: 0px;
+}
+div.tabbut {
+	 background-color: white;
+	 border-style: solid;
+	 border-width: 1px;
+	 border-top-style: none;
+	 border-bottom-style: solid;
+	 padding-bottom: 0px;
+}
+div.tab {
+	 border-style: solid;
+	 border-width: 1px;
+	 border-color: black;
+	 border-top-style: none;
+	 padding: 4px;
+	 height: 320px;
+	 overflow-x: hidden;
+	 overflow-y: auto;
+}
+
+td.page_header {
+	 background-color: white;
+	 border-style: solid;
+	 border-width: 1px;
+}
+
+img.map {
+	 border-style: none;
+	 border-width: 0px;
+}
+
+td.editable {
+	 font-family: arial;
+	 background-color: white;
+	 font-size: 11px;
+	 text-align: right;
+	 border-width: 1px;
+	 border-style: solid;
+	 border-bottom-style: none;
+}
+input.editable {
+	 font-family: arial;
+	 font-size: 11px;
+	 text-align: right;
+}
+td.editor_filename {
+	 display: none;
+	 width: 100%;
+	 font-size: 11px;
+}
+table.editor_window {
+	 width: 100%;
+}
+td.editor_table {
+	 font-family: arial;
+	 border-width: 1px;
+	 border-style: none;
+	 border-left-style: solid;
+	 border-top-style: solid;
+	 font-size: 11px;
+	 text-align: right;
+}
+td.editor_table_index { 
+	font-family: arial; 
+	border-width: 1px; 
+	border-style: none; 
+	border-left-style: solid; 
+	border-top-style: solid;
+	font-size: 11px; 
+	text-align: right; 
+}
+td.editor_text { 
+	font-size: 11px; 
+	text-align: right; 
+}
+td.editableend { 
+	background-color: white; 
+	font-size: 11px; 
+	text-align: right; 
+	border-width: 1px; 
+	border-style: solid; 
+}
+
+td.label { 
+	text-align: center;
+}
+td.label2 { border-width: 1px; 
+	border-style: solid; 
+	border-bottom-style: none; 
+	border-left-style: solid; 
+	text-align: center;
+}
+td.labelend { 
+	border-width: 1px; 
+	border-style: solid; 
+	text-align: center;
+}
+td.label2end { 
+	border-width: 1px; 
+	border-style: solid; 
+	border-left-style: none; 
+	text-align: center;
+}
+td.toprightborders { 
+	border-style: solid;  
+	border-left-style: none; 
+	border-bottom-style: none; 
+	border-width: 1px;
+} 
+td.editor, td.editor { 
+	border: 1px solid black; 
+}
+div.selrect { 
+	border: 1px solid black; 
+	border-style: dashed; 
+	position: absolute; 
+	display: none;
+}
+
+table.pclist { overflow-x: scroll; overflow-y: scroll; width: 100%;}
+
+ul.SimpleContextMenu {
+	display: none;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	font-family: verdana;
+	font-size: 12px;
+	list-style-type: none;
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+	z-index: 9999;
+}
+
+ul.SimpleContextMenu li.separator {
+	border-bottom: 1px solid #000000;
+	text-decoration: none;
+	color: #000000;
+	background: #eeeeee;
+}
+
+ul.SimpleContextMenu li a {
+		display: block;
+		padding: 2px 10px 3px 10px;
+		font-style: normal;
+		text-decoration: none;
+		color: #000000;
+		background: #eeeeee;
+}
+
+ul.SimpleContextMenu li a:hover {
+			font-style: normal;
+			text-decoration: none;
+			color: #000000;
+			background: #aaaadd;
+}
+
+body {
+	background: #F9FAF6;
+	margin: 0px;
+	padding: 0px;
+	color: #000000;
+	font-family: arial,sans-serif;
+	font-size: 11px;
+}
+
+iframe {
+	position: relative;
+	margin-left: -2px;
+}
+
+input {
+	font-family: verdana,arial,sans-serif;
+}
+
+p, form, dd, dl, dt {
+	margin: 0px;
+	padding: 0px;
+}
+
+a,
+a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #018C01;
+}
+
+#container {
+	border: 1px solid silver;
+	background: #ffffff;
+	padding: 20px;
+	margin: 30px;
+	-moz-border-radius: 8px;
+}
+
+table.backupxe {
+	border: 0px solid black;
+}
+
+table {
+	text-align: center;
+	font-size: 12px;
+	font-family: verdana;
+	border-style: none;
+}
+
+tr.pclist {
+	background: #f0f0f0;
+}
+
+td.pclist {
+	background: #7f7f7f;
+}
+
+table thead {
+	cursor: pointer;
+}
+
+table thead tr,
+table tfoot tr {
+	background: #c0c0c0;
+}
+tr.pclist {
+	background: #7f7f7f;
+}
+
+td.roomName tr.roomName  {
+	border-top-style: none;
+	text-align: center;
+}
+
+tbody.pclist { overflow-x: hidden; overflow-y: scroll; }
+
+hidden {
+	visibility: hidden;
+}
+
+#divlist {
+word-wrap: none;
+text-wrap: none;
+text-align: right;
+}
+
+#partlist2 {
+	width: 242px;
+}
+#partlist {
+	width: 200px;
+}
+#destlist {
+	width: 200px;
+}
+#savlist {
+	width: 242px;
+}
+
+#srclist {
+	width: 232px;
+}
+
+#checkmark {
+	border-style: none;
+	border: 0px;
+	padding: 0px;
+}

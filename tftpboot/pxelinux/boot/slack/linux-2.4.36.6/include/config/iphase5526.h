@@ -1,0 +1,1 @@
+#undef  CONFIG_IPHASE5526

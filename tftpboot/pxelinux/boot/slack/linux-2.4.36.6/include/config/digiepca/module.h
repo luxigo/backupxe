@@ -1,0 +1,1 @@
+#define CONFIG_DIGIEPCA_MODULE 1

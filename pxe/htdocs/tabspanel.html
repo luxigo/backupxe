@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="js/tabspanel.js"></script>
+<script src="js/xhr.js"></script>
+<script>
+	var tp;
+	function callback(what,when) {
+//		alert(when+' '+what);
+		switch(when) {
+			case 'init':
+				if (what=='A') {
+					tp.click(null,what);
+					return false;
+					document.getElementById('APanel').style.visible='block';
+				}
+				return true;	
+				break;
+			case 'click':
+				return true;	
+				break;
+		}
+	}
+	
+</script>
+<style>
+	table.tabtable #tabtable { border-style: ridge; border-width: 1px;}
+</style>
+</head>
+<body>
+<table id="tabs">
+</table>
+<script>
+	tp=new TabsPanel('tp','tabs');
+	tp.add('Save','tab_save.html','tab_callback("tab_save")');
+</script>
+</body>
+</html>

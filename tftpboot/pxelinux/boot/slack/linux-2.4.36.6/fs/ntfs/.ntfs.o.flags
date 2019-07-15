@@ -1,0 +1,3 @@
+ifeq (-e stext fs.o sysctl.o support.o util.o inode.o dir.o super.o attr.o unistr.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += ntfs.o
+endif

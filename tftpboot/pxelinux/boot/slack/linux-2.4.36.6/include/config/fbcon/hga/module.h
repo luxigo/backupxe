@@ -1,0 +1,1 @@
+#define CONFIG_FBCON_HGA_MODULE 1

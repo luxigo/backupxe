@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="js/xhr.js"></script>
+	<script>
+		var savlist;
+		var pcimagetorestore=new Array();
+	</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td> <div id="restorepath"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="checkbox" name="restoresf" onclick="checkbox_click(event,this)">
+			Restaurer la table de partitions
+		</input>
+		<br>
+		<input type="checkbox" name="restorembr" onclick="checkbox_click(event,this)">
+			Restaurer le master boot record
+		</input>
+		</td>
+	</tr>
+</table>
+<script>
+function selectBackup(pc,divid) {
+	var html;
+	xmlhttpget('/cgi-bin/pxe/savlist.cgi','eval',undefined,'selectBackup_callback('+pc+',"'+divid+'");');
+}
+function selectBackup_callback(pc,divid) {
+	html='Sauvegarde &agrave; restaurer:<select name="pcimagetorestore_'+pc+'" value="'+pcimagetorestore[pc]+'" onchange="changeimagetorestore('+pc+')">';
+	for(var j=1; j < savlist.length; j++) {
+		if ((savlist[j]!=undefined) && (savlist[j]!='')) {
+			html+='<option value="'+j+'">'+savlist[j]+'</option>';
+		}
+	}
+	html+='</select>';
+	document.getElementById(divid).innerHTML=html;
+}
+selectBackup(1,'restorepath');
+</script>
+
+</body>
+</html>

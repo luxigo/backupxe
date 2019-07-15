@@ -1,0 +1,1 @@
+#define CONFIG_HOTPLUG_PCI 1

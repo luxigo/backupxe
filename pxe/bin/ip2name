@@ -1,0 +1,3 @@
+#!/bin/sh
+grep `/pxe/bin/ip2mac "$1"` /pxe/etc/hosts.mac | cut -f 2 -d ' '
+

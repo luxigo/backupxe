@@ -1,0 +1,1 @@
+#define CONFIG_CS89x0_MODULE 1

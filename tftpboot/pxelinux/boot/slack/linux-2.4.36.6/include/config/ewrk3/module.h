@@ -1,0 +1,1 @@
+#define CONFIG_EWRK3_MODULE 1

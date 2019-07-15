@@ -1,0 +1,1 @@
+#define CONFIG_APM_RTC_IS_GMT 1

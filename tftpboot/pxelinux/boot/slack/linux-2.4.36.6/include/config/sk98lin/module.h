@@ -1,0 +1,1 @@
+#define CONFIG_SK98LIN_MODULE 1

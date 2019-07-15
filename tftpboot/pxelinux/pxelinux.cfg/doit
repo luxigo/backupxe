@@ -1,0 +1,10 @@
+prompt 0
+noescape 1
+default doit 
+timeout 1
+ontimeout boot/slack/vmlinuz initrd=boot/slack/initrd.img load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=23100 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/usr/local/bin/doit.sh
+
+label doit
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img load_ramdisk=1 prompt_ramdisk=0 ramdisk_size=23100 rw root=/dev/ram USR_LOCAL=/pxe EXEC=/usr/local/bin/doit.sh
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ -x /pxe/etc/$HWADDR/rc.d/rc.0 ] ; then
+  . /pxe/etc/$HWADDR/rc.d/rc.0
+fi
+/usr/bin/bye shutting down

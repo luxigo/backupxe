@@ -1,0 +1,3 @@
+ifeq (-e stext utalloc.o utcopy.o utdebug.o utdelete.o uteval.o utglobal.o utinit.o utmath.o utmisc.o utobject.o utxface.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += utilities.o
+endif

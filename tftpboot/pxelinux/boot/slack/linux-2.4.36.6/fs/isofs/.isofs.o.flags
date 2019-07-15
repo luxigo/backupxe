@@ -1,0 +1,3 @@
+ifeq (-e stext namei.o inode.o dir.o util.o rock.o joliet.o compress.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += isofs.o
+endif

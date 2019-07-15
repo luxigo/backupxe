@@ -1,0 +1,1 @@
+#define CONFIG_I2O_PROC_MODULE 1

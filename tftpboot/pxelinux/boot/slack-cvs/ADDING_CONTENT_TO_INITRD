@@ -1,0 +1,10 @@
+You can install the slackware packages you need in common/initrd_overlay
+and kernel specific stuff like modules or startup scripts in ./initrd_overlay
+
+Use export ROOT=<initrd_overlay> before installing slackware packages with
+pkgtools or the netinstallpkg command in /pxe/bin
+
+Run "make overlay image" after modifying "initrd_overlay" content
+
+The modules you install in ./lib/modules/<kernel-version> will be updated when
+you run make or "make initrd overlay image" again

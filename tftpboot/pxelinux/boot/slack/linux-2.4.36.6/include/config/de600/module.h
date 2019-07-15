@@ -1,0 +1,1 @@
+#define CONFIG_DE600_MODULE 1

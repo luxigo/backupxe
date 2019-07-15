@@ -1,0 +1,3 @@
+ifeq (-e stext addr.o pvc.o signaling.o svc.o common.o atm_misc.o raw.o resources.o ipcommon.o proc.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += atm.o
+endif

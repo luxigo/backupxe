@@ -1,0 +1,208 @@
+div_small.o: div_small.S \
+   fpu_emu.h
+div_Xsig.o: div_Xsig.S \
+   exception.h \
+   fpu_emu.h
+errors.o: errors.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/signal.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   fpu_emu.h \
+   fpu_system.h \
+   exception.h \
+   status_w.h \
+   control_w.h \
+   reg_constant.h \
+   version.h
+exception.h: \
+   fpu_emu.h
+	@touch exception.h
+fpu_arith.o: fpu_arith.c \
+   fpu_system.h \
+   fpu_emu.h \
+   control_w.h \
+   status_w.h
+fpu_asm.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/linkage.h
+	@touch fpu_asm.h
+fpu_aux.o: fpu_aux.c \
+   fpu_system.h \
+   exception.h \
+   fpu_emu.h \
+   status_w.h \
+   control_w.h
+fpu_emu.h: \
+   fpu_asm.h \
+   fpu_system.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/sigcontext.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/math_emu.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/linkage.h \
+   fpu_proto.h
+	@touch fpu_emu.h
+fpu_entry.o: fpu_entry.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/signal.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/desc.h \
+   fpu_system.h \
+   fpu_emu.h \
+   exception.h \
+   control_w.h \
+   status_w.h
+fpu_etc.o: fpu_etc.c \
+   fpu_system.h \
+   exception.h \
+   fpu_emu.h \
+   status_w.h \
+   reg_constant.h
+fpu_system.h: \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/sched.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/kernel.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/mm.h
+	@touch fpu_system.h
+fpu_tags.o: fpu_tags.c \
+   fpu_emu.h \
+   fpu_system.h \
+   exception.h
+fpu_trig.o: fpu_trig.c \
+   fpu_system.h \
+   exception.h \
+   fpu_emu.h \
+   status_w.h \
+   control_w.h \
+   reg_constant.h
+get_address.o: get_address.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/linux/stddef.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/desc.h \
+   fpu_system.h \
+   exception.h \
+   fpu_emu.h
+load_store.o: load_store.c \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   fpu_system.h \
+   exception.h \
+   fpu_emu.h \
+   status_w.h \
+   control_w.h
+mul_Xsig.o: mul_Xsig.S \
+   fpu_emu.h
+poly_2xm1.o: poly_2xm1.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   fpu_system.h \
+   control_w.h \
+   poly.h
+poly_atan.o: poly_atan.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   fpu_system.h \
+   status_w.h \
+   control_w.h \
+   poly.h
+poly_l2.o: poly_l2.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   fpu_system.h \
+   control_w.h \
+   poly.h
+polynom_Xsig.o: polynom_Xsig.S \
+   fpu_emu.h
+poly_sin.o: poly_sin.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   fpu_system.h \
+   control_w.h \
+   poly.h
+poly_tan.o: poly_tan.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   fpu_system.h \
+   control_w.h \
+   poly.h
+reg_add_sub.o: reg_add_sub.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   control_w.h \
+   fpu_system.h
+reg_compare.o: reg_compare.c \
+   fpu_system.h \
+   exception.h \
+   fpu_emu.h \
+   control_w.h \
+   status_w.h
+reg_constant.o: reg_constant.c \
+   fpu_system.h \
+   fpu_emu.h \
+   status_w.h \
+   reg_constant.h \
+   control_w.h
+reg_constant.h: \
+   fpu_emu.h
+	@touch reg_constant.h
+reg_convert.o: reg_convert.c \
+   exception.h \
+   fpu_emu.h
+reg_divide.o: reg_divide.c \
+   exception.h \
+   reg_constant.h \
+   fpu_emu.h \
+   fpu_system.h
+reg_ld_str.o: reg_ld_str.c \
+   fpu_emu.h \
+   /keep/local/src/projects/backupxe/tftpboot/pxelinux/boot/slack/linux-2.4.36.6/include/asm/uaccess.h \
+   fpu_system.h \
+   exception.h \
+   reg_constant.h \
+   control_w.h \
+   status_w.h
+reg_mul.o: reg_mul.c \
+   fpu_emu.h \
+   exception.h \
+   reg_constant.h \
+   fpu_system.h
+reg_norm.o: reg_norm.S \
+   fpu_emu.h
+reg_round.o: reg_round.S \
+   fpu_emu.h \
+   exception.h \
+   control_w.h
+reg_u_add.o: reg_u_add.S \
+   exception.h \
+   fpu_emu.h \
+   control_w.h
+reg_u_div.o: reg_u_div.S \
+   exception.h \
+   fpu_emu.h \
+   control_w.h
+reg_u_mul.o: reg_u_mul.S \
+   exception.h \
+   fpu_emu.h \
+   control_w.h
+reg_u_sub.o: reg_u_sub.S \
+   exception.h \
+   fpu_emu.h \
+   control_w.h
+round_Xsig.o: round_Xsig.S \
+   fpu_emu.h
+shr_Xsig.o: shr_Xsig.S \
+   fpu_emu.h
+status_w.h: \
+   fpu_emu.h
+	@touch status_w.h
+wm_shrx.o: wm_shrx.S \
+   fpu_emu.h
+wm_sqrt.o: wm_sqrt.S \
+   exception.h \
+   fpu_emu.h
+.PRECIOUS:	exception.h \
+	fpu_asm.h \
+	fpu_emu.h \
+	fpu_system.h \
+	reg_constant.h \
+	status_w.h \
+

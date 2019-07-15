@@ -1,0 +1,6 @@
+#!/bin/sh
+ip=$1
+ping -c 1 -q $ip -w 1 > /dev/null
+sleep 1
+arp -n $ip | sed -r -n -e 's/.* ([0-9A-F][0-9A-F]:[0-9A-F\:]+).*/\1/p' | tr A-Z a-z | tr : -
+

@@ -1,0 +1,1 @@
+#define CONFIG_HFSPLUS_FS 1

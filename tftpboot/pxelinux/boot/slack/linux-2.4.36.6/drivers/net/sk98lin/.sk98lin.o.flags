@@ -1,0 +1,3 @@
+ifeq (-e stext skge.o skdim.o skaddr.o skgehwt.o skgeinit.o skgepnmi.o skgesirq.o ski2c.o sklm80.o skqueue.o skrlmt.o sktimer.o skvpd.o skxmac2.o skproc.o skcsum.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += sk98lin.o
+endif

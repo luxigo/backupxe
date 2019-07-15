@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="js/browser.js"></script>
+		<script src="js/getmousepos.js"></script>
+		<script src="js/selrect.js"></script>
+		<script>
+			var s;
+			function mycallback(what) {
+				document.getElementById('test').innerHTML=what;
+			}
+				
+		</script>
+		<style>
+			div.selrect { 
+				border: 1px solid black; 
+				border-style: dashed; 
+				position: absolute; 
+				display: none;
+			}
+			
+		</style>
+		                                
+	</head>
+	
+	<body onmousedown="getmousepos(event)">
+		<div id="test" style="width: 512px; height: 384px; border-width: 1px; border-style: solid;" onmousedown="s.init(event,s);">
+		</div>
+		<div id="selrect" class="selrect"></div>
+		<script>
+			s=new SelRect('s','test',mycallback);
+		</script>
+	</body>
+	
+</html>
+	
+

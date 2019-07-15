@@ -1,0 +1,1 @@
+#define CONFIG_ARCNET_RIM_I_MODULE 1

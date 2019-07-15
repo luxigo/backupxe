@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -z "$1" ] ; then
+  echo "usage: sendpub [<ssh_options>] [<user>@]<host>" 
+  exit 1
+fi
+
+if [ ! -f ~/.ssh/id_dsa.pub ] ; then
+  ( mkdir -p ~/.ssh && ssh-keygen -t dsa -q -N "" -f ~/.ssh/id_dsa && ssh-keygen -t rsa -q -N "" -f ~/.ssh/id_rsa ) || exit 1
+fi
+
+ssh "$@" echo `cat ~/.ssh/*.pub` \>\> .ssh/authorized_keys

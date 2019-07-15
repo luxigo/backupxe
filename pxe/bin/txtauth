@@ -1,0 +1,6 @@
+if ! egrep -q ^$REMOTE_ADDR\$ /pxe/etc/allow ; then
+	echo Content-Type: text/plain
+	echo
+	echo 'Acces Interdit'
+	exit 1
+fi

@@ -1,0 +1,3 @@
+ifeq (-e stext cs4281m.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += cs4281.o
+endif

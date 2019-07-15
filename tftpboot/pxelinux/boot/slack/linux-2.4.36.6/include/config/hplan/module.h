@@ -1,0 +1,1 @@
+#define CONFIG_HPLAN_MODULE 1

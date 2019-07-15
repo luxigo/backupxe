@@ -1,0 +1,1 @@
+#define CONFIG_PARIDE_PT_MODULE 1

@@ -1,0 +1,1 @@
+#define CONFIG_VORTEX_MODULE 1

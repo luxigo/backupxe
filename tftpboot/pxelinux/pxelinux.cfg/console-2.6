@@ -1,0 +1,8 @@
+prompt 0
+noescape 1
+default console-2.6
+timeout 1
+ontimeout console-2.6
+label console-2.6
+  kernel  boot/slack/2.6/bzImage
+  append initrd=boot/slack/2.6/initrd.img load_ramdisk=1 prompt_ramdisk=0 rw USR_LOCAL=/pxe EXEC=/usr/bin/ready toram splash vga=785 quiet

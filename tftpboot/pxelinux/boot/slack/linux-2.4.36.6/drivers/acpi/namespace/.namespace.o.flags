@@ -1,0 +1,3 @@
+ifeq (-e stext nsaccess.o nsalloc.o nsdump.o nsdumpdv.o nseval.o nsinit.o nsload.o nsnames.o nsobject.o nsparse.o nssearch.o nsutils.o nswalk.o nsxfeval.o nsxfname.o nsxfobj.o,$(strip $(subst $(comma),:,$(LDFLAGS) $(EXTRA_LDFLAGS) $(obj-y))))
+FILES_FLAGS_UP_TO_DATE += namespace.o
+endif

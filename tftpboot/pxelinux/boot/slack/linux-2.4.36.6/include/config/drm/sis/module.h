@@ -1,0 +1,1 @@
+#define CONFIG_DRM_SIS_MODULE 1

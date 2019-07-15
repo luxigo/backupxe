@@ -1,0 +1,5 @@
+cat << EOF
+var pcsoundvol=new Array;
+SimpleContextMenu.attach('columnSoundVol', 'menuVol',menuUpdate);
+
+EOF

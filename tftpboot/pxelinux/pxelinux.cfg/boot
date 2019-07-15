@@ -1,0 +1,83 @@
+prompt 0
+noescape 1
+default menu.c32
+menu master passwd pxemaster
+ontimeout chain.c32 hd0 
+timeout 100 
+
+menu title Menu De Demarrage
+
+splashimage=../grub/images/bootsplash-1024x768.jpg
+label harddisk
+  menu label ^harddisk  - Booter sur le premier disque dur
+  menu default
+  kernel chain.c32
+  append hd0
+
+label console-2.6
+  menu label ^console   - Linux-2.6 en mode console
+  kernel boot/slack/2.6/bzImage
+  append initrd=boot/slack/2.6/initrd.img load_ramdisk=1 prompt_ramdisk=0 rw USR_LOCAL=/pxe EXEC=/usr/bin/ready toram splash vga=785 quiet
+
+label console
+  menu label ^console   - Linux en mode console
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img root=/dev/ram0 rw ramdisk_size=23000 USR_LOCAL=/pxe EXEC=/usr/bin/ready toram
+
+label bootsplash
+  menu hide
+  menu label ^splash    - Linux en mode console + bootsplash 1024x768
+  kernel boot/slack/vmlinuz
+  append initrd=boot/slack/initrd-bootsplash-1024x768.img root=/dev/ram0 rw ramdisk_size=23000 USR_LOCAL=/pxe splash=verbose video=vesafb:ywrap,mtrr vga=791
+
+label nfsconsole
+  menu hide
+  menu label ^nfs       - Console Linux en nfsroot
+  kernel boot/slack/vmlinuz
+  append root=/dev/nfs ro nfsroot=:/tftpboot/pxelinux/boot/slack/initrd.d
+
+label linux
+  menu label ^ltsp      - Lancer un terminal Linux
+  kernel boot/lts/2.4.26-ltsp-3/bzImage-2.4.26-ltsp-3
+  append init=/linuxrc rw root=/dev/ram0 initrd=boot/lts/2.4.26-ltsp-3/initrd-2.4.26-ltsp-3.gz
+
+label windows 
+  menu hide
+  menu label ^windows   - Lancer un terminal Windows 
+  kernel boot/lts/2.4.26-ltsp-3/bzImage-2.4.26-ltsp-3
+  append init=/linuxrc rw root=/dev/ram0 initrd=boot/lts/2.4.26-ltsp-3/initrd-2.4.26-ltsp-3.gz
+
+label dslmenu
+  menu label ^dsl       - Damn Small Linux
+  kernel menu.c32
+  append pxelinux.cfg/dsl
+
+label eMoviX
+  menu label ^emovix    - Lecteur Multimedia
+  kernel menu.c32
+  append pxelinux.cfg/emovix
+
+label geexbox
+  menu label ^geexbox   - Lecteur Multimedia
+  kernel menu.c32
+  append pxelinux.cfg/geexbox
+  
+label freedos
+  menu label ^freedos   - Demarrer freedos
+  kernel memdisk
+  append initrd=boot/disks/freedos.img
+
+label local
+  menu label local     - ^Sortir et poursuivre le demarrage 
+  localboot 0
+
+label floppy
+  menu label flo^ppy    - Booter sur la disquette
+  kernel chain.c32
+  append fd0
+
+label main
+  menu label e^xit      - Retour au menu principal 
+  kernel menu.c32
+  append pxelinux.cfg/menu
+

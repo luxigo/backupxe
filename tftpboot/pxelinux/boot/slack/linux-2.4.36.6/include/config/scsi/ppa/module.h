@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_PPA_MODULE 1

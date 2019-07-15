@@ -1,0 +1,9 @@
+prompt 0
+noescape 1
+default console
+timeout 1
+ontimeout console
+label console
+  kernel  boot/slack/vmlinuz
+  append initrd=boot/slack/initrd.img root=/dev/ram0 rw ramdisk_size=23000 USR_LOCAL=/pxe/local EXEC=/usr/local/bin/partimage-save.sh
+

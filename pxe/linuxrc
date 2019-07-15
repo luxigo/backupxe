@@ -1,0 +1,14 @@
+#!/bin/sh
+# this script is run from /etc/rc.d/rc.S
+
+# you can put specific workstation configuration scripts in etc/<macaddress>/rc.d/rc.S
+if [ -x etc/$HWADDR/rc.d/rc.S ] ; then
+  . etc/$HWADDR/rc.d/rc.S
+done
+
+# to disable this you can quit etc/$HWADDR/rc.d/rc.S with 'return'
+if grep -q captivefs /proc/cmdline ; then
+  cd ./captive-static-1.1.5
+  ./install
+fi
+

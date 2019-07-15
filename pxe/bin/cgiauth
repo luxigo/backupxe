@@ -1,0 +1,9 @@
+NOAUTH=1
+if [ -n "$REMOTE_ADDR" ] && [ -z "$NOAUTH" ] ; then
+  if ! egrep -q ^$REMOTE_ADDR\ 1\$ /pxe/etc/allow ; then
+  	echo 'Content-Type: text/html'
+  	echo 
+	cat /pxe/htdocs/auth.html
+	exit 0
+  fi
+fi

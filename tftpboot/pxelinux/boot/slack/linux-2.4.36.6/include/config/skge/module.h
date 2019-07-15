@@ -1,0 +1,1 @@
+#define CONFIG_SKGE_MODULE 1

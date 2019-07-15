@@ -1,0 +1,1 @@
+#define CONFIG_AGP_I810 1

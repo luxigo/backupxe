@@ -1,0 +1,1 @@
+#undef  CONFIG_MSNDPIN_HAVE_BOOT

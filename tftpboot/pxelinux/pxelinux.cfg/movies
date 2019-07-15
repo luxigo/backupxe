@@ -1,0 +1,133 @@
+prompt 0
+noescape 1
+default menu.c32 pxelinux.cfg/menu
+menu master passwd stpxe
+
+menu title La Valse Des Vingt Ans
+
+label exit
+  menu label e^xit       -   Menu Principal
+  menu default
+  kernel menu.c32
+  append pxelinux.cfg/menu
+  
+label film1
+  menu label Film1      -   1/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film1
+    
+label film2
+  menu label Film2      -   2/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film2
+    
+label film3
+  menu label Film3      -   3/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film3
+    
+label film4
+  menu label Film4      -   4/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film4
+    
+label film5
+  menu label Film5      -   5/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film5
+    
+label film6
+  menu label Film6      -   6/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film6
+    
+label film7
+  menu label Film7      -   7/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film7
+    
+label film8
+  menu label Film8      -   8/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film8
+    
+label film9
+  menu label Film9      -   9/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film9
+    
+label film10
+  menu label Film10     -  10/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film10
+    
+label film11
+  menu label Film11     -  11/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film11
+    
+label film12
+  menu label Film12     -  12/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film12
+    
+label film13
+  menu label Film13     -  13/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film13
+    
+label film14
+  menu label Film14     -  14/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film14
+    
+label film15
+  menu label Film15     -  15/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film15
+    
+label film16
+  menu label Film16     -  16/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film16
+    
+label film17
+  menu label Film17     -  17/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film17
+    
+label film18
+  menu label Film18     -  18/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film18
+    
+label film19
+  menu label Film19     -  19/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film19
+    
+label film20
+  menu label Film20     -  20/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film20
+    
+label film21
+  menu label Film21     -  21/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film21
+    
+label film22
+  menu label Film22     -  22/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film22
+    
+label film23
+  menu label Film23     -  23/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film23
+    
+label film24
+  menu label Film24     -  24/12
+  kernel menu.c32
+  append pxelinux.cfg/movies.d/film24
+    

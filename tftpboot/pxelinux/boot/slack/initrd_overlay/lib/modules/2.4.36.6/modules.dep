@@ -1,0 +1,1719 @@
+/lib/modules/2.4.36.6/kernel/arch/i386/kernel/apm.o:
+
+/lib/modules/2.4.36.6/kernel/arch/i386/kernel/cpuid.o:
+
+/lib/modules/2.4.36.6/kernel/arch/i386/kernel/edd.o:
+
+/lib/modules/2.4.36.6/kernel/arch/i386/kernel/microcode.o:
+
+/lib/modules/2.4.36.6/kernel/arch/i386/kernel/msr.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/aes.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/anubis.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/arc4.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/blowfish.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/cast5.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/cast6.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/crypto_null.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/deflate.o:	/lib/modules/2.4.36.6/kernel/lib/zlib_deflate/zlib_deflate.o
+
+/lib/modules/2.4.36.6/kernel/crypto/des.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/khazad.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/md4.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/md5.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/michael_mic.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/serpent.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/sha1.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/sha256.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/sha512.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/tcrypt.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/tea.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/twofish.o:
+
+/lib/modules/2.4.36.6/kernel/crypto/wp512.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/ac.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/asus_acpi.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/battery.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/button.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/fan.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/processor.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/thermal.o:	/lib/modules/2.4.36.6/kernel/drivers/acpi/processor.o
+
+/lib/modules/2.4.36.6/kernel/drivers/acpi/toshiba_acpi.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/block/nbd.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/aten.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/bpck.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/bpck6.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/comm.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/dstr.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/epat.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/epia.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/fit2.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/fit3.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/friq.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/frpw.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/kbic.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/ktti.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/on20.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/on26.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/pcd.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o \
+	/lib/modules/2.4.36.6/kernel/drivers/cdrom/cdrom.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/pd.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/pf.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/pg.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/paride/pt.o:	/lib/modules/2.4.36.6/kernel/drivers/block/paride/paride.o
+
+/lib/modules/2.4.36.6/kernel/drivers/block/umem.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/block/xd.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/cdrom/cdrom.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/agp/agpgart.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/amd76x_pm.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/applicom.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/atixlmouse.o:	/lib/modules/2.4.36.6/kernel/drivers/char/busmouse.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/busmouse.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/cyclades.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/gamma.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/i810.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/i830.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/mga.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/r128.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/radeon.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/sis.o:	/lib/modules/2.4.36.6/kernel/drivers/video/sis/sisfb.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/drm/tdfx.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/dtlk.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/epca.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/esp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/generic_serial.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/i8k.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/ip2.o:	/lib/modules/2.4.36.6/kernel/drivers/char/ip2main.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/ip2main.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/ipmi/ipmi_devintf.o:	/lib/modules/2.4.36.6/kernel/drivers/char/ipmi/ipmi_msghandler.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/ipmi/ipmi_msghandler.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/ipmi/ipmi_watchdog.o:	/lib/modules/2.4.36.6/kernel/drivers/char/ipmi/ipmi_msghandler.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/isicom.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/logibusmouse.o:	/lib/modules/2.4.36.6/kernel/drivers/char/busmouse.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/lp.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/mk712.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/moxa.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/msbusmouse.o:	/lib/modules/2.4.36.6/kernel/drivers/char/busmouse.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/mxser.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/n_hdlc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/n_r3964.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/parport_serial.o:	/lib/modules/2.4.36.6/kernel/drivers/char/serial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/parport/parport_pc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/pc110pad.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/ppdev.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/qpmouse.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/rio/rio.o:	/lib/modules/2.4.36.6/kernel/drivers/char/generic_serial.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/rio.o:	/lib/modules/2.4.36.6/kernel/drivers/char/generic_serial.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/rocket.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/scx200.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/scx200_gpio.o:	/lib/modules/2.4.36.6/kernel/drivers/char/scx200.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/serial.o:	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/sonypi.o:	/lib/modules/2.4.36.6/kernel/drivers/input/input.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/specialix.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/sx.o:	/lib/modules/2.4.36.6/kernel/drivers/char/generic_serial.o
+
+/lib/modules/2.4.36.6/kernel/drivers/char/synclink.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/synclinkmp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/toshiba.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/char/tpqic02.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/hotplug/cpqphp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/hotplug/pciehp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/hotplug/shpchp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-algo-pcf.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-dev.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-elektor.o:	/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-algo-pcf.o
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-elv.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-philips-par.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-proc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/i2c-velleman.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/scx200_acb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/i2c/scx200_i2c.o:	/lib/modules/2.4.36.6/kernel/drivers/char/scx200.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/ide-cd.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o \
+	/lib/modules/2.4.36.6/kernel/drivers/cdrom/cdrom.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/ide-detect.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/ide-disk.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/ide-floppy.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/ide-tape.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/ali14xx.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/dtc2278.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/ht6560b.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/ide-cs.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/pdc4030.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/qd65xx.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/legacy/umc8672.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/adma100.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/aec62xx.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/alim15x3.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/amd74xx.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/atiixp.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/cmd64x.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/cs5530.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/cy82c693.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/delkin_cb.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/hpt34x.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/hpt366.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-disk.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/ns87415.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/pdc202xx_new.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/pdc202xx_old.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/piix.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/rz1000.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/sc1200.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/serverworks.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/siimage.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/sis5513.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/slc90e66.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/triflex.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/pci/trm290.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/raid/ataraid.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/raid/hptraid.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/raid/ataraid.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/raid/medley.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/raid/ataraid.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/raid/pdcraid.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/raid/ataraid.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ide/raid/silraid.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/raid/ataraid.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/amdtp.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ohci1394.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/cmp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/cmp.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/dv1394.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ohci1394.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/eth1394.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ohci1394.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/pcilynx.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/raw1394.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/sbp2.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/ieee1394/video1394.o:	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ohci1394.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ieee1394/ieee1394.o
+
+/lib/modules/2.4.36.6/kernel/drivers/input/input.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/input/keybdev.o:	/lib/modules/2.4.36.6/kernel/drivers/input/input.o
+
+/lib/modules/2.4.36.6/kernel/drivers/input/mousedev.o:	/lib/modules/2.4.36.6/kernel/drivers/input/input.o
+
+/lib/modules/2.4.36.6/kernel/drivers/md/linear.o:	/lib/modules/2.4.36.6/kernel/drivers/md/md.o
+
+/lib/modules/2.4.36.6/kernel/drivers/md/md.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/md/multipath.o:	/lib/modules/2.4.36.6/kernel/drivers/md/md.o
+
+/lib/modules/2.4.36.6/kernel/drivers/md/raid0.o:	/lib/modules/2.4.36.6/kernel/drivers/md/md.o
+
+/lib/modules/2.4.36.6/kernel/drivers/md/raid1.o:	/lib/modules/2.4.36.6/kernel/drivers/md/md.o
+
+/lib/modules/2.4.36.6/kernel/drivers/md/raid5.o:	/lib/modules/2.4.36.6/kernel/drivers/md/md.o \
+	/lib/modules/2.4.36.6/kernel/drivers/md/xor.o
+
+/lib/modules/2.4.36.6/kernel/drivers/md/xor.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/adv7175.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/bt819.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/bt856.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/bttv.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/bw-qcam.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/c-qcam.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/cpia.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/cpia_pp.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/cpia.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/cpia_usb.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/cpia.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-parport.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o \
+	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/meye.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o \
+	/lib/modules/2.4.36.6/kernel/drivers/char/sonypi.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/msp3400.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/pms.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/saa5249.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/saa7110.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/saa7111.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/saa7185.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/stradis.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/tda7432.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/tda9875.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/tda9887.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/tuner-3036.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/tuner.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/tvaudio.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/w9966.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/zoran.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/media/video/zr36067.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/i2c-old.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/message/fusion/mptbase.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/message/fusion/mptscsih.o:	/lib/modules/2.4.36.6/kernel/drivers/message/fusion/mptbase.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/message/i2o/i2o_lan.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/message/i2o/i2o_proc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/message/i2o/i2o_scsi.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/cfi_cmdset_0001.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/cfi_cmdset_0002.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/cfi_cmdset_0020.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/cfi_probe.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/gen_probe.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/gen_probe.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/jedec_probe.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/gen_probe.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/map_absent.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/map_ram.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/map_rom.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/cmdlinepart.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/devices/blkmtd.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/devices/doc1000.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/devices/mtdram.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/devices/pmc551.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/devices/slram.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/ftl.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/amd76xrom.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/dilnetpc.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdconcat.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/elan-104nc.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/ich2rom.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/l440gx.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/netsc520.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/nettel.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/pci.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/pcmciamtd.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/physmap.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/pnc2000.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/sbc_gxx.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/sc520cdp.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdconcat.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/scb2_flash.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/maps/scx200_docflash.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/chips/chipreg.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdblock.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdblock_ro.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdchar.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdconcat.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdpart.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/nand/nand.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/nand/nand_ids.o \
+	/lib/modules/2.4.36.6/kernel/drivers/mtd/nand/nand_ecc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/nand/nand_ecc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/nand/nand_ids.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/nftl.o:	/lib/modules/2.4.36.6/kernel/drivers/mtd/mtdcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/mtd/redboot.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c501.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c503.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c505.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c507.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c509.o:	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c515.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/3c59x.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/8139cp.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/8139too.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/82596.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/8390.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ac3200.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/acenic.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/amd8111e.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/appletalk/cops.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/appletalk/ipddp.o:	/lib/modules/2.4.36.6/kernel/net/appletalk/appletalk.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/appletalk/ltpc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arc-rawmode.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arc-rimi.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020-isa.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020-pci.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com90io.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com90xx.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/rfc1051.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/rfc1201.o:	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/arcnet.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/at1700.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/atp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/b44.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/bonding/bonding.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/bsd_comp.o:	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/cs89x0.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/de4x5.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/de600.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/de620.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/defxx.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/depca.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/dgrs.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/dl2k.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/dmfe.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/dummy.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/e100/e100.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/e1000/e1000.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/e2100.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/eepro.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/eepro100.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/eexpress.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/epic100.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/eql.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/eth16i.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ethertap.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ewrk3.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/fc/iph5526.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/fealnx.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/forcedeth.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/hamachi.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/hp-plus.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/hp.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/hp100.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/lance.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/lp486e.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/mii.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/natsemi.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ne.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ne2k-pci.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ni5010.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ni52.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ni65.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ns83820.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/3c574_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/3c589_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/axnet_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/com20020_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/fmvj18x_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/nmclan_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/pcnet_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/smc91c92_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/xirc2ps_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/xircom_cb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/xircom_tulip_cb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pcnet32.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/plip.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ppp_async.o:	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ppp_deflate.o:	/lib/modules/2.4.36.6/kernel/lib/zlib_deflate/zlib_deflate.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o:	/lib/modules/2.4.36.6/kernel/drivers/net/slhc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/ppp_synctty.o:	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pppoe.o:	/lib/modules/2.4.36.6/kernel/drivers/net/pppox.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/pppox.o:	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/r8169.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/rcpci.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/rrunner.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sb1000.o:	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/shaper.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sis900.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sk98lin/sk98lin.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/skfp/skfp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/skge.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sky2.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/slhc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/slip.o:	/lib/modules/2.4.36.6/kernel/drivers/net/slhc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/smc-ultra.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/smc9194.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/starfire.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sundance.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sungem.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/sunhme.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/tg3.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/tlan.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/tulip/tulip.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/tun.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/typhoon.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/net/via-rhine.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/wd.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/winbond-840.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/net/yellowfin.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/parport/parport_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/parport/parport_pc.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/parport/parport_pc.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/pcmcia/i82092.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/pcmcia/i82365.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/pcmcia/tcic.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/pcmcia/yenta_socket.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/3w-xxxx.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/53c7,8xx.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/AM53C974.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/BusLogic.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/NCR53c406a.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/a100u2w.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/aacraid/aacraid.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/advansys.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/aha152x.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/aha1542.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/aha1740.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ahci.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/aic7xxx/aic79xx.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/aic7xxx/aic7xxx.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ata_piix.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/atp870u.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/cpqfc.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/dmx3191d.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/dpt_i2o.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/dtc.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/eata.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/eata_dma.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/eata_pio.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/fdomain.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/g_NCR5380.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/gdth.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ide-scsi.o:	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/imm.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/in2000.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/initio.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ips.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/megaraid.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/megaraid2.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ncr53c8xx.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/nsp32.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/osst.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pas16.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pci2000.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pci2220i.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/aha152x_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/fdomain_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/nsp_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/qlogic_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ppa.o:	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/psi240i.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/qla1280.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/qlogicfas.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/qlogicfc.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/qlogicisp.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_nv.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_promise.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_qstor.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_sil.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_sis.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_svw.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_sx4.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_uli.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_via.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sata_vsc.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/libata.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_debug.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sd_mod.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/seagate.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sg.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sim710.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sr_mod.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/cdrom/cdrom.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/st.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sym53c416.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sym53c8xx.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/sym53c8xx_2/sym53c8xx_2.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/t128.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/tmscsim.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/u14-34f.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/ultrastor.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/scsi/wd7000.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/ali5455.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/btaudio.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/cmpci.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/cs4281/cs4281.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/cs46xx.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/emu10k1/emu10k1.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/es1370.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/es1371.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/esssolo1.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/forte.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/i810_audio.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/maestro.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/maestro3.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/msnd.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/msnd_classic.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/msnd.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/msnd_pinnacle.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/msnd.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/rme96xx.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/sonicvibes.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/trident.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/sound/via82cxxx_audio.o:	/lib/modules/2.4.36.6/kernel/drivers/sound/ac97_codec.o \
+	/lib/modules/2.4.36.6/kernel/drivers/sound/soundcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/CDCEther.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/acm.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/auerswald.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/brlvger.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/catc.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/dabusb.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/dsbr100.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/hid.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/host/ehci-hcd.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/host/hc_sl811.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/host/sl811.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/host/uhci.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/host/usb-ohci.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/host/usb-uhci.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/ibmcam.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbvideo.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/kaweth.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/konicawc.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbvideo.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/mdc800.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/microtek.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/ov511.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/pegasus.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/printer.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/pwc.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/rio500.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/rtl8150.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/se401.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/belkin_sa.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/cyberjack.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/digi_acceleport.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/empeg.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/ftdi_sio.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/io_edgeport.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/io_ti.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/ipaq.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/ir-usb.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/keyspan.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/keyspan_pda.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/kl5kusb105.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/kobil_sct.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/mct_u232.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/omninet.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/pl2303.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/visor.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/serial/whiteheat.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/serial/usbserial.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/speedtch.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/storage/usb-storage.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/ide/ide-core.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/stv680.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/ultracam.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbvideo.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/usblcd.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/usbnet.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/usbvideo.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/uss720.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/parport/parport.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/vicam.o:	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbvideo.o \
+	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o
+
+/lib/modules/2.4.36.6/kernel/drivers/usb/w9968cf.o:	/lib/modules/2.4.36.6/kernel/drivers/media/video/videodev.o \
+	/lib/modules/2.4.36.6/kernel/drivers/usb/usbcore.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/aty/atyfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/aty128fb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/clgenfb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbgen.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-mfb.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/cyber2000fb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-hga.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-mfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-vga-planes.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/fbgen.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/hgafb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-hga.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/intel/intelfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/it8181fb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbgen.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-mfb.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/g450_pll.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/i2c-matroxfb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_base.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_DAC1064.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/g450_pll.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_accel.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_Ti3026.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_accel.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_accel.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_base.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_Ti3026.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_accel.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_g450.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_DAC1064.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_crtc2.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_base.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_DAC1064.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_g450.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/g450_pll.o \
+	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_maven.o:	/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/matrox/matroxfb_misc.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/mdacon.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/neofb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/pm2fb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbgen.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/pm3fb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbgen.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/radeonfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/riva/rivafb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/sis/sisfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/sstfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/tdfxfb.o:
+
+/lib/modules/2.4.36.6/kernel/drivers/video/tridentfb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbgen.o
+
+/lib/modules/2.4.36.6/kernel/drivers/video/vga16fb.o:	/lib/modules/2.4.36.6/kernel/drivers/video/fbcon-vga-planes.o
+
+/lib/modules/2.4.36.6/kernel/fs/autofs/autofs.o:
+
+/lib/modules/2.4.36.6/kernel/fs/autofs4/autofs4.o:
+
+/lib/modules/2.4.36.6/kernel/fs/binfmt_aout.o:
+
+/lib/modules/2.4.36.6/kernel/fs/binfmt_misc.o:
+
+/lib/modules/2.4.36.6/kernel/fs/coda/coda.o:
+
+/lib/modules/2.4.36.6/kernel/fs/intermezzo/intermezzo.o:
+
+/lib/modules/2.4.36.6/kernel/fs/ncpfs/ncpfs.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nfsd/nfsd.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_big5.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp1250.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp1251.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp1255.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp737.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp775.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp850.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp852.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp855.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp857.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp860.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp861.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp862.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp863.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp864.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp865.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp866.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp869.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp874.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp932.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp936.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp949.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_cp950.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_euc-jp.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_euc-kr.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_gb2312.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-13.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-14.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-15.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-2.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-3.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-4.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-5.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-6.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-7.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-8.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_iso8859-9.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_koi8-r.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_koi8-ru.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_koi8-u.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_sjis.o:
+
+/lib/modules/2.4.36.6/kernel/fs/nls/nls_tis-620.o:
+
+/lib/modules/2.4.36.6/kernel/fs/smbfs/smbfs.o:
+
+/lib/modules/2.4.36.6/kernel/lib/zlib_deflate/zlib_deflate.o:
+
+/lib/modules/2.4.36.6/kernel/net/8021q/8021q.o:
+
+/lib/modules/2.4.36.6/kernel/net/appletalk/appletalk.o:
+
+/lib/modules/2.4.36.6/kernel/net/atm/atm.o:
+
+/lib/modules/2.4.36.6/kernel/net/atm/br2684.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/net/atm/clip.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/net/atm/lec.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/net/atm/mpoa.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/net/atm/pppoatm.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/ppp_generic.o
+
+/lib/modules/2.4.36.6/kernel/net/bridge/bridge.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/net/decnet/decnet.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ip_gre.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipip.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_dh.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_ftp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_lblc.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_lblcr.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_lc.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_nq.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_rr.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_sed.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_sh.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_wlc.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs_wrr.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/ipvs/ip_vs.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/arp_tables.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/arpt_mangle.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/arp_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/arptable_filter.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/arp_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack_amanda.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack_ftp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack_irc.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack_tftp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_nat_amanda.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_nat_ftp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_nat_irc.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_nat_snmp_basic.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_nat_tftp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_queue.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_DSCP.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_ECN.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_LOG.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_MARK.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_MASQUERADE.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_MIRROR.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_REDIRECT.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_REJECT.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_TCPMSS.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_TOS.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_ULOG.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_ah.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_conntrack.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_dscp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_ecn.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_esp.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_helper.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_length.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_limit.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_mac.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_mark.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_multiport.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_owner.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_pkttype.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_recent.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_state.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_tcpmss.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_tos.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_ttl.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ipt_unclean.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_filter.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_mangle.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/iptable_nat.o:	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_conntrack.o \
+	/lib/modules/2.4.36.6/kernel/net/ipv4/netfilter/ip_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/ipv6.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_queue.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/ipv6.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o:
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_LOG.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_MARK.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_ah.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_dst.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_esp.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_eui64.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_frag.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_hbh.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_hl.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_ipv6header.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_length.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_limit.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_mac.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_mark.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_multiport.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_owner.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6t_rt.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6table_filter.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6table_mangle.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/netfilter/ip6_tables.o
+
+/lib/modules/2.4.36.6/kernel/net/ipx/ipx.o:
+
+/lib/modules/2.4.36.6/kernel/net/khttpd/khttpd.o:
+
+/lib/modules/2.4.36.6/kernel/net/netlink/netlink_dev.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/cls_fw.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/cls_route.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/cls_rsvp.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/cls_rsvp6.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/cls_tcindex.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/cls_u32.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_atm.o:	/lib/modules/2.4.36.6/kernel/net/atm/atm.o
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_cbq.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_csz.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_dsmark.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_gred.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_hfsc.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_htb.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_ingress.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_netem.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_prio.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_red.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_sfq.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_tbf.o:
+
+/lib/modules/2.4.36.6/kernel/net/sched/sch_teql.o:
+
+/lib/modules/2.4.36.6/kernel/net/sctp/sctp.o:	/lib/modules/2.4.36.6/kernel/net/ipv6/ipv6.o
+
+/lib/modules/2.4.36.6/kernel/net/wanrouter/wanrouter.o:
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/3c574_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/3c589_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/aha152x_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/axnet_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/com20020_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/net/arcnet/com20020.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/fdomain_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/fmvj18x_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/pcmcia/i82092.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/pcmcia/i82365.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pnp/isa-pnp.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/nmclan_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/nsp_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o:
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/pcnet_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/net/8390.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/scsi/pcmcia/qlogic_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/scsi/scsi_mod.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/smc91c92_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/net/mii.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/pcmcia/tcic.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/xirc2ps_cs.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/ds.o \
+	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/xircom_cb.o:
+
+p/lib/modules/2.4.36.6/kernel/drivers/net/pcmcia/xircom_tulip_cb.o:
+
+p/lib/modules/2.4.36.6/kernel/drivers/pcmcia/yenta_socket.o:	/lib/modules/2.4.36.6/kernel/drivers/pcmcia/pcmcia_core.o
+
