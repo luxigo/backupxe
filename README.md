@@ -1,5 +1,5 @@
 # backuPXE
-Remote controlled network boot based, backup, system administration and deployment solution. HTML (AJAX) graphical interface using javascript and cgis in C/bash/Tcl. Runs on Linux, Windows, openwrt/freewrt, live cd, vmware or qemu.
+Remote controlled network boot based, backup, system administration and deployment solution. HTML (AJAX) graphical interface using javascript and cgis in C/bash/Tcl. Runs on Linux, Windows, openwrt/freewrt, live cd, vmware, virtualbox or qemu.
 
 # License
    
