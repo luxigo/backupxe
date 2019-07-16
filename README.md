@@ -1,9 +1,13 @@
 # backuPXE
 Remote controlled network boot based, backup, system administration and deployment solution. HTML (AJAX) graphical interface using javascript and cgis in C/bash/Tcl. Runs on Linux, Windows, openwrt/freewrt, live cd, vmware, virtualbox or qemu.
 
+From the GUI you can visualize the PC state, start/stop PCs for specific tasks, eg: simple boot, register the PC, partition backup / restoration, OS installation, software installation, virus scan, display pictures or vidéos, etc...
+
+Everything you can think of as long it is realist. If you need to implement something I can do it for you.
+
 # License
    
-    backuPXE - Copyright (C) 2006-2019 Luc Deschenaux
+    backuPXE - Copyright (C) 2006-2019 Luc Deschenaux <luc.deschenaux@freesuf.ch>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -18,15 +22,52 @@ Remote controlled network boot based, backup, system administration and deployme
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# About
+# News
 
-I did upload a live iso file bootable from USB on SourceForge in year 2013 but it's no longer available and I only have this "source" backup.
+## July 2019
+I did upload a live iso file on SourceForge in 2013 but it's no longer available and I only have this "source" backup (ie: with missing bootable images, that are outdated anyway) without everything running "out of the box" (it's not the live CD).
 
-This specific version had been tweaked to allow playing movies on light clients.
+This specific version had been tweaked to allow playing videos on light clients (eg for a wall of screens or projectors).
 
-I plan to update it so that it works as a docker container.
+I am in the process of updating it so that it works using docker containers, for the boot server and the GUI part.
 
-Help and contributions are welcome.
+# Roadmap
+
+* Build a Docker container to run the network boot server (done)
+* Build a Docker container to run the HTTP server.
+* Update the boot images.
+* Update partimage and partimaged.
+* Update for UEFI
+* Translate
+* <your idea here (open an Issue) >
+
+# Usage
+
+For today, only the boot server is usable "out of the box".
+
+You must have Docker-CE installed and permissions to run it as a standard user.
+
+You must also have VirtualBox installed (tested only with version 5.2.18) 
+
+In the main directory type:
+```
+make
+```
+
+It will:
+* build and run the "backupxe" Docker container (the boot server).
+* build and launch a virtual machine using VirtualBox configured to boot on it.
+
+# Screenshots
+## PXE Menus
+![Main Menu](/tftpboot/screenshots/000.jpg?raw=true "Main menu")
+![Boot Menu](/tftpboot/screenshots/001.jpg?raw=true "Boot menu")
+![Backup Menu](/tftpboot/screenshots/005.jpg?raw=true "Backup menu")
+![Deploy Menu](/tftpboot/screenshots/002.jpg?raw=true "Deployment menu")
+![Tools Menu](/tftpboot/screenshots/003.jpg?raw=true "Tools menu")
+![Videos Menu](/tftpboot/screenshots/004.jpg?raw=true "Videos menu")
+## HTML GUI
+Coming soon. Had no time to re-install it yet.
 
 # Contributor Covenant Code of Conduct
 
